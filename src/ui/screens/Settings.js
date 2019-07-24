@@ -3,6 +3,8 @@ import { Text, View, Button } from 'react-native'
 import SettingsStore from '../../data/stores/SettingsStore'
 import AppConstants from '../../data/constants/AppConstants'
 import I18n from 'react-native-i18n'
+import { TextInput } from 'react-native-gesture-handler'
+import NavigationHelpers from '../helpers/NavigationHelpers'
 
 export default class Settings extends React.Component {
   constructor (props) {
@@ -13,6 +15,8 @@ export default class Settings extends React.Component {
     }
 
     SettingsStore.addListener(this.updateApplicationNetwork)
+
+    NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
   updateApplicationNetwork = applicationNetwork => {
@@ -42,6 +46,9 @@ export default class Settings extends React.Component {
           onPress={() =>
             SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
           }
+        />
+        <TextInput
+          style={{ width: 100, borderColor: 'gray', borderWidth: 1 }}
         />
       </View>
     )

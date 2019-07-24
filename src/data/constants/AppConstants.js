@@ -3,9 +3,12 @@ const ACCOUNT_CREATION_KEY_CHILD = 100
 const VALIDATION_KEY = 10000
 const LEGACY_VALIDATION_KEY = 2000
 const NDAU_CONSTANT = 20036 // which is 0x4e44 in hex, which are the two letters ND in ASCII
+
 const MAINNET = 'mainnet'
 const DEVNET = 'devnet'
 const TESTNET = 'testnet'
+
+const LAST_SCREEN_FOCUSED = 'lastScreenFocused'
 
 export default {
   HARDENED_CHILD_BIP_44,
@@ -15,5 +18,6 @@ export default {
   NDAU_CONSTANT,
   MAINNET,
   TESTNET,
-  DEVNET
+  DEVNET,
+  LAST_SCREEN_FOCUSED
 }

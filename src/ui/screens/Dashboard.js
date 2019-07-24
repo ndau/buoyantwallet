@@ -2,7 +2,9 @@ import React from 'react'
 import { Text, View, Button } from 'react-native'
 import SettingsStore from '../../data/stores/SettingsStore'
 import AppConstants from '../../data/constants/AppConstants'
+
 import I18n from 'react-native-i18n'
+import NavigationHelpers from '../helpers/NavigationHelpers'
 
 export default class Dashboard extends React.Component {
   constructor (props) {
@@ -13,6 +15,8 @@ export default class Dashboard extends React.Component {
     }
 
     SettingsStore.addListener(this.updateApplicationNetwork)
+
+    NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
   updateApplicationNetwork = applicationNetwork => {
@@ -33,9 +37,10 @@ export default class Dashboard extends React.Component {
         />
         <Button
           title={I18n.t('testnet')}
-          onPress={() =>
+          onPress={() => {
             SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
-          }
+            this.props.navigation.navigate('DSettings')
+          }}
         />
         <Button
           title={I18n.t('mainnet')}
