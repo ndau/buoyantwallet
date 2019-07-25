@@ -1,4 +1,5 @@
 import AppConstants from '../constants/AppConstants'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class SettingsStore {
   constructor () {
@@ -28,6 +29,16 @@ class SettingsStore {
   setApplicationNetwork (network) {
     this._settings.applicationNetwork = network
     this.funcs.forEach(func => func(network))
+    AsyncStorage.setItem(AppConstants.APPLICATION_NETWORK, network)
+  }
+
+  initialize = async () => {
+    const applicationNetwork = await AsyncStorage.getItem(
+      AppConstants.APPLICATION_NETWORK
+    )
+    if (applicationNetwork) {
+      this.setApplicationNetwork(applicationNetwork)
+    }
   }
 }
 

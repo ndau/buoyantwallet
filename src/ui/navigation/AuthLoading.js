@@ -16,9 +16,12 @@ class AuthLoadingScreen extends React.Component {
 
   _bootstrapDev = async () => {
     // Load the last screen used
-    this.props.navigation.navigate(
-      await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
-    )
+    const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
+    if (screen) {
+      this.props.navigation.navigate(screen)
+    } else {
+      this._bootstrap()
+    }
   }
 
   // Fetch the token from storage then navigate to our appropriate place

@@ -8,7 +8,8 @@ const MAINNET = 'mainnet'
 const DEVNET = 'devnet'
 const TESTNET = 'testnet'
 
-const LAST_SCREEN_FOCUSED = 'lastScreenFocused'
+const LAST_SCREEN_FOCUSED = 'bwLastScreenFocused'
+const APPLICATION_NETWORK = 'bwApplicationNetwork'
 
 export default {
   HARDENED_CHILD_BIP_44,
@@ -19,5 +20,6 @@ export default {
   MAINNET,
   TESTNET,
   DEVNET,
-  LAST_SCREEN_FOCUSED
+  LAST_SCREEN_FOCUSED,
+  APPLICATION_NETWORK
 }
