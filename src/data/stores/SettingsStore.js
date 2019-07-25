@@ -57,7 +57,7 @@ class SettingsStore {
 
   setApplicationNetwork (network) {
     this._settings.applicationNetwork = network
-    this.funcs.forEach(func => func(network))
+    this.funcs.forEach(func => func(this._settings))
     AsyncStorage.setItem(AppConstants.APPLICATION_NETWORK, network)
   }
 }

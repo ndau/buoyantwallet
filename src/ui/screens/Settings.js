@@ -13,13 +13,13 @@ export default class Settings extends React.Component {
       applicationNetwork: SettingsStore.getApplicationNetwork()
     }
 
-    SettingsStore.addListener(this.updateApplicationNetwork)
+    SettingsStore.addListener(this.updateSettings)
 
     NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
-  updateApplicationNetwork = applicationNetwork => {
-    this.setState({ applicationNetwork: applicationNetwork })
+  updateSettings = settings => {
+    this.setState({ applicationNetwork: settings.applicationNetwork })
   }
 
   render () {
