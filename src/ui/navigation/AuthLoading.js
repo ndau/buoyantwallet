@@ -14,6 +14,9 @@ class AuthLoadingScreen extends React.Component {
     }
   }
 
+  /**
+   * bootstrap the application in __DEV__ mode
+   */
   _bootstrapDev = async () => {
     // Load the last screen used
     const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
@@ -24,16 +27,20 @@ class AuthLoadingScreen extends React.Component {
     }
   }
 
-  // Fetch the token from storage then navigate to our appropriate place
+  /**
+   * bootstrap the application in a production mode
+   */
   _bootstrap = async () => {
     try {
-      this.props.navigation.navigate('Dashboard')
+      this.props.navigation.navigate('Auth')
     } catch (error) {
       // TODO LOG ERROR
     }
   }
 
-  // Render any loading content that you like here
+  /**
+   * Render how the loading appears
+   */
   render () {
     return (
       <View>

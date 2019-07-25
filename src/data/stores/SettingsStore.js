@@ -11,10 +11,39 @@ class SettingsStore {
     return SettingsStore.instance
   }
 
+  /**
+   * This function must be called to make sure
+   * we get the values out of AsyncStorage when
+   * initialization of the application.
+   *
+   */
+  initialize = async () => {
+    const applicationNetwork = await AsyncStorage.getItem(
+      AppConstants.APPLICATION_NETWORK
+    )
+    if (applicationNetwork) {
+      this.setApplicationNetwork(applicationNetwork)
+    }
+  }
+
+  /**
+   * Add a callback function to be called when
+   * any of the settings you choose to notify listeners of
+   * is altered.
+   *
+   * @param {function} func
+   */
   addListener (func) {
     this.funcs.add(func)
   }
 
+  /**
+   * Add a callback function to be called when
+   * any of the settings you choose to notify listeners of
+   * is altered.
+   *
+   * @param {function} func
+   */
   removeListener (func) {
     this.funcs.delete(func)
   }
@@ -31,17 +60,9 @@ class SettingsStore {
     this.funcs.forEach(func => func(network))
     AsyncStorage.setItem(AppConstants.APPLICATION_NETWORK, network)
   }
-
-  initialize = async () => {
-    const applicationNetwork = await AsyncStorage.getItem(
-      AppConstants.APPLICATION_NETWORK
-    )
-    if (applicationNetwork) {
-      this.setApplicationNetwork(applicationNetwork)
-    }
-  }
 }
 
+// This is how we create a singleton in JavaScript
 const instance = new SettingsStore()
 Object.freeze(instance)
 
