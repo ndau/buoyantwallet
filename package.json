@@ -31,6 +31,9 @@
     "react-test-renderer": "16.8.6"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleNameMapper": {
+      "@src(.*)$": "<rootDir>/src/$1"
+    }
   }
 }
