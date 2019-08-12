@@ -1,13 +1,13 @@
 {
   "name": "buoyantwallet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "ios": "react-native run-ios --simulator='iPhone SE'",
-    "android": "react-native run-android"
+    "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
+    "android": "npm version patch --force && react-native run-android"
   },
   "dependencies": {
     "@eva-design/eva": "^1.0.1",
