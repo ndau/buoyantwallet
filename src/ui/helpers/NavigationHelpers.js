@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import AppConstants from '../../data/constants/AppConstants'
+import AppConstants from '@src/data/constants/AppConstants'
 
 /**
  * Use this for the screens when you would like to

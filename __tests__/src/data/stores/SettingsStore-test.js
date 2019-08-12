@@ -1,6 +1,5 @@
-import SettingsStore from '../../../../src/data/stores/SettingsStore'
-import AppConstants from '../../../../src/data/constants/AppConstants'
-import Settings from '../../../../src/ui/screens/Settings'
+import SettingsStore from '@/data/stores/SettingsStore'
+import AppConstants from '@/data/constants/AppConstants'
 
 describe('SettingsStore tests...', () => {
   it('should accept adding a listener for mainnet', async () => {

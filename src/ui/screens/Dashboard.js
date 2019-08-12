@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
-import SettingsStore from '../../data/stores/SettingsStore'
-import AppConstants from '../../data/constants/AppConstants'
+import SettingsStore from '@src/data/stores/SettingsStore'
+import AppConstants from '@src/data/constants/AppConstants'
 
 import I18n from 'react-native-i18n'
-import NavigationHelpers from '../helpers/NavigationHelpers'
+import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
 export default class Dashboard extends React.Component {
   constructor (props) {

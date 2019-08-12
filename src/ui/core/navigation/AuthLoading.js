@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActivityIndicator, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
-import AppConstants from '../../data/constants/AppConstants'
+import AppConstants from '@src/data/constants/AppConstants'
 
 class AuthLoadingScreen extends React.Component {
   constructor (props) {
@@ -32,7 +32,7 @@ class AuthLoadingScreen extends React.Component {
    */
   _bootstrap = async () => {
     try {
-      this.props.navigation.navigate('Auth')
+      this.props.navigation.navigate('Authentication')
     } catch (error) {
       // TODO LOG ERROR
     }

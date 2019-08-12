@@ -5,10 +5,10 @@ import {
   createStackNavigator,
   createAppContainer
 } from 'react-navigation'
-import Dashboard from '../screens/Dashboard'
-import Settings from '../screens/Settings'
-import Authentication from '../screens/Authentication'
-import AuthLoading from './AuthLoading'
+import Dashboard from '@src/uiscreens/Dashboard'
+import Settings from '@src/uiscreens/Settings'
+import Authentication from '@src/uiscreens/Authentication'
+import AuthLoading from '@src/uicore/navigation/AuthLoading'
 
 // Create a bottom tab with the application stacks
 // the headers are invisible. If you want to use those
