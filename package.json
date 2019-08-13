@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "eslint .",
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
-    "android": "npm version patch --force && react-native run-android",
+    "android": "react-native run-android",
     "postversion": "react-native-version --never-amend"
   },
   "dependencies": {
