@@ -2,6 +2,7 @@ import React from 'react'
 import { ActivityIndicator, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import AppConstants from '@src/data/constants/AppConstants'
+import LogStore from '@src/data/stores/LogStore'
 
 class AuthLoadingScreen extends React.Component {
   constructor (props) {
@@ -19,6 +20,7 @@ class AuthLoadingScreen extends React.Component {
    */
   _bootstrapDev = async () => {
     // Load the last screen used
+    LogStore.log('Bootstraping DEV...')
     const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
     if (screen) {
       this.props.navigation.navigate(screen)
@@ -31,6 +33,7 @@ class AuthLoadingScreen extends React.Component {
    * bootstrap the application in a production mode
    */
   _bootstrap = async () => {
+    LogStore.log('Bootstraping PROD...')
     try {
       this.props.navigation.navigate('Authentication')
     } catch (error) {
