@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -9,7 +9,8 @@
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend",
-    "install": "cd ios && pod install"
+    "install": "cd ios && pod install",
+    "load-assets": "./scripts/download_from_s3.sh ndau-fonts 1.0.0"
   },
   "dependencies": {
     "@eva-design/eva": "^1.0.1",
