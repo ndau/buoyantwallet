@@ -11,3 +11,8 @@
 
 
 #endif /* KeyAddressManager_h */
+
+#import <React/RCTBridgeModule.h>
+
+@interface KeyAddressManager : NSObject <RCTBridgeModule>
+@end

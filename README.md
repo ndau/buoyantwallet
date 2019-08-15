@@ -29,6 +29,7 @@ The best place to start is the [Getting Started](https://facebook.github.io/reac
 - [Java SE Development Kit (JDK) 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 - [Android Studio](https://developer.android.com/studio/)
+- [CocoaPods](https://cocoapods.org)
 
 ## Mandatory Scripts
 
@@ -56,16 +57,37 @@ KP for this. There is an examples file of you can use in `examples/npmrc`, this 
 Next we npm/yarn install:
 
 `npm install`
-`yarn install` (just incase you use yarn)
 
-Once this completes you must also make sure to run this command. This one sets up iOS and Android projects pointing to all the correct node_module libraries we use:
+or 
 
-`react-native link`
+`yarn install`
 
-After the above is run you MUST now run the following commands:
+Once this completes you must also make sure to run this command. Next you must install the pods for iOS with the following commands:
 
-`npm install`
-`yarn install` (just incase you use yarn)
+`cd ios && pod install && cd ..`
+
+Next make sure you run the following command to get all the
+fonts used within the ndau wallet app
+
+`npm run load-assets`
+
+or yarn...
+
+`yarn load-assets`
+
+Next you must now start the bundler yourself. So simply get into the root directory and execute:
+
+`react-native start -- --reset-cache`
+
+This will start the bundler and clear the cache for you.
+
+Next in another terminal use the following for launching iOS:
+
+`yarn ios`
+
+...or the following for Android:
+
+`yarn android`
 
 ## Available Scripts
 
