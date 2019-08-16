@@ -8,13 +8,14 @@ import {
 import { MenuContainer } from '@src/containers/menu'
 import Dashboard from '@src/ui/screens/Dashboard'
 import Settings from '@src/ui/screens/Settings'
+import AccountWithMenu from '@src/ui/screens/AccountWithMenu'
 import { MenuNavigationOptions } from './Options'
 import AuthLoading from './AuthLoading'
 import Authentication from '@src/ui/screens/Authentication'
 
 const DashboardNavigator = createStackNavigator(
   {
-    Dashboard
+    AccountWithMenu
   },
   {
     defaultNavigationOptions: MenuNavigationOptions

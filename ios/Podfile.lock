@@ -85,9 +85,13 @@ PODS:
     - React-fishhook (= 0.60.4)
   - RNCAsyncStorage (1.6.1):
     - React
+  - RNFS (2.14.1):
+    - React
   - RNGestureHandler (1.3.0):
     - React
   - RNI18n (2.0.15):
+    - React
+  - RNSVG (9.6.2):
     - React
   - yoga (0.60.4.React)
 
@@ -115,8 +119,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -170,10 +176,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNI18n:
     :path: "../node_modules/react-native-i18n"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -202,8 +212,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: 0bea40cd51bd089bd591a8f74c86e91fdf2666c5
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNCAsyncStorage: 621bad7a889b5bf1583a52547f2dcd3a4d1ff15e
+  RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
+  RNSVG: ff9b094e39dd4a437ebe17d1c7ceed286e75f426
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
 PODFILE CHECKSUM: 186e2f3e6afec5d03e47ca8d4620e7bdcbc9af46

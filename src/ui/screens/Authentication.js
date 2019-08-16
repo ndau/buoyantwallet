@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Button } from 'react-native'
+import LogStore from '@src/data/stores/LogStore'
 
 class Authentication extends Component {
   constructor (props) {
@@ -9,6 +10,7 @@ class Authentication extends Component {
   }
 
   _signInAsync = async () => {
+    LogStore.log('Authenticating...')
     this.props.navigation.navigate('App')
   }
 
