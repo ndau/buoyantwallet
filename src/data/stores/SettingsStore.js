@@ -1,4 +1,4 @@
-import AppConstants from '../constants/AppConstants'
+import AppConstants from '@src/data/constants/AppConstants'
 import AsyncStorage from '@react-native-community/async-storage'
 
 class SettingsStore {

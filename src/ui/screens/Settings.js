@@ -1,9 +1,10 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
-import SettingsStore from '../../data/stores/SettingsStore'
-import AppConstants from '../../data/constants/AppConstants'
+import SettingsStore from '@src/data/stores/SettingsStore'
+import AppConstants from '@src/data/constants/AppConstants'
 import I18n from 'react-native-i18n'
-import NavigationHelpers from '../helpers/NavigationHelpers'
+import VersionNumber from 'react-native-version-number'
+import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
 export default class Settings extends React.Component {
   constructor (props) {
@@ -26,7 +27,9 @@ export default class Settings extends React.Component {
     const { applicationNetwork } = this.state
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>{I18n.t('settings')}</Text>
+        <Text>
+          {I18n.t('settings')} {`v${VersionNumber.appVersion}`}
+        </Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title='DEVNET'

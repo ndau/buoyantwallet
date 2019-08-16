@@ -131,8 +131,8 @@ android {
         applicationId "com.buoyantwallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "0.1.49"
     }
     splits {
         abi {
@@ -188,7 +188,6 @@ android {
 }
 
 dependencies {
-    implementation project(':@react-native-community_async-storage')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 

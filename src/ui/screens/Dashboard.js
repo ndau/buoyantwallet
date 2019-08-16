@@ -1,10 +1,10 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
-import SettingsStore from '../../data/stores/SettingsStore'
-import AppConstants from '../../data/constants/AppConstants'
-
+import { Text, View, Button, Platform } from 'react-native'
+import SettingsStore from '@src/data/stores/SettingsStore'
+import AppConstants from '@src/data/constants/AppConstants'
+import VersionNumber from 'react-native-version-number'
 import I18n from 'react-native-i18n'
-import NavigationHelpers from '../helpers/NavigationHelpers'
+import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
 export default class Dashboard extends React.Component {
   constructor (props) {
@@ -27,7 +27,9 @@ export default class Dashboard extends React.Component {
     const { applicationNetwork } = this.state
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>{I18n.t('dashboard')}</Text>
+        <Text>
+          {I18n.t('dashboard')} {`v${VersionNumber.appVersion}`}
+        </Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
@@ -39,7 +41,6 @@ export default class Dashboard extends React.Component {
           title={I18n.t('testnet')}
           onPress={() => {
             SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
-            this.props.navigation.navigate('DSettings')
           }}
         />
         <Button
