@@ -20,6 +20,16 @@
 		557CCCC656C533A240A677A2 /* libPods-buoyantwallet-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 378EDF541C618CB345D56912 /* libPods-buoyantwallet-tvOSTests.a */; };
 		78F00D8B3CFDFA18792777EE /* libPods-buoyantwallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC417EAF553FC1795F4CFF62 /* libPods-buoyantwallet.a */; };
 		8E134D5D766FB9545F4D8E52 /* libPods-buoyantwallet-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275717EA7B8A022E9DEC21F0 /* libPods-buoyantwallet-tvOS.a */; };
+		9ECC682D2304FE220092EC68 /* titilliumweb-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68252304FE220092EC68 /* titilliumweb-italic.ttf */; };
+		9ECC682E2304FE220092EC68 /* titilliumweb-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68262304FE220092EC68 /* titilliumweb-light.ttf */; };
+		9ECC682F2304FE220092EC68 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68272304FE220092EC68 /* titilliumweb-regular.ttf */; };
+		9ECC68302304FE220092EC68 /* opensans-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68282304FE220092EC68 /* opensans-bold.ttf */; };
+		9ECC68312304FE220092EC68 /* titilliumweb-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68292304FE220092EC68 /* titilliumweb-bold.ttf */; };
+		9ECC68322304FE220092EC68 /* opensans-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC682A2304FE220092EC68 /* opensans-italic.ttf */; };
+		9ECC68332304FE220092EC68 /* opensans-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC682B2304FE220092EC68 /* opensans-regular.ttf */; };
+		9ECC68342304FE220092EC68 /* opensans-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC682C2304FE220092EC68 /* opensans-light.ttf */; };
+		9ECC68362305023E0092EC68 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68352305023E0092EC68 /* titilliumweb-semibold.ttf */; };
+		9ECC6838230502CE0092EC68 /* opensans-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC6837230502CE0092EC68 /* opensans-semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +70,16 @@
 		3ABD94DA8B1CFC292133F78E /* Pods-buoyantwallet-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buoyantwallet-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-buoyantwallet-tvOSTests/Pods-buoyantwallet-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D0C879FE2A80FB970ED80DC /* libPods-buoyantwalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-buoyantwalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E15A522D585F72D3EE9788F /* Pods-buoyantwalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buoyantwalletTests.debug.xcconfig"; path = "Target Support Files/Pods-buoyantwalletTests/Pods-buoyantwalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9ECC68252304FE220092EC68 /* titilliumweb-italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-italic.ttf"; path = "../../assets/fonts/titilliumweb-italic.ttf"; sourceTree = "<group>"; };
+		9ECC68262304FE220092EC68 /* titilliumweb-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-light.ttf"; path = "../../assets/fonts/titilliumweb-light.ttf"; sourceTree = "<group>"; };
+		9ECC68272304FE220092EC68 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "../../assets/fonts/titilliumweb-regular.ttf"; sourceTree = "<group>"; };
+		9ECC68282304FE220092EC68 /* opensans-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "opensans-bold.ttf"; path = "../../assets/fonts/opensans-bold.ttf"; sourceTree = "<group>"; };
+		9ECC68292304FE220092EC68 /* titilliumweb-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-bold.ttf"; path = "../../assets/fonts/titilliumweb-bold.ttf"; sourceTree = "<group>"; };
+		9ECC682A2304FE220092EC68 /* opensans-italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "opensans-italic.ttf"; path = "../../assets/fonts/opensans-italic.ttf"; sourceTree = "<group>"; };
+		9ECC682B2304FE220092EC68 /* opensans-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "opensans-regular.ttf"; path = "../../assets/fonts/opensans-regular.ttf"; sourceTree = "<group>"; };
+		9ECC682C2304FE220092EC68 /* opensans-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "opensans-light.ttf"; path = "../../assets/fonts/opensans-light.ttf"; sourceTree = "<group>"; };
+		9ECC68352305023E0092EC68 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-semibold.ttf"; path = "../../assets/fonts/titilliumweb-semibold.ttf"; sourceTree = "<group>"; };
+		9ECC6837230502CE0092EC68 /* opensans-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "opensans-semibold.ttf"; path = "../../assets/fonts/opensans-semibold.ttf"; sourceTree = "<group>"; };
 		BB0940F45D24455CD5842375 /* Pods-buoyantwalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buoyantwalletTests.release.xcconfig"; path = "Target Support Files/Pods-buoyantwalletTests/Pods-buoyantwalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC417EAF553FC1795F4CFF62 /* libPods-buoyantwallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-buoyantwallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE735E36071816146F843D8F /* Pods-buoyantwallet-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buoyantwallet-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-buoyantwallet-tvOSTests/Pods-buoyantwallet-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +145,7 @@
 		13B07FAE1A68108700A75B9A /* buoyantwallet */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC68242304FE000092EC68 /* font */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -148,7 +169,6 @@
 				5E15A522D585F72D3EE9788F /* Pods-buoyantwalletTests.debug.xcconfig */,
 				BB0940F45D24455CD5842375 /* Pods-buoyantwalletTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,6 +216,23 @@
 				2D02E4901E0B4A5D006451C7 /* buoyantwallet-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9ECC68242304FE000092EC68 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC6837230502CE0092EC68 /* opensans-semibold.ttf */,
+				9ECC68352305023E0092EC68 /* titilliumweb-semibold.ttf */,
+				9ECC68282304FE220092EC68 /* opensans-bold.ttf */,
+				9ECC682A2304FE220092EC68 /* opensans-italic.ttf */,
+				9ECC682C2304FE220092EC68 /* opensans-light.ttf */,
+				9ECC682B2304FE220092EC68 /* opensans-regular.ttf */,
+				9ECC68292304FE220092EC68 /* titilliumweb-bold.ttf */,
+				9ECC68252304FE220092EC68 /* titilliumweb-italic.ttf */,
+				9ECC68262304FE220092EC68 /* titilliumweb-light.ttf */,
+				9ECC68272304FE220092EC68 /* titilliumweb-regular.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +345,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -336,8 +374,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECC68302304FE220092EC68 /* opensans-bold.ttf in Resources */,
+				9ECC68332304FE220092EC68 /* opensans-regular.ttf in Resources */,
+				9ECC68322304FE220092EC68 /* opensans-italic.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9ECC68312304FE220092EC68 /* titilliumweb-bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				9ECC682E2304FE220092EC68 /* titilliumweb-light.ttf in Resources */,
+				9ECC682D2304FE220092EC68 /* titilliumweb-italic.ttf in Resources */,
+				9ECC6838230502CE0092EC68 /* opensans-semibold.ttf in Resources */,
+				9ECC68342304FE220092EC68 /* opensans-light.ttf in Resources */,
+				9ECC68362305023E0092EC68 /* titilliumweb-semibold.ttf in Resources */,
+				9ECC682F2304FE220092EC68 /* titilliumweb-regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +674,7 @@
 			baseConfigurationReference = C16EC0995B9D18B91701126D /* Pods-buoyantwallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 25;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = buoyantwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -646,7 +694,7 @@
 			baseConfigurationReference = FCF7E7A9458DF91926594ACF /* Pods-buoyantwallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 25;
 				INFOPLIST_FILE = buoyantwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

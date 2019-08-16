@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.9</string>
+	<string>0.1.49</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>25</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true />
 	<key>NSAppTransportSecurity</key>
@@ -50,6 +50,19 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>opensans-bold.ttf</string>
+		<string>opensans-italic.ttf</string>
+		<string>opensans-light.ttf</string>
+		<string>opensans-regular.ttf</string>
+		<string>opensans-semibold.ttf</string>
+		<string>titilliumweb-bold.ttf</string>
+		<string>titilliumweb-semibold.ttf</string>
+		<string>titilliumweb-italic.ttf</string>
+		<string>titilliumweb-light.ttf</string>
+		<string>titilliumweb-regular.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false />
