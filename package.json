@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.57",
+  "version": "0.1.66",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
-    "postversion": "react-native-version --never-amend",
+    "postversion": "react-native-version --never-amend --skip-tag",
     "load-assets": "./scripts/download_from_s3.sh ndau-fonts 1.0.0"
   },
   "dependencies": {
@@ -17,7 +17,6 @@
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.60.4",
-    "react-native-fs": "^2.14.1",
     "react-native-gesture-handler": "^1.3.0",
     "react-native-i18n": "^2.0.15",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
