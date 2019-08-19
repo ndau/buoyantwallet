@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, Platform } from 'react-native'
+import { Text, View, Button, NativeModules } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
@@ -11,7 +11,8 @@ export default class Dashboard extends React.Component {
     super(props)
 
     this.state = {
-      applicationNetwork: SettingsStore.getApplicationNetwork()
+      applicationNetwork: SettingsStore.getApplicationNetwork(),
+      testBytes: 'nothing yet...'
     }
 
     SettingsStore.addListener(this.updateSettings)
@@ -23,13 +24,22 @@ export default class Dashboard extends React.Component {
     this.setState({ applicationNetwork: settings.applicationNetwork })
   }
 
+  componentDidMount = async () => {
+    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.keyaddrWordsToBytes(
+      'en',
+      'crouch loan escape idea drop blush silver history gentle pave office ginger'
+    )
+    this.setState({ testBytes: recoveryPhraseAsBytes })
+  }
+
   render () {
-    const { applicationNetwork } = this.state
+    const { applicationNetwork, testBytes } = this.state
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>
           {I18n.t('dashboard')} {`v${VersionNumber.appVersion}`}
         </Text>
+        <Text>{testBytes}</Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
