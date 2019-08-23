@@ -3,7 +3,9 @@ import { Text, View, Button, NativeModules } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
-import I18n from 'react-native-i18n'
+import I18n from '../../i18n'
+import PropTypes from 'prop-types'
+
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
 export default class Dashboard extends React.Component {
@@ -43,9 +45,9 @@ export default class Dashboard extends React.Component {
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
-          onPress={() =>
+          onPress={() => {
             SettingsStore.setApplicationNetwork(AppConstants.DEVNET)
-          }
+          }}
         />
         <Button
           title={I18n.t('testnet')}
@@ -55,11 +57,17 @@ export default class Dashboard extends React.Component {
         />
         <Button
           title={I18n.t('mainnet')}
-          onPress={() =>
+          onPress={() => {
             SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
-          }
+          }}
         />
       </View>
     )
   }
+}
+
+Dashboard.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 }
