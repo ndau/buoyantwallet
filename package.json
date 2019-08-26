@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@eva-design/eva": "^1.0.1",
     "@react-native-community/async-storage": "^1.6.1",
+    "glamorous-native": "^1.4.2",
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.60.4",
