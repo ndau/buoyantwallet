@@ -5,6 +5,8 @@ import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
 import I18n from 'react-native-i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
+import RecoveryButton from '../components/common/RecoveryButton'
+import RecoveryTextInput from '../components/common/RecoveryTextInput'
 
 export default class Dashboard extends React.Component {
   constructor (props) {
@@ -39,6 +41,9 @@ export default class Dashboard extends React.Component {
         <Text>
           {I18n.t('dashboard')} {`v${VersionNumber.appVersion}`}
         </Text>
+        <RecoveryButton />
+        <RecoveryTextInput />
+        <RecoveryButton />
         <Text>{testBytes}</Text>
         <Text>{applicationNetwork}</Text>
         <Button

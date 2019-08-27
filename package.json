@@ -9,14 +9,11 @@
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend --skip-tag",
-    "load-assets": "./scripts/download_from_s3.sh ndau-fonts 1.0.0"
+    "load-assets": "./scripts/download_from_s3.sh ndau-fonts 1.0.0",
+    "webflow": "./scripts/webflow-transformation.sh"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.16",
-    "@emotion/native": "^10.0.14",
-    "@eva-design/eva": "^1.0.1",
     "@react-native-community/async-storage": "^1.6.1",
-    "glamorous-native": "^1.4.2",
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.60.4",
@@ -24,7 +21,6 @@
     "react-native-i18n": "^2.0.15",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-svg": "^9.6.2",
-    "react-native-ui-kitten": "^4.1.0",
     "react-native-version-number": "^0.3.6",
     "react-navigation": "^3.11.1",
     "styled-components": "^4.3.2"
@@ -33,6 +29,7 @@
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
+    "appfairy": "^0.7.3",
     "babel-jest": "^24.8.0",
     "eslint": "^6.1.0",
     "jest": "^24.8.0",
