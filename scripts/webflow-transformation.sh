@@ -4,5 +4,4 @@
 # into an `.appconfig` folder within the top level of this
 # project. This command uses data there and puts it into
 # a build folder that gets created
-mkdir build
-npx appfairy --output=build
+npx appfairy
