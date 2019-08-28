@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.93",
+  "version": "0.1.94",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -13,6 +13,7 @@
     "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && cd ios && pod install && cd .."
   },
   "dependencies": {
+    "@eva-design/eva": "^1.0.1",
     "@react-native-community/async-storage": "^1.6.1",
     "i18n-js": "^3.3.0",
     "moment": "^2.24.0",
@@ -23,6 +24,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-localize": "^1.1.4",
     "react-native-svg": "^9.6.2",
+    "react-native-ui-kitten": "^4.1.0",
     "react-native-version-number": "^0.3.6",
     "react-navigation": "^3.11.1",
     "styled-components": "^4.3.2"
