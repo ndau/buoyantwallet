@@ -4,14 +4,7 @@ import { ApplicationProvider } from 'react-native-ui-kitten'
 import { DynamicStatusBar } from './ui/components/common'
 import { Router } from './ui/core/navigation/Routes'
 import { ThemeContext, ThemeStore, themes } from '@src/core/themes'
-import I18n from 'react-native-i18n'
-import en from './i18n/locales/en'
 import SettingsStore from './data/stores/SettingsStore'
-
-I18n.fallbacks = true
-I18n.translations = {
-  en
-}
 
 export default class App extends React.Component {
   constructor (props) {
