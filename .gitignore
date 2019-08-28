@@ -63,6 +63,8 @@ buck-out/
 /ios/Pods/
 
 /.appfairy
-# /index.html
-# /src/views
-# /public
+/index.html
+/src/views
+/public
+/src/scripts
+/src/styles
