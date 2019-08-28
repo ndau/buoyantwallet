@@ -5,6 +5,7 @@ import { DynamicStatusBar } from './ui/components/common'
 import { Router } from './ui/core/navigation/Routes'
 import { ThemeContext, ThemeStore, themes } from '@src/core/themes'
 import SettingsStore from './data/stores/SettingsStore'
+// import AppNavigation from './ui/core/navigation/AppNavigation'
 
 export default class App extends React.Component {
   constructor (props) {
@@ -43,5 +44,7 @@ export default class App extends React.Component {
         </ApplicationProvider>
       </ThemeContext.Provider>
     )
+
+    // return <AppNavigation />
   }
 }
