@@ -8,9 +8,9 @@
     "lint": "eslint .",
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
-    "postversion": "react-native-version --never-amend --skip-tag",
-    "load-assets": "./scripts/download_from_s3.sh ndau-fonts 1.0.0",
-    "webflow": "./scripts/webflow-transformation.sh"
+    "postversion": "react-native-version --never-amend",
+    "webflow": "./scripts/webflow-transformation.sh",
+    "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && cd ios && pod install && cd .."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",

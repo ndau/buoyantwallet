@@ -42,18 +42,6 @@ nvm install v10
 nvm use v10
 ```
 
-Before we can run `npm install` you must make sure you have a `.npmrc` file in the `ndau-wallet-rn` folder. In that file make sure
-to include the following:
-
-```
-@fortawesome:registry=https://npm.fontawesome.com/
-//npm.fontawesome.com/:_authToken=YOUR_TOKEN_HERE
-```
-
-Replace `YOUR_TOKEN_HERE` with the FontAwesomePro token. Please see
-KP for this. There is an examples file of you can use in `examples/npmrc`, this is the file CircleCI uses. Make sure you call the file
-`.npmrc` and not `npmrc`. See the `.circleci/config.yml` for what it does.
-
 Next we npm/yarn install:
 
 `npm install`
@@ -62,20 +50,7 @@ or
 
 `yarn install`
 
-Once this completes you must also make sure to run this command. Next you must install the pods for iOS with the following commands:
-
-`cd ios && pod install && cd ..`
-
-Next make sure you run the following command to get all the
-fonts used within the ndau wallet app
-
-`npm run load-assets`
-
-or yarn...
-
-`yarn load-assets`
-
-Next you must now start the bundler yourself. So simply get into the root directory and execute:
+I find that from time to time the bundler may not start on it's own. I see this more with Android. So I tend to now start the bundler myself. So simply get into the root directory and execute:
 
 `react-native start -- --reset-cache`
 
