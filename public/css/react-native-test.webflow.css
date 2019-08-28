@@ -1,5 +1,5 @@
 @media (max-width: 479px) {
-  .body {
+  .af-view .af-class-body {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -16,7 +16,7 @@
     -ms-flex-align: start;
     align-items: flex-start;
   }
-  .button {
+  .af-view .af-class-button {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -39,7 +39,7 @@
     border-radius: 4px;
     background-color: #f99d1c;
   }
-  .button-2 {
+  .af-view .af-class-button-2 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -55,7 +55,7 @@
     border-radius: 4px;
     background-color: #f99d1c;
   }
-  .text-field {
+  .af-view .af-class-text-field {
     display: block;
     margin-top: 0px;
     margin-bottom: 0px;

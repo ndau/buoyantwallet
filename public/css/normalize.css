@@ -4,7 +4,7 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-html {
+.af-view {
   font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
@@ -15,7 +15,7 @@ html {
 /**
  * Remove default margin.
  */
-body {
+.af-view {
   margin: 0;
 }
 /* HTML5 display definitions
@@ -26,29 +26,29 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
+.af-view article,
+.af-view aside,
+.af-view details,
+.af-view figcaption,
+.af-view figure,
+.af-view footer,
+.af-view header,
+.af-view hgroup,
+.af-view main,
+.af-view menu,
+.af-view nav,
+.af-view section,
+.af-view summary {
   display: block;
 }
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio,
-canvas,
-progress,
-video {
+.af-view audio,
+.af-view canvas,
+.af-view progress,
+.af-view video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
@@ -58,7 +58,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-audio:not([controls]) {
+.af-view audio:not([controls]) {
   display: none;
   height: 0;
 }
@@ -66,8 +66,8 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
  */
-[hidden],
-template {
+.af-view [hidden],
+.af-view template {
   display: none;
 }
 /* Links
@@ -75,15 +75,15 @@ template {
 /**
  * Remove the gray background color from active links in IE 10.
  */
-a {
+.af-view a {
   background-color: transparent;
 }
 /**
  * Improve readability of focused elements when they are also in an
  * active/hover state.
  */
-a:active,
-a:hover {
+.af-view a:active,
+.af-view a:hover {
   outline: 0;
 }
 /* Text-level semantics
@@ -91,57 +91,57 @@ a:hover {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-abbr[title] {
+.af-view abbr[title] {
   border-bottom: 1px dotted;
 }
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-b,
-strong {
+.af-view b,
+.af-view strong {
   font-weight: bold;
 }
 /**
  * Address styling not present in Safari and Chrome.
  */
-dfn {
+.af-view dfn {
   font-style: italic;
 }
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
-h1 {
+.af-view h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 /**
  * Address styling not present in IE 8/9.
  */
-mark {
+.af-view mark {
   background: #ff0;
   color: #000;
 }
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-small {
+.af-view small {
   font-size: 80%;
 }
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub,
-sup {
+.af-view sub,
+.af-view sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-sup {
+.af-view sup {
   top: -0.5em;
 }
-sub {
+.af-view sub {
   bottom: -0.25em;
 }
 /* Embedded content
@@ -149,13 +149,13 @@ sub {
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
-img {
+.af-view img {
   border: 0;
 }
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
-svg:not(:root) {
+.af-view svg:not(:root) {
   overflow: hidden;
 }
 /* Grouping content
@@ -163,29 +163,29 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-figure {
+.af-view figure {
   margin: 1em 40px;
 }
 /**
  * Address differences between Firefox and other browsers.
  */
-hr {
+.af-view hr {
   box-sizing: content-box;
   height: 0;
 }
 /**
  * Contain overflow in all browsers.
  */
-pre {
+.af-view pre {
   overflow: auto;
 }
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code,
-kbd,
-pre,
-samp {
+.af-view code,
+.af-view kbd,
+.af-view pre,
+.af-view samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -201,11 +201,11 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button,
-input,
-optgroup,
-select,
-textarea {
+.af-view button,
+.af-view input,
+.af-view optgroup,
+.af-view select,
+.af-view textarea {
   color: inherit;
   /* 1 */
   font: inherit;
@@ -216,7 +216,7 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-button {
+.af-view button {
   overflow: visible;
 }
 /**
@@ -225,8 +225,8 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button,
-select {
+.af-view button,
+.af-view select {
   text-transform: none;
 }
 /**
@@ -238,9 +238,9 @@ select {
  * 4. CUSTOM FOR WEBFLOW: Removed the input[type="submit"] selector to reduce
  *    specificity and defer to the .w-button selector
  */
-button,
-html input[type="button"],
-input[type="reset"] {
+.af-view button,
+.af-view input[type="button"],
+.af-view input[type="reset"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -249,15 +249,15 @@ input[type="reset"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled],
-html input[disabled] {
+.af-view button[disabled],
+.af-view input[disabled] {
   cursor: default;
 }
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+.af-view button::-moz-focus-inner,
+.af-view input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -265,7 +265,7 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-input {
+.af-view input {
   line-height: normal;
 }
 /**
@@ -275,8 +275,8 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"],
-input[type="radio"] {
+.af-view input[type="checkbox"],
+.af-view input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -287,8 +287,8 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.af-view input[type="number"]::-webkit-inner-spin-button,
+.af-view input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 /**
@@ -296,7 +296,7 @@ input[type="number"]::-webkit-outer-spin-button {
  * 2. CUSTOM FOR WEBFLOW: box-sizing: content-box rule removed
  *    (similar to normalize.css >=4.0.0)
  */
-input[type="search"] {
+.af-view input[type="search"] {
   -webkit-appearance: none;
   /* 1 */
 }
@@ -305,14 +305,14 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+.af-view input[type="search"]::-webkit-search-cancel-button,
+.af-view input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 /**
  * Define consistent border, margin, and padding.
  */
-fieldset {
+.af-view fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
@@ -321,7 +321,7 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
-legend {
+.af-view legend {
   border: 0;
   /* 1 */
   padding: 0;
@@ -330,14 +330,14 @@ legend {
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
-textarea {
+.af-view textarea {
   overflow: auto;
 }
 /**
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
-optgroup {
+.af-view optgroup {
   font-weight: bold;
 }
 /* Tables
@@ -345,11 +345,11 @@ optgroup {
 /**
  * Remove most spacing between table cells.
  */
-table {
+.af-view table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-td,
-th {
+.af-view td,
+.af-view th {
   padding: 0;
 }

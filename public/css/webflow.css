@@ -4,8 +4,8 @@
   font-weight: normal;
   font-style: normal;
 }
-[class^="w-icon-"],
-[class*=" w-icon-"] {
+.af-view [class^="w-icon-"],
+.af-view [class*=" w-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'webflow-icons' !important;
   speak: none;
@@ -1151,7 +1151,7 @@ textarea.w-select {
  * 2. Fixes flickering on Chrome when a transition is in progress
  *    underneath the lightbox.
  */
-.w-lightbox-backdrop {
+.af-view .w-lightbox-backdrop {
   color: #000;
   cursor: auto;
   font-family: serif;
@@ -1198,42 +1198,42 @@ textarea.w-select {
  * Neat trick to bind the rubberband effect to our canvas instead of the whole
  * document on iOS. It also prevents a bug that causes the document underneath to scroll.
  */
-.w-lightbox-backdrop,
-.w-lightbox-container {
+.af-view .w-lightbox-backdrop,
+.af-view .w-lightbox-container {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.w-lightbox-content {
+.af-view .w-lightbox-content {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
-.w-lightbox-view {
+.af-view .w-lightbox-view {
   position: absolute;
   width: 100vw;
   height: 100vh;
   opacity: 0;
 }
-.w-lightbox-view:before {
+.af-view .w-lightbox-view:before {
   content: "";
   height: 100vh;
 }
 /* .w-lightbox-content */
-.w-lightbox-group,
-.w-lightbox-group .w-lightbox-view,
-.w-lightbox-group .w-lightbox-view:before {
+.af-view .w-lightbox-group,
+.af-view .w-lightbox-group .w-lightbox-view,
+.af-view .w-lightbox-group .w-lightbox-view:before {
   height: 86vh;
 }
-.w-lightbox-frame,
-.w-lightbox-view:before {
+.af-view .w-lightbox-frame,
+.af-view .w-lightbox-view:before {
   display: inline-block;
   vertical-align: middle;
 }
 /*
  * 1. Remove default margin set by user-agent on the <figure> element.
  */
-.w-lightbox-figure {
+.af-view .w-lightbox-figure {
   position: relative;
   margin: 0;
   /* 1 */
@@ -1245,7 +1245,7 @@ textarea.w-select {
  * IE adds image dimensions as width and height attributes on the IMG tag,
  * but we need both width and height to be set to auto to enable scaling.
  */
-.w-lightbox-img {
+.af-view .w-lightbox-img {
   width: auto;
   height: auto;
   max-width: none;
@@ -1253,7 +1253,7 @@ textarea.w-select {
 /**
  * 1. Reset if style is set by user on "All Images"
  */
-.w-lightbox-image {
+.af-view .w-lightbox-image {
   display: block;
   float: none;
   /* 1 */
@@ -1314,7 +1314,7 @@ textarea.w-select {
  * The bug does not seem to manifest itself if the elements are tall enough such as the above arrows.
  * (http://stackoverflow.com/questions/16092114/background-size-differs-in-internet-explorer)
  */
-.w-lightbox-close {
+.af-view .w-lightbox-close {
   right: 0;
   height: 2.6em;
   /* <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 18 17" width="18" height="17"><g transform="rotate(45)"><path d="m0 0h7v-7h5v7h7v5h-7v7h-5v-7h-7z" opacity=".4"/><path d="m1 1h7v-7h3v7h7v3h-7v7h-3v-7h-7z" fill="#fff"/></g></svg> */
@@ -1324,7 +1324,7 @@ textarea.w-select {
 /**
  * 1. All IE versions add extra space at the bottom without this.
  */
-.w-lightbox-strip {
+.af-view .w-lightbox-strip {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1343,7 +1343,7 @@ textarea.w-select {
  *    the parent is also rendered on the GPU (by setting translate3d for
  *    example) fixes this behavior.
  */
-.w-lightbox-item {
+.af-view .w-lightbox-item {
   display: inline-block;
   width: 10vh;
   padding: 2vh 1vh;
@@ -1387,7 +1387,7 @@ textarea.w-select {
  * Absolute pixel values are used to avoid rounding errors that would cause
  * the white spinning element to be misaligned with the track.
  */
-.w-lightbox-spinner {
+.af-view .w-lightbox-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1401,7 +1401,7 @@ textarea.w-select {
   -webkit-animation: spin .8s infinite linear;
   animation: spin .8s infinite linear;
 }
-.w-lightbox-spinner:after {
+.af-view .w-lightbox-spinner:after {
   content: "";
   position: absolute;
   top: -4px;
@@ -1415,53 +1415,53 @@ textarea.w-select {
 /*
  * Utility classes
  */
-.w-lightbox-hide {
+.af-view .w-lightbox-hide {
   display: none;
 }
-.w-lightbox-noscroll {
+.af-view .w-lightbox-noscroll {
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  .w-lightbox-content {
+  .af-view .w-lightbox-content {
     height: 96vh;
     margin-top: 2vh;
   }
-  .w-lightbox-view,
-  .w-lightbox-view:before {
+  .af-view .w-lightbox-view,
+  .af-view .w-lightbox-view:before {
     height: 96vh;
   }
   /* .w-lightbox-content */
-  .w-lightbox-group,
-  .w-lightbox-group .w-lightbox-view,
-  .w-lightbox-group .w-lightbox-view:before {
+  .af-view .w-lightbox-group,
+  .af-view .w-lightbox-group .w-lightbox-view,
+  .af-view .w-lightbox-group .w-lightbox-view:before {
     height: 84vh;
   }
-  .w-lightbox-image {
+  .af-view .w-lightbox-image {
     max-width: 96vw;
     max-height: 96vh;
   }
-  .w-lightbox-group .w-lightbox-image {
+  .af-view .w-lightbox-group .w-lightbox-image {
     max-width: 82.3vw;
     max-height: 84vh;
   }
-  .w-lightbox-left,
-  .w-lightbox-right {
+  .af-view .w-lightbox-left,
+  .af-view .w-lightbox-right {
     display: block;
     opacity: .5;
   }
-  .w-lightbox-close {
+  .af-view .w-lightbox-close {
     opacity: .8;
   }
-  .w-lightbox-control:hover {
+  .af-view .w-lightbox-control:hover {
     opacity: 1;
   }
 }
-.w-lightbox-inactive,
-.w-lightbox-inactive:hover {
+.af-view .w-lightbox-inactive,
+.af-view .w-lightbox-inactive:hover {
   opacity: 0;
 }
-.w-richtext:before,
-.w-richtext:after {
+.af-view .w-richtext:before,
+.af-view .w-richtext:after {
   content: " ";
   display: table;
   grid-column-start: 1;
@@ -1469,27 +1469,27 @@ textarea.w-select {
   grid-column-end: 2;
   grid-row-end: 2;
 }
-.w-richtext:after {
+.af-view .w-richtext:after {
   clear: both;
 }
-.w-richtext[contenteditable="true"]:before,
-.w-richtext[contenteditable="true"]:after {
+.af-view .w-richtext[contenteditable="true"]:before,
+.af-view .w-richtext[contenteditable="true"]:after {
   white-space: initial;
 }
-.w-richtext ol,
-.w-richtext ul {
+.af-view .w-richtext ol,
+.af-view .w-richtext ul {
   overflow: hidden;
 }
-.w-richtext .w-richtext-figure-selected.w-richtext-figure-type-video div:after,
-.w-richtext .w-richtext-figure-selected[data-rt-type="video"] div:after {
+.af-view .w-richtext .w-richtext-figure-selected.w-richtext-figure-type-video div:after,
+.af-view .w-richtext .w-richtext-figure-selected[data-rt-type="video"] div:after {
   outline: 2px solid #2895f7;
 }
-.w-richtext .w-richtext-figure-selected.w-richtext-figure-type-image div,
-.w-richtext .w-richtext-figure-selected[data-rt-type="image"] div {
+.af-view .w-richtext .w-richtext-figure-selected.w-richtext-figure-type-image div,
+.af-view .w-richtext .w-richtext-figure-selected[data-rt-type="image"] div {
   outline: 2px solid #2895f7;
 }
-.w-richtext figure.w-richtext-figure-type-video > div:after,
-.w-richtext figure[data-rt-type="video"] > div:after {
+.af-view .w-richtext figure.w-richtext-figure-type-video > div:after,
+.af-view .w-richtext figure[data-rt-type="video"] > div:after {
   content: '';
   position: absolute;
   display: none;
@@ -1498,67 +1498,67 @@ textarea.w-select {
   right: 0;
   bottom: 0;
 }
-.w-richtext figure {
+.af-view .w-richtext figure {
   position: relative;
   max-width: 60%;
 }
-.w-richtext figure > div:before {
+.af-view .w-richtext figure > div:before {
   cursor: default!important;
 }
-.w-richtext figure img {
+.af-view .w-richtext figure img {
   width: 100%;
 }
-.w-richtext figure figcaption.w-richtext-figcaption-placeholder {
+.af-view .w-richtext figure figcaption.w-richtext-figcaption-placeholder {
   opacity: 0.6;
 }
-.w-richtext figure div {
+.af-view .w-richtext figure div {
   /* fix incorrectly sized selection border in the data manager */
   font-size: 0px;
   color: transparent;
 }
-.w-richtext figure.w-richtext-figure-type-image,
-.w-richtext figure[data-rt-type="image"] {
+.af-view .w-richtext figure.w-richtext-figure-type-image,
+.af-view .w-richtext figure[data-rt-type="image"] {
   display: table;
 }
-.w-richtext figure.w-richtext-figure-type-image > div,
-.w-richtext figure[data-rt-type="image"] > div {
+.af-view .w-richtext figure.w-richtext-figure-type-image > div,
+.af-view .w-richtext figure[data-rt-type="image"] > div {
   display: inline-block;
 }
-.w-richtext figure.w-richtext-figure-type-image > figcaption,
-.w-richtext figure[data-rt-type="image"] > figcaption {
+.af-view .w-richtext figure.w-richtext-figure-type-image > figcaption,
+.af-view .w-richtext figure[data-rt-type="image"] > figcaption {
   display: table-caption;
   caption-side: bottom;
 }
-.w-richtext figure.w-richtext-figure-type-video,
-.w-richtext figure[data-rt-type="video"] {
+.af-view .w-richtext figure.w-richtext-figure-type-video,
+.af-view .w-richtext figure[data-rt-type="video"] {
   width: 60%;
   height: 0;
 }
-.w-richtext figure.w-richtext-figure-type-video iframe,
-.w-richtext figure[data-rt-type="video"] iframe {
+.af-view .w-richtext figure.w-richtext-figure-type-video iframe,
+.af-view .w-richtext figure[data-rt-type="video"] iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.w-richtext figure.w-richtext-figure-type-video > div,
-.w-richtext figure[data-rt-type="video"] > div {
+.af-view .w-richtext figure.w-richtext-figure-type-video > div,
+.af-view .w-richtext figure[data-rt-type="video"] > div {
   width: 100%;
 }
-.w-richtext figure.w-richtext-align-center {
+.af-view .w-richtext figure.w-richtext-align-center {
   margin-right: auto;
   margin-left: auto;
   clear: both;
 }
-.w-richtext figure.w-richtext-align-center.w-richtext-figure-type-image > div,
-.w-richtext figure.w-richtext-align-center[data-rt-type="image"] > div {
+.af-view .w-richtext figure.w-richtext-align-center.w-richtext-figure-type-image > div,
+.af-view .w-richtext figure.w-richtext-align-center[data-rt-type="image"] > div {
   max-width: 100%;
 }
-.w-richtext figure.w-richtext-align-normal {
+.af-view .w-richtext figure.w-richtext-align-normal {
   clear: both;
 }
-.w-richtext figure.w-richtext-align-fullwidth {
+.af-view .w-richtext figure.w-richtext-align-fullwidth {
   width: 100%;
   max-width: 100%;
   text-align: center;
@@ -1567,33 +1567,33 @@ textarea.w-select {
   margin-right: auto;
   margin-left: auto;
 }
-.w-richtext figure.w-richtext-align-fullwidth > div {
+.af-view .w-richtext figure.w-richtext-align-fullwidth > div {
   display: inline-block;
   /* padding-bottom is used for aspect ratios in video figures
       we want the div to inherit that so hover/selection borders in the designer-canvas
       fit right*/
   padding-bottom: inherit;
 }
-.w-richtext figure.w-richtext-align-fullwidth > figcaption {
+.af-view .w-richtext figure.w-richtext-align-fullwidth > figcaption {
   display: block;
 }
-.w-richtext figure.w-richtext-align-floatleft {
+.af-view .w-richtext figure.w-richtext-align-floatleft {
   float: left;
   margin-right: 15px;
   clear: none;
 }
-.w-richtext figure.w-richtext-align-floatright {
+.af-view .w-richtext figure.w-richtext-align-floatright {
   float: right;
   margin-left: 15px;
   clear: none;
 }
-.w-nav {
+.af-view .w-nav {
   position: relative;
   background: #dddddd;
   z-index: 1000;
 }
-.w-nav:before,
-.w-nav:after {
+.af-view .w-nav:before,
+.af-view .w-nav:after {
   content: " ";
   display: table;
   grid-column-start: 1;
@@ -1601,16 +1601,16 @@ textarea.w-select {
   grid-column-end: 2;
   grid-row-end: 2;
 }
-.w-nav:after {
+.af-view .w-nav:after {
   clear: both;
 }
-.w-nav-brand {
+.af-view .w-nav-brand {
   position: relative;
   float: left;
   text-decoration: none;
   color: #333333;
 }
-.w-nav-link {
+.af-view .w-nav-link {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -1621,14 +1621,14 @@ textarea.w-select {
   margin-left: auto;
   margin-right: auto;
 }
-.w-nav-link.w--current {
+.af-view .w-nav-link.w--current {
   color: #0082f3;
 }
-.w-nav-menu {
+.af-view .w-nav-menu {
   position: relative;
   float: right;
 }
-.w--nav-menu-open {
+.af-view .w--nav-menu-open {
   display: block !important;
   position: absolute;
   top: 100%;
@@ -1639,11 +1639,11 @@ textarea.w-select {
   overflow: visible;
   min-width: 200px;
 }
-.w--nav-link-open {
+.af-view .w--nav-link-open {
   display: block;
   position: relative;
 }
-.w-nav-overlay {
+.af-view .w-nav-overlay {
   position: absolute;
   overflow: hidden;
   display: none;
@@ -1652,28 +1652,28 @@ textarea.w-select {
   right: 0;
   width: 100%;
 }
-.w-nav-overlay .w--nav-menu-open {
+.af-view .w-nav-overlay .w--nav-menu-open {
   top: 0;
 }
-.w-nav[data-animation="over-left"] .w-nav-overlay {
+.af-view .w-nav[data-animation="over-left"] .w-nav-overlay {
   width: auto;
 }
-.w-nav[data-animation="over-left"] .w-nav-overlay,
-.w-nav[data-animation="over-left"] .w--nav-menu-open {
+.af-view .w-nav[data-animation="over-left"] .w-nav-overlay,
+.af-view .w-nav[data-animation="over-left"] .w--nav-menu-open {
   right: auto;
   z-index: 1;
   top: 0;
 }
-.w-nav[data-animation="over-right"] .w-nav-overlay {
+.af-view .w-nav[data-animation="over-right"] .w-nav-overlay {
   width: auto;
 }
-.w-nav[data-animation="over-right"] .w-nav-overlay,
-.w-nav[data-animation="over-right"] .w--nav-menu-open {
+.af-view .w-nav[data-animation="over-right"] .w-nav-overlay,
+.af-view .w-nav[data-animation="over-right"] .w--nav-menu-open {
   left: auto;
   z-index: 1;
   top: 0;
 }
-.w-nav-button {
+.af-view .w-nav-button {
   position: relative;
   float: right;
   padding: 18px;
@@ -1687,48 +1687,48 @@ textarea.w-select {
   -ms-user-select: none;
   user-select: none;
 }
-.w-nav-button.w--open {
+.af-view .w-nav-button.w--open {
   background-color: #C8C8C8;
   color: white;
 }
-.w-nav[data-collapse="all"] .w-nav-menu {
+.af-view .w-nav[data-collapse="all"] .w-nav-menu {
   display: none;
 }
-.w-nav[data-collapse="all"] .w-nav-button {
+.af-view .w-nav[data-collapse="all"] .w-nav-button {
   display: block;
 }
 @media screen and (max-width: 991px) {
-  .w-nav[data-collapse="medium"] .w-nav-menu {
+  .af-view .w-nav[data-collapse="medium"] .w-nav-menu {
     display: none;
   }
-  .w-nav[data-collapse="medium"] .w-nav-button {
+  .af-view .w-nav[data-collapse="medium"] .w-nav-button {
     display: block;
   }
 }
 @media screen and (max-width: 767px) {
-  .w-nav[data-collapse="small"] .w-nav-menu {
+  .af-view .w-nav[data-collapse="small"] .w-nav-menu {
     display: none;
   }
-  .w-nav[data-collapse="small"] .w-nav-button {
+  .af-view .w-nav[data-collapse="small"] .w-nav-button {
     display: block;
   }
-  .w-nav-brand {
+  .af-view .w-nav-brand {
     padding-left: 10px;
   }
 }
 @media screen and (max-width: 479px) {
-  .w-nav[data-collapse="tiny"] .w-nav-menu {
+  .af-view .w-nav[data-collapse="tiny"] .w-nav-menu {
     display: none;
   }
-  .w-nav[data-collapse="tiny"] .w-nav-button {
+  .af-view .w-nav[data-collapse="tiny"] .w-nav-button {
     display: block;
   }
 }
-.w-tabs {
+.af-view .w-tabs {
   position: relative;
 }
-.w-tabs:before,
-.w-tabs:after {
+.af-view .w-tabs:before,
+.af-view .w-tabs:after {
   content: " ";
   display: table;
   grid-column-start: 1;
@@ -1736,13 +1736,13 @@ textarea.w-select {
   grid-column-end: 2;
   grid-row-end: 2;
 }
-.w-tabs:after {
+.af-view .w-tabs:after {
   clear: both;
 }
-.w-tab-menu {
+.af-view .w-tab-menu {
   position: relative;
 }
-.w-tab-link {
+.af-view .w-tab-link {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -1753,27 +1753,27 @@ textarea.w-select {
   color: #222222;
   background-color: #dddddd;
 }
-.w-tab-link.w--current {
+.af-view .w-tab-link.w--current {
   background-color: #C8C8C8;
 }
-.w-tab-content {
+.af-view .w-tab-content {
   position: relative;
   display: block;
   overflow: hidden;
 }
-.w-tab-pane {
+.af-view .w-tab-pane {
   position: relative;
   display: none;
 }
-.w--tab-active {
+.af-view .w--tab-active {
   display: block;
 }
 @media screen and (max-width: 479px) {
-  .w-tab-link {
+  .af-view .w-tab-link {
     display: block;
   }
 }
-.w-ix-emptyfix:after {
+.af-view .w-ix-emptyfix:after {
   content: "";
 }
 @keyframes spin {
@@ -1784,16 +1784,16 @@ textarea.w-select {
     transform: rotate(360deg);
   }
 }
-.w-dyn-empty {
+.af-view .w-dyn-empty {
   padding: 10px;
   background-color: #dddddd;
 }
-.w-dyn-hide {
+.af-view .w-dyn-hide {
   display: none !important;
 }
-.w-dyn-bind-empty {
+.af-view .w-dyn-bind-empty {
   display: none !important;
 }
-.w-condition-invisible {
+.af-view .w-condition-invisible {
   display: none !important;
 }
