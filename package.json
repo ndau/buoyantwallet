@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.99",
+  "version": "0.1.100",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -33,7 +33,7 @@
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
-    "appfairy": "^0.7.3",
+    "appfairy": "github:kristoferpelchat/Appfairy",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "eslint": "^6.1.0",
