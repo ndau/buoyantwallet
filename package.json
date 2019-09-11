@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.144",
+  "version": "0.1.145",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -13,7 +13,6 @@
     "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && cd ios && pod install && cd .."
   },
   "dependencies": {
-    "@eva-design/eva": "^1.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/pro-light-svg-icons": "^5.10.2",
     "@fortawesome/pro-regular-svg-icons": "^5.10.2",
@@ -32,7 +31,6 @@
     "react-native-reanimated": "^1.2.0",
     "react-native-responsive-screen": "^1.2.2",
     "react-native-svg": "^9.6.2",
-    "react-native-ui-kitten": "^4.1.0",
     "react-native-version-number": "^0.3.6",
     "react-navigation": "^4.0.3",
     "react-navigation-drawer": "^2.1.2",
