@@ -6,24 +6,24 @@ import {
   createSwitchNavigator
 } from 'react-navigation'
 import { MenuContainer } from '@src/containers/menu'
-import Dashboard from '@src/ui/screens/Dashboard'
-import Settings from '@src/ui/screens/Settings'
+import Overview from '@src/ui/screens/Overview'
+import Buy from '@src/ui/screens/Buy'
 import { MenuNavigationOptions } from './Options'
 import AuthLoading from './AuthLoading'
 import Authentication from '@src/ui/screens/Authentication'
 
-const DashboardNavigator = createStackNavigator(
+const OverviewNavigator = createStackNavigator(
   {
-    Dashboard
+    Overview
   },
   {
     defaultNavigationOptions: MenuNavigationOptions
   }
 )
 
-const SettingsNavigator = createStackNavigator(
+const BuyNavigator = createStackNavigator(
   {
-    Settings
+    Buy
   },
   {
     defaultNavigationOptions: MenuNavigationOptions
@@ -32,8 +32,8 @@ const SettingsNavigator = createStackNavigator(
 
 const MenuNavigator = createBottomTabNavigator(
   {
-    Dashboard: DashboardNavigator,
-    Settings: SettingsNavigator
+    Overview: OverviewNavigator,
+    Buy: BuyNavigator
   },
   {
     tabBarComponent: MenuContainer

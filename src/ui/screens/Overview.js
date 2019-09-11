@@ -1,16 +1,35 @@
 import React from 'react'
-import { Text, View, Button, NativeModules } from 'react-native'
+import {
+  Text,
+  View,
+  Button,
+  NativeModules,
+  TouchableWithoutFeedback
+} from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
-import I18n from '../../i18n'
-import PropTypes from 'prop-types'
-
+import I18n from '@src/i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
-import RecoveryButton from '../components/common/RecoveryButton'
-import RecoveryTextInput from '../components/common/RecoveryTextInput'
+import IndexViewRN from '../components/IndexViewRN'
+import { withSafeDarkView } from './BaseScreen'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 
-export default class Dashboard extends React.Component {
+class Overview extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: 'TEST',
+      headerRight: (
+        <Button
+          onPress={navigation.getParam('increaseCount')}
+          title='+1'
+          color={Platform.OS === 'ios' ? '#fff' : null}
+        />
+      )
+    }
+  }
+
   constructor (props) {
     super(props)
 
@@ -41,11 +60,9 @@ export default class Dashboard extends React.Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>
-          {I18n.t('dashboard')} {`v${VersionNumber.appVersion}`}
+          {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
         </Text>
-        <RecoveryButton />
-        <RecoveryTextInput />
-        <RecoveryButton />
+        <IndexViewRN />
         <Text>{testBytes}</Text>
         <Text>{applicationNetwork}</Text>
         <Button
@@ -71,8 +88,4 @@ export default class Dashboard extends React.Component {
   }
 }
 
-Dashboard.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
-  }).isRequired
-}
+export default withSafeDarkView(Overview, I18n.t('overview'))

@@ -20,8 +20,8 @@ class MenuComponent extends React.Component {
             selectedIndex={selectedIndex}
             onSelect={this.onTabSelect}
           >
-            <BottomNavigationTab title='Dashboard' />
-            <BottomNavigationTab title='Settings' />
+            <BottomNavigationTab title='Overview' />
+            <BottomNavigationTab title='Buy' />
           </BottomNavigation>
         </ThemeProvider>
       </SafeAreaView>

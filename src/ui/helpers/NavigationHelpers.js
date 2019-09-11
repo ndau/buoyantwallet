@@ -10,10 +10,12 @@ import AppConstants from '@src/data/constants/AppConstants'
 const setupNavigationFocusListener = navigation => {
   navigation.addListener('willFocus', async payload => {
     try {
-      await AsyncStorage.setItem(
-        AppConstants.LAST_SCREEN_FOCUSED,
-        payload.state.routeName
-      )
+      if (payload.state.routeName !== 'More') {
+        await AsyncStorage.setItem(
+          AppConstants.LAST_SCREEN_FOCUSED,
+          payload.state.routeName
+        )
+      }
     } catch (err) {
       console.error(err)
     }

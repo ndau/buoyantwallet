@@ -2,12 +2,12 @@ import React from 'react'
 import { Text, View, Button } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
-import I18n from '../../i18n'
+import I18n from '@src/i18n'
+import { withSafeDarkView } from './BaseScreen'
 import VersionNumber from 'react-native-version-number'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
-import PropTypes from 'prop-types'
 
-export default class Settings extends React.Component {
+class Todo extends React.Component {
   constructor (props) {
     super(props)
 
@@ -35,25 +35,24 @@ export default class Settings extends React.Component {
         <Button
           title='DEVNET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)
+          }
         />
         <Button
           title='TESTNET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
+          }
         />
         <Button
           title='MAINET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
+          }
         />
       </View>
     )
   }
 }
 
-Settings.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
-  }).isRequired
-}
+export default withSafeDarkView(Todo, I18n.t('todo'))

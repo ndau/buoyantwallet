@@ -1,5 +1,6 @@
 import AppConstants from '@src/data/constants/AppConstants'
 import AsyncStorage from '@react-native-community/async-storage'
+import I18n from '@src/i18n'
 
 class SettingsStore {
   constructor () {
@@ -59,6 +60,16 @@ class SettingsStore {
     this._settings.applicationNetwork = network
     this.funcs.forEach(func => func(this._settings))
     AsyncStorage.setItem(AppConstants.APPLICATION_NETWORK, network)
+  }
+
+  isMainNet () {
+    if (
+      this._settings.applicationNetwork &&
+      this._settings.applicationNetwork.toLowerCase() === I18n.t('mainnet')
+    ) {
+      return true
+    }
+    return false
   }
 }
 
