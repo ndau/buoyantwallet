@@ -58,7 +58,7 @@ Next we npm/yarn install:
 
 `npm install`
 
-or 
+or
 
 `yarn install`
 
@@ -122,7 +122,20 @@ Like `npm start`, but also attempts to open your app on a connected Android devi
 
 This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
 
+## Building
+
+### Circle CI
+
+This repo contains CircleCI configuration in `./.circle/config.yml` for building `.ipa` Apple iOS application files and `.apk` Android application files. Upon successful builds the files will be available as build artifacts.
+
+As of 2019-Sep-09, the Android build is not functioning. This is due to the issues documented in https://github.com/facebook/react-native/issues/25601 and addressed in the following commit in a rc for 0.61 of react native.
+
+#### Github Tags
+
+The tests will run for every commit on any branch. In order to trigger a build, the commit must be tagged with any tag terminating in `-build`.
+
 ## Deployment
+
 ### iOS Deployment
 
 ### Android Deployment
