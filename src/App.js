@@ -4,8 +4,11 @@ import React from 'react'
 // import { DynamicStatusBar } from './ui/components/common'
 // import { Router } from './ui/core/navigation/Routes'
 // import { ThemeContext, ThemeStore, themes } from '@src/core/themes'
+import { YellowBox } from 'react-native'
 import SettingsStore from './data/stores/SettingsStore'
 import AppNavigation from './ui/core/navigation/AppNavigation'
+
+YellowBox.ignoreWarnings(['Warning: componentWillMount is deprecated'])
 
 export default class App extends React.Component {
   constructor (props) {

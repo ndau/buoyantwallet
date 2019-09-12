@@ -1,5 +1,10 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, TouchableWithoutFeedback } from 'react-native'
+import {
+  SafeAreaView,
+  StatusBar,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { faBell } from '@fortawesome/pro-solid-svg-icons'
@@ -14,7 +19,9 @@ export const withSafeDarkView = (WrappedComponent, title) => {
       headerTitleStyle: {
         color: '#8CC74F',
         fontFamily: 'opensans-bold',
-        fontWeight: '900'
+        fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1
       },
       headerLeft: (
         <TouchableWithoutFeedback>

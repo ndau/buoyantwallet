@@ -43,8 +43,9 @@ const getNavigationOptions = (title, icon, iconSize, fontSize) => {
           style={{
             color: '#0A1724',
             fontSize: fontSize,
-            fontWeight: focused ? '900' : 'normal',
-            fontFamily: focused ? 'opensans-bold' : 'opensans-regular'
+            fontWeight: focused ? 'bold' : 'normal',
+            fontFamily: focused ? 'opensans-bold' : 'opensans-regular',
+            textAlign: 'center'
           }}
         >
           {title}
@@ -88,7 +89,8 @@ const MoreDrawerNavigator = createDrawerNavigator(
               color: '#0A1724',
               fontSize: 10,
               fontWeight: focused ? '900' : 'normal',
-              fontFamily: focused ? 'opensans-bold' : 'opensans-regular'
+              fontFamily: focused ? 'opensans-bold' : 'opensans-regular',
+              textAlign: 'center'
             }}
           >
             {I18n.t('more')}
