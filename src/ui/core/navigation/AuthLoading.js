@@ -20,13 +20,13 @@ class AuthLoadingScreen extends React.Component {
    */
   _bootstrapDev = async () => {
     // Load the last screen used
-    LogStore.log('Bootstraping DEV...')
-    const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
-    if (screen) {
-      this.props.navigation.navigate(screen)
-    } else {
-      this._bootstrap()
-    }
+    // LogStore.log('Bootstraping DEV...')
+    // const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
+    // if (screen) {
+    //   this.props.navigation.navigate(screen)
+    // } else {
+    this._bootstrap()
+    // }
   }
 
   /**
