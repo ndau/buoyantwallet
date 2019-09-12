@@ -17,19 +17,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 
 class Overview extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerTitle: 'TEST',
-      headerRight: (
-        <Button
-          onPress={navigation.getParam('increaseCount')}
-          title='+1'
-          color={Platform.OS === 'ios' ? '#fff' : null}
-        />
-      )
-    }
-  }
-
   constructor (props) {
     super(props)
 

@@ -14,6 +14,10 @@ const TESTNET = 'testnet'
 const LAST_SCREEN_FOCUSED = 'bwLastScreenFocused'
 const APPLICATION_NETWORK = 'bwApplicationNetwork'
 
+// Comon UI Colors
+const TEXT_COLOR = '#FFFFFF'
+const DRAWER_ICON_COLOR = '#4B9176'
+
 export default {
   HARDENED_CHILD_BIP_44,
   ACCOUNT_CREATION_KEY_CHILD,
@@ -24,5 +28,7 @@ export default {
   TESTNET,
   DEVNET,
   LAST_SCREEN_FOCUSED,
-  APPLICATION_NETWORK
+  APPLICATION_NETWORK,
+  TEXT_COLOR,
+  DRAWER_ICON_COLOR
 }

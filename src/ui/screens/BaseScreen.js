@@ -14,7 +14,9 @@ export const withSafeDarkView = (WrappedComponent, title) => {
       headerTitleStyle: {
         color: '#8CC74F',
         fontFamily: 'opensans-bold',
-        fontWeight: '900'
+        fontWeight: '900',
+        flex: 1,
+        textAlign: 'center'
       },
       headerLeft: (
         <TouchableWithoutFeedback>
