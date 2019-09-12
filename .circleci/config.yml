@@ -1,17 +1,140 @@
 version: 2
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node:8.11
-
-    working_directory: ~/app
-
+  # This job runs tests on a mac environment
+  test:
+    macos:
+      xcode: "10.3.0"
+    working_directory: ~/mbw
+    environment:
+      # max_old_space_size prevents an out of memory error.
+      NODE_OPTIONS: --max_old_space_size=4096
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "08:72:0b:fe:66:b2:2a:ea:5b:78:13:b9:3b:08:af:4d"
+      # try to bring back cached dependencies.
+      # descending options are fallovers to any match with some lower delta than a blank node_modules dir.
+      - restore_cache:
+          keys:
+            - wallet-node-{{ .Branch }}-{{ checksum "~/mbw/yarn.lock" }}
+            - wallet-node-{{ .Branch }}
+            - wallet-node-
 
       - run:
-          name: install node deps
+          name: install node dependencies
           command: |
-            npm install
+            # install yarn
+            curl -o- -L https://yarnpkg.com/install.sh | bash
+            # install using yarn
+            yarn cache clean && yarn install
+            # install other assets from s3
+            yarn load-assets
 
-      - run: npm run test
+      - save_cache:
+          paths:
+            - ~/mbw/node_modules
+          key: wallet-node-{{ .Branch }}-{{ checksum "~/mbw/yarn.lock" }}
+
+      - run: yarn test
+
+  build: # this needs to be named simply build because CircleCI made it a "requirement"
+    macos:
+      xcode: "10.3.0"
+
+    working_directory: ~/mbw
+    environment:
+      # max_old_space_size prevents an out of memory error.
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "08:72:0b:fe:66:b2:2a:ea:5b:78:13:b9:3b:08:af:4d"
+      - restore_cache:
+          keys:
+            - wallet-node-{{ .Branch }}-{{ checksum "~/mbw/yarn.lock" }}
+            - wallet-node-{{ .Branch }}
+            - wallet-node-
+
+      - run:
+          name: install node dependencies
+          command: |
+            # install yarn
+            curl -o- -L https://yarnpkg.com/install.sh | bash
+            # install using yarn
+            yarn cache clean && yarn install
+            # install other assets from s3
+            yarn load-assets
+
+      - save_cache:
+          paths:
+            - ~/mbw/node_modules
+          key: wallet-node-{{ .Branch }}-{{ checksum "~/mbw/yarn.lock" }}
+
+      - run:
+          name: build ios
+          command: |
+            bundle install
+            cd ios
+            pod install
+            bundle exec fastlane build
+
+      - store_artifacts:
+          path: ~/mbw/ios/buoyantwallet.ipa
+          destination: buoyantwallet.ipa
+
+  build-android:
+    # builds on a linux machine
+    working_directory: ~/mbw
+    docker:
+      - image: 578681496768.dkr.ecr.us-east-1.amazonaws.com/wallet-circle-ci:0.0.4
+        aws_auth:
+          aws_access_key_id: $AWS_ACCESS_KEY_ID # required for local.sh
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY # required for local.sh
+    environment:
+      NODE_OPTIONS: "--max_old_space_size=4096"
+      TERM: linux # required for local.sh
+      TERMINFO: /etc/terminfo # required for local.sh
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: |
+            # echo commands
+            set -x
+
+            # install using yarn
+            yarn cache clean && yarn install
+            # install other assets from s3
+            yarn load-assets
+
+            # build with gradle
+            cd android
+            ./gradlew clean assembleRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx1024m"
+
+      - store_artifacts:
+          path: ~/mbw/android/app/build/outputs/apk/release/
+          destination: android
+
+workflows:
+  version: 2
+  tagged-build:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /.*-build/
+      - build-android:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /.*-build/

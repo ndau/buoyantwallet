@@ -119,6 +119,8 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
+def pass = System.getenv('MBW_UPLOAD_KEY_PASSWORD')
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -128,7 +130,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.buoyantwallet"
+        applicationId "io.oneiro.buoyantwallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
@@ -143,6 +145,14 @@ android {
         }
     }
     signingConfigs {
+        release {
+            if (project.hasProperty('MBW_UPLOAD_STORE_FILE')) {
+                storeFile file(MBW_UPLOAD_STORE_FILE)
+                keyAlias MBW_UPLOAD_KEY_ALIAS
+                storePassword pass
+                keyPassword pass
+            }
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -157,7 +167,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -193,12 +203,13 @@ dependencies {
     implementation files('src/main/lib/keyaddr.aar')  // From node_modules
 
     if (enableHermes) {
-      def hermesPath = "../../node_modules/hermesvm/android/";
+      def hermesPath = "../../node_modules/hermes-engine/android/";
       debugImplementation files(hermesPath + "hermes-debug.aar")
       releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {
       implementation jscFlavor
     }
+
 }
 
 // Run this once to be able to run the application with BUCK

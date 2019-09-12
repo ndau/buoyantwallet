@@ -1,0 +1,29 @@
+FROM circleci/android:api-25
+
+LABEL org.opencontainers.image.version=0.0.4
+
+ENV NODEJS_VERSION=10.16.3 \
+  PATH=$PATH:/opt/node/bin
+
+WORKDIR "/opt/node"
+
+# Get node
+RUN sudo apt-get update
+RUN sudo apt-get install -y \
+  curl \
+  git \
+  ca-certificates \
+  --no-install-recommends
+
+# download and extract node
+RUN curl -sL https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.gz | sudo tar xz --strip-components=1
+
+# install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+  sudo apt-get update && \
+  sudo apt-get install yarn
+
+# Clean up aptitude
+RUN sudo rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get clean
