@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, ScrollView, Platform, View } from 'react-native'
+import { Alert, ScrollView, Platform, View, SafeAreaView } from 'react-native'
 import VersionNumber from 'react-native-version-number'
 import {
   DrawerEntryItem,
@@ -14,7 +14,7 @@ import {
   faHome,
   faPlusSquare,
   faClock,
-  faComment,
+  faCommentAlt,
   faCog,
   faFlask,
   faLaptopCode,
@@ -89,71 +89,73 @@ class AppDrawer extends React.Component {
 
   render () {
     return (
-      <DrawerContainer logoutHandler={() => this.logout()}>
-        <ScrollView>
-          <DrawerExit onPress={() => this.closeDrawer()} />
-          <DrawerEntryItem
-            onPress={() => this.dashboard()}
-            fontAwesomeIcon={faHome}
-          >
-            Dashboard
-          </DrawerEntryItem>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#0A1724' }}>
+        <DrawerContainer logoutHandler={() => this.logout()}>
+          <ScrollView>
+            <DrawerExit onPress={() => this.closeDrawer()} />
+            <DrawerEntryItem
+              onPress={() => this.dashboard()}
+              fontAwesomeIcon={faHome}
+            >
+              {I18n.t('sellndau')}
+            </DrawerEntryItem>
 
-          <DrawerEntryItem
-            onPress={() => this.addWallet()}
-            fontAwesomeIcon={faPlusSquare}
-          >
-            Add wallet
-          </DrawerEntryItem>
+            <DrawerEntryItem
+              onPress={() => this.addWallet()}
+              fontAwesomeIcon={faPlusSquare}
+            >
+              {I18n.t('marketanalysis')}
+            </DrawerEntryItem>
 
-          <DrawerEntryItem
-            onPress={() => this.recoverWallet()}
-            fontAwesomeIcon={faClock}
-          >
-            Recover wallet
-          </DrawerEntryItem>
+            <DrawerEntryItem
+              onPress={() => this.recoverWallet()}
+              fontAwesomeIcon={faClock}
+            >
+              {I18n.t('yourreports')}
+            </DrawerEntryItem>
 
-          <DrawerEntryItem
-            onPress={() => this.props.navigation.navigate('ContactSupport')}
-            fontAwesomeIcon={faComment}
-          >
-            Contact support
-          </DrawerEntryItem>
+            <DrawerEntryItem
+              onPress={() => this.props.navigation.navigate('ContactSupport')}
+              fontAwesomeIcon={faCog}
+            >
+              {I18n.t('settings')}
+            </DrawerEntryItem>
 
-          <DrawerEntryItem
-            onPress={() => this.showSettings()}
-            fontAwesomeIcon={faCog}
-          >
-            Settings
-          </DrawerEntryItem>
+            <DrawerEntryItem
+              onPress={() => this.showSettings()}
+              fontAwesomeIcon={faCommentAlt}
+            >
+              {I18n.t('contactsupport')}
+            </DrawerEntryItem>
 
-          {!SettingsStore.isMainNet() ? (
-            <View>
-              <DrawerBorder />
-              <DrawerEntryItem
-                fontAwesomeIcon={
-                  SettingsStore.getApplicationNetwork() === I18n.t('testnet')
-                    ? { faFlask }
-                    : { faLaptopCode }
-                }
-              >
-                {SettingsStore.getApplicationNetwork()} environment
-              </DrawerEntryItem>
-              <DrawerBorder />
-            </View>
-          ) : null}
+            {!SettingsStore.isMainNet() ? (
+              <View>
+                <DrawerBorder />
+                <DrawerEntryItem
+                  fontAwesomeIcon={
+                    SettingsStore.getApplicationNetwork() === I18n.t('testnet')
+                      ? { faFlask }
+                      : { faLaptopCode }
+                  }
+                >
+                  {SettingsStore.getApplicationNetwork()} environment
+                </DrawerEntryItem>
+                <DrawerBorder />
+              </View>
+            ) : null}
 
-          <DrawerEntryVersionItem>{this.getVersion()}</DrawerEntryVersionItem>
+            <DrawerEntryVersionItem>{this.getVersion()}</DrawerEntryVersionItem>
 
-          <DrawerEntryItem
-            bottom
-            onPress={() => this.logout()}
-            fontAwesomeIcon={faUserCircle}
-          >
-            Logout
-          </DrawerEntryItem>
-        </ScrollView>
-      </DrawerContainer>
+            <DrawerEntryItem
+              bottom
+              onPress={() => this.logout()}
+              fontAwesomeIcon={faUserCircle}
+            >
+              {I18n.t('logout')}
+            </DrawerEntryItem>
+          </ScrollView>
+        </DrawerContainer>
+      </SafeAreaView>
     )
   }
 }

@@ -13,8 +13,6 @@ import I18n from '@src/i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import IndexViewRN from '../components/IndexViewRN'
 import { withSafeDarkView } from './BaseScreen'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 
 class Overview extends React.Component {
   constructor (props) {

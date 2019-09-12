@@ -27,7 +27,8 @@ export default (styles = StyleSheet.create({
     width: wp('100%'),
     height: hp('100%'),
     marginTop: hp('2%'),
-    marginBottom: hp('2.5%')
+    marginBottom: hp('2.5%'),
+    backgroundColor: '#0A1724'
   },
   drawerExit: {
     flex: 1,
