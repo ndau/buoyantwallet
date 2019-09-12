@@ -1,1 +1,0 @@
-export { textStyle } from './style'
