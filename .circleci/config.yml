@@ -32,8 +32,6 @@ jobs:
             curl -o- -L https://yarnpkg.com/install.sh | bash
             # install using yarn
             yarn cache clean && yarn install
-            # install other assets from s3
-            yarn load-assets
 
       - save_cache:
           paths:
@@ -71,8 +69,6 @@ jobs:
             curl -o- -L https://yarnpkg.com/install.sh | bash
             # install using yarn
             yarn cache clean && yarn install
-            # install other assets from s3
-            yarn load-assets
 
       - save_cache:
           paths:
@@ -116,8 +112,6 @@ jobs:
 
             # install using yarn
             yarn cache clean && yarn install
-            # install other assets from s3
-            yarn load-assets
 
             # build with gradle
             cd android
