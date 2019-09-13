@@ -9,7 +9,7 @@
     "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend --skip-tag",
-    "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && cd ios && pod install && cd ..",
+    "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && if command -v pod; then ( cd ios && pod install ); else echo `pod` command not found. No pods were installed.; fi",
     "postinstall": "npx jetify"
   },
   "dependencies": {
