@@ -61,3 +61,6 @@ buck-out/
 *.jsbundle
 
 /ios/Pods
+
+# npmrc can contain secrets for private repos
+.npmrc

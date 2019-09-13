@@ -61,6 +61,9 @@ jobs:
       - run:
           name: install node dependencies
           command: |
+            # add key for getting fontawesome to npmrc
+            sed "s/YOUR_TOKEN_HERE/$FA_KEY/" ./examples/npmrc/npmrc > ./.npmrc
+
             # install yarn
             curl -o- -L https://yarnpkg.com/install.sh | bash
             # install using yarn
@@ -104,6 +107,9 @@ jobs:
           command: |
             # echo commands
             set -x
+
+            # add key for getting fontawesome to npmrc
+            sed "s/YOUR_TOKEN_HERE/$FA_KEY/" ./examples/npmrc/npmrc > ./.npmrc
 
             # install using yarn
             yarn cache clean && yarn install
