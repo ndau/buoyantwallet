@@ -205,7 +205,7 @@ SPEC CHECKSUMS:
   React-jsi: 4d8c9efb6312a9725b18d6fc818ffc103f60fec2
   React-jsiexecutor: 90ad2f9db09513fc763bc757fdc3c4ff8bde2a30
   React-jsinspector: e08662d1bf5b129a3d556eb9ea343a3f40353ae4
-  react-native-version-number: 15563dc4145a94aabfc1faab2a9af10174a4204e
+  react-native-version-number: b415bbec6a13f2df62bf978e85bc0d699462f37f
   React-RCTActionSheet: b0f1ea83f4bf75fb966eae9bfc47b78c8d3efd90
   React-RCTAnimation: 359ba1b5690b1e87cc173558a78e82d35919333e
   React-RCTBlob: 5e2b55f76e9a1c7ae52b826923502ddc3238df24
@@ -216,10 +216,10 @@ SPEC CHECKSUMS:
   React-RCTText: b074d89033583d4f2eb5faf7ea2db3a13c7553a2
   React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
-  RNCAsyncStorage: 621bad7a889b5bf1583a52547f2dcd3a4d1ff15e
+  RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
-  RNLocalize: 3d67438cbed25c21d512edb6357e29b6db9ed2d9
+  RNLocalize: 18737f1e6c0762579c8c5730c8f7eca881e2d205
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
   RNSVG: 2a15d0d14d171ba610db927190604d1ab223f413
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
