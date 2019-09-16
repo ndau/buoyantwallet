@@ -2,7 +2,7 @@ import React from 'react'
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
-import { Text, TouchableWithoutFeedback, Button } from 'react-native'
+import { Text } from 'react-native'
 import Overview from '@src/ui/screens/Overview'
 import Buy from '@src/ui/screens/Buy'
 import SendReceive from '@src/ui/screens/SendReceive'
@@ -16,8 +16,7 @@ import {
   faRetweet,
   faUsdSquare,
   faEllipsisV,
-  faCalendarCheck,
-  faArrowLeft
+  faCalendarCheck
 } from '@fortawesome/pro-light-svg-icons'
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import More from '@src/ui/screens/More'
@@ -56,65 +55,26 @@ const getNavigationOptions = (title, icon, iconSize, fontSize) => {
   }
 }
 
-const MoreDrawerNavigator = createDrawerNavigator(
-  {
-    More: {
-      path: '/more',
-      screen: More
-    }
-  },
-  {
-    contentComponent: AppDrawer,
-    navigationOptions: ({ navigation }) => ({
-      tabBarOnPress: () => {
-        navigation.dispatch(DrawerActions.toggleDrawer())
-      },
-      tabBarIcon: ({ focused }) => {
-        return (
-          <FontAwesomeIcon
-            icon={faEllipsisV}
-            size={36}
-            style={{
-              color: focused ? '#F99D1C' : 'black',
-              fontColor: '#0A1724'
-            }}
-          />
-        )
-      },
-      tabBarLabel: ({ focused }) => {
-        return (
-          <Text
-            style={{
-              color: '#0A1724',
-              fontSize: 10,
-              fontWeight: focused ? 'bold' : 'normal',
-              fontFamily: focused ? 'opensans-bold' : 'opensans-regular',
-              textAlign: 'center'
-            }}
-          >
-            {I18n.t('more')}
-          </Text>
-        )
-      }
-    }),
-    drawerPosition: 'right'
-  }
-)
-
 // Create a bottom tab with the application stacks
 // the headers are invisible. If you want to use those
 // for navigation back and forth you can enable these for
 // that particular screen
 const AppStack = createBottomTabNavigator(
   {
-    Overview: createStackNavigator(
+    Overview: createDrawerNavigator(
       {
-        Overview: {
-          screen: Overview
-        }
+        screen: createStackNavigator(
+          {
+            Overview
+          },
+          {
+            headerMode: 'float'
+          }
+        )
       },
       {
-        headerMode: 'float',
+        contentComponent: AppDrawer,
+        drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
           I18n.t('overview'),
           faHome,
@@ -123,12 +83,20 @@ const AppStack = createBottomTabNavigator(
         )
       }
     ),
-    Buy: createStackNavigator(
+    Buy: createDrawerNavigator(
       {
-        Buy
+        screen: createStackNavigator(
+          {
+            Buy
+          },
+          {
+            headerMode: 'float'
+          }
+        )
       },
       {
-        headerMode: 'float',
+        contentComponent: AppDrawer,
+        drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
           I18n.t('buy'),
           faUsdSquare,
@@ -137,12 +105,20 @@ const AppStack = createBottomTabNavigator(
         )
       }
     ),
-    SendReceive: createStackNavigator(
+    SendReceive: createDrawerNavigator(
       {
-        SendReceive
+        screen: createStackNavigator(
+          {
+            SendReceive
+          },
+          {
+            headerMode: 'float'
+          }
+        )
       },
       {
-        headerMode: 'float',
+        contentComponent: AppDrawer,
+        drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
           I18n.t('sendreceive'),
           faRetweet,
@@ -151,12 +127,20 @@ const AppStack = createBottomTabNavigator(
         )
       }
     ),
-    Todo: createStackNavigator(
+    Todo: createDrawerNavigator(
       {
-        Todo
+        screen: createStackNavigator(
+          {
+            Todo
+          },
+          {
+            headerMode: 'float'
+          }
+        )
       },
       {
-        headerMode: 'float',
+        contentComponent: AppDrawer,
+        drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
           I18n.t('todo'),
           faCalendarCheck,
@@ -165,7 +149,28 @@ const AppStack = createBottomTabNavigator(
         )
       }
     ),
-    More: MoreDrawerNavigator
+    More: createDrawerNavigator(
+      {
+        screen: createStackNavigator(
+          {
+            More
+          },
+          {
+            headerMode: 'float'
+          }
+        )
+      },
+      {
+        contentComponent: AppDrawer,
+        drawerPosition: 'right',
+        navigationOptions: ({ navigation }) => ({
+          ...getNavigationOptions(I18n.t('more'), faEllipsisV, 36, 10),
+          tabBarOnPress: () => {
+            navigation.dispatch(DrawerActions.toggleDrawer())
+          }
+        })
+      }
+    )
   },
   {
     tabBarOptions: {

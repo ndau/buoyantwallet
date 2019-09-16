@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import I18n from '@src/i18n'
 import { withSafeDarkView } from './BaseScreen'
