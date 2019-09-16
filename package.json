@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.102",
+  "version": "0.1.103",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -10,7 +10,7 @@
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend --skip-tag",
     "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && if command -v pod; then ( cd ios && pod install ); else echo `pod` command not found. No pods were installed.; fi",
-    "postinstall": "npx jetify"
+    "postinstall": "npx jetify && patch-package"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
@@ -31,11 +31,15 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-localize": "^1.2.0",
+    "react-native-reanimated": "^1.2.0",
     "react-native-responsive-screen": "^1.2.2",
     "react-native-screens": "^2.0.0-alpha.3",
-    "react-native-svg": "^9.9.2",
+    "react-native-svg": "^9.9.3",
     "react-native-version-number": "^0.3.6",
-    "react-navigation": "^3.11.1",
+    "react-navigation": "^4.0.5",
+    "react-navigation-drawer": "^2.2.1",
+    "react-navigation-stack": "^1.7.3",
+    "react-navigation-tabs": "^2.5.2",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
@@ -54,6 +58,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
+    "patch-package": "^6.2.0",
     "react-native-version": "^3.1.0",
     "react-test-renderer": "16.9.0"
   },
