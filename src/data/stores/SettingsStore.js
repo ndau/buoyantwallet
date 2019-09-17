@@ -65,7 +65,7 @@ class SettingsStore {
   isMainNet () {
     if (
       this._settings.applicationNetwork &&
-      this._settings.applicationNetwork.toLowerCase() === I18n.t('mainnet')
+      this._settings.applicationNetwork.toLowerCase() === AppConstants.MAINNET
     ) {
       return true
     }
