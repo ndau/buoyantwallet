@@ -16,7 +16,7 @@ const setupNavigationFocusListener = navigation => {
   navigation.addListener('willFocus', async payload => {
     try {
       if (
-        screenStorageFilter.find(element => {
+        !screenStorageFilter.find(element => {
           return element === payload.state.routeName
         })
       ) {
