@@ -1,0 +1,44 @@
+diff --git a/node_modules/@fortawesome/fontawesome-svg-core/index.es.js b/node_modules/@fortawesome/fontawesome-svg-core/index.es.js
+index a8b4653..a0aa9a6 100644
+--- a/node_modules/@fortawesome/fontawesome-svg-core/index.es.js
++++ b/node_modules/@fortawesome/fontawesome-svg-core/index.es.js
+@@ -1589,7 +1589,7 @@ function attributesParser (node) {
+       extraAttributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+     } else {
+       extraAttributes['aria-hidden'] = 'true';
+-      extraAttributes['focusable'] = 'false';
++      extraAttributes['focusable'] = false;
+     }
+   }
+ 
+@@ -2269,7 +2269,7 @@ var icon = resolveIcons(function (iconDefinition) {
+         attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+       } else {
+         attributes['aria-hidden'] = 'true';
+-        attributes['focusable'] = 'false';
++        attributes['focusable'] = false;
+       }
+     }
+ 
+diff --git a/node_modules/@fortawesome/fontawesome-svg-core/index.js b/node_modules/@fortawesome/fontawesome-svg-core/index.js
+index 8b626ff..0bd5f11 100644
+--- a/node_modules/@fortawesome/fontawesome-svg-core/index.js
++++ b/node_modules/@fortawesome/fontawesome-svg-core/index.js
+@@ -1595,7 +1595,7 @@
+         extraAttributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+       } else {
+         extraAttributes['aria-hidden'] = 'true';
+-        extraAttributes['focusable'] = 'false';
++        extraAttributes['focusable'] = false;
+       }
+     }
+ 
+@@ -2275,7 +2275,7 @@
+           attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+         } else {
+           attributes['aria-hidden'] = 'true';
+-          attributes['focusable'] = 'false';
++          attributes['focusable'] = false;
+         }
+       }
+ 

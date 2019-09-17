@@ -17,28 +17,28 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.72</string>
+	<string>0.1.108</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>47</string>
+	<string>83</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<true />
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<true />
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
+				<true />
 			</dict>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string />
 	<key>UIAppFonts</key>
 	<array>
 		<string>opensans-bold.ttf</string>
@@ -51,6 +51,17 @@
 		<string>titilliumweb-italic.ttf</string>
 		<string>titilliumweb-light.ttf</string>
 		<string>titilliumweb-regular.ttf</string>
+		<string>ndau-0.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+		<string>TitilliumWeb-Bold.ttf</string>
+		<string>TitilliumWeb-Italic.ttf</string>
+		<string>TitilliumWeb-Light.ttf</string>
+		<string>TitilliumWeb-Regular.ttf</string>
+		<string>TitilliumWeb-SemiBold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -65,6 +76,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<false />
 </dict>
 </plist>
