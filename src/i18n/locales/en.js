@@ -12,5 +12,6 @@ export default {
   sellndau: 'Sell ndau',
   marketanalysis: 'Market analysis',
   yourreports: 'Your reports',
-  logout: 'Log out'
+  logout: 'Log out',
+  setup: 'Setup'
 }

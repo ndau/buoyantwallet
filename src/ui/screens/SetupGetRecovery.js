@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Text,
-  View,
-  Button,
-  NativeModules,
-  TouchableWithoutFeedback
-} from 'react-native'
+import { Text, View, Button, NativeModules } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
@@ -14,7 +8,7 @@ import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import IndexView from '../components/IndexView'
 import { withSafeDarkView } from './BaseScreen'
 
-class Overview extends React.Component {
+class SetupGetRecovery extends React.Component {
   constructor (props) {
     super(props)
 
@@ -43,14 +37,9 @@ class Overview extends React.Component {
   render () {
     const { applicationNetwork, testBytes } = this.state
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'space-around'
-        }}
-      >
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>
-          {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
+          {I18n.t('setup')} {`v${VersionNumber.appVersion}`}
         </Text>
         <IndexView />
         <Text>{testBytes}</Text>
@@ -78,4 +67,4 @@ class Overview extends React.Component {
   }
 }
 
-export default withSafeDarkView(Overview, I18n.t('overview'))
+export default withSafeDarkView(SetupGetRecovery, I18n.t('setup'))

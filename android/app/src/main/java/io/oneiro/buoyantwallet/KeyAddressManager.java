@@ -1,4 +1,4 @@
-package com.buoyantwallet;
+package io.oneiro.buoyantwallet;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;

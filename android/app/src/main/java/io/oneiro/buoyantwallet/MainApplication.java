@@ -1,4 +1,4 @@
-package com.buoyantwallet;
+package io.oneiro.buoyantwallet;
 
 import android.app.Application;
 
