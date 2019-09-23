@@ -1,12 +1,12 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.120",
+  "version": "0.1.121",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "ios": "npm version patch --force && react-native run-ios --simulator='iPhone SE'",
+    "ios": "npm version patch --force && react-native run-ios --simulator='iPhone X'",
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend --skip-tag",
     "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && if command -v pod; then ( cd ios && pod install ); else echo `pod` command not found. No pods were installed.; fi",
