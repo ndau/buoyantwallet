@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.154",
+  "version": "0.1.155",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -10,6 +10,7 @@
     "android": "react-native run-android",
     "postversion": "react-native-version --never-amend --skip-tag",
     "install": "./scripts/download_from_s3.sh ndau-fonts 1.0.0 && if command -v pod; then ( cd ios && pod install ); else echo `pod` command not found. No pods were installed.; fi",
+    "deploy-ios": "xcrun altool --upload-app --type ios --file ~/Download/buoyantwallet.ipa --apiKey W78X4BTRMG --apiIssuer oneirondev",
     "postinstall": "npx jetify && patch-package"
   },
   "dependencies": {
