@@ -53,8 +53,7 @@ const getNavigationOptions = (title, icon, iconSize, fontSize) => {
           {title}
         </Text>
       )
-    },
-    title: 'WORKS'
+    }
   }
 }
 
@@ -62,7 +61,7 @@ const getNavigationOptions = (title, icon, iconSize, fontSize) => {
 // the headers are invisible. If you want to use those
 // for navigation back and forth you can enable these for
 // that particular screen
-const AppStack = createBottomTabNavigator(
+const HomeStack = createBottomTabNavigator(
   {
     Overview: createDrawerNavigator(
       {
@@ -71,7 +70,8 @@ const AppStack = createBottomTabNavigator(
             Overview
           },
           {
-            headerMode: 'float'
+            headerMode: 'float',
+            headerLayoutPreset: 'center'
           }
         )
       },
@@ -93,7 +93,8 @@ const AppStack = createBottomTabNavigator(
             Buy
           },
           {
-            headerMode: 'float'
+            headerMode: 'float',
+            headerLayoutPreset: 'center'
           }
         )
       },
@@ -115,7 +116,8 @@ const AppStack = createBottomTabNavigator(
             SendReceive
           },
           {
-            headerMode: 'float'
+            headerMode: 'float',
+            headerLayoutPreset: 'center'
           }
         )
       },
@@ -137,7 +139,8 @@ const AppStack = createBottomTabNavigator(
             Todo
           },
           {
-            headerMode: 'float'
+            headerMode: 'float',
+            headerLayoutPreset: 'center'
           }
         )
       },
@@ -159,7 +162,8 @@ const AppStack = createBottomTabNavigator(
             More
           },
           {
-            headerMode: 'float'
+            headerMode: 'float',
+            headerLayoutPreset: 'center'
           }
         )
       },
@@ -199,19 +203,19 @@ const AuthStack = createStackNavigator(
   {
     Authentication
   },
-  { headerMode: 'none' }
+  { headerMode: 'float', headerLayoutPreset: 'center' }
 )
 
 // Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
   { SetupGetRecovery },
-  { headerMode: 'none' }
+  { headerMode: 'float', headerLayoutPreset: 'center' }
 )
 
-const SwitchNavigator = createSwitchNavigator(
+const AppNavigator = createSwitchNavigator(
   {
     AuthLoading: AuthLoading,
-    App: AppStack,
+    App: HomeStack,
     Auth: AuthStack,
     Setup: SetupStack
   },
@@ -220,4 +224,4 @@ const SwitchNavigator = createSwitchNavigator(
   }
 )
 
-export default createAppContainer(SwitchNavigator)
+export default createAppContainer(AppNavigator)

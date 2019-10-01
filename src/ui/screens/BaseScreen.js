@@ -1,13 +1,15 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, TouchableWithoutFeedback } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
-import { faBell } from '@fortawesome/pro-solid-svg-icons'
+import { SafeAreaView, StatusBar } from 'react-native'
 
-export const withSafeDarkView = (WrappedComponent, title) => {
+export const withSafeDarkView = (
+  WrappedComponent,
+  title,
+  headerLeft,
+  headerRight
+) => {
   return class extends React.Component {
     static navigationOptions = {
-      title: title,
+      title,
       headerStyle: {
         backgroundColor: '#15232A'
       },
@@ -15,23 +17,12 @@ export const withSafeDarkView = (WrappedComponent, title) => {
         color: '#8CC74F',
         fontFamily: 'opensans-bold',
         fontWeight: 'bold',
-        flex: 1,
-        textAlign: 'center'
+        flexGrow: 1,
+        textAlign: 'center',
+        alignSelf: 'center'
       },
-      headerLeft: (
-        <TouchableWithoutFeedback>
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            size={28}
-            style={{ color: 'white' }}
-          />
-        </TouchableWithoutFeedback>
-      ),
-      headerRight: (
-        <TouchableWithoutFeedback>
-          <FontAwesomeIcon icon={faBell} size={24} style={{ color: 'white' }} />
-        </TouchableWithoutFeedback>
-      )
+      headerLeft,
+      headerRight
     }
 
     render () {

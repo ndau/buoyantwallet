@@ -1,70 +1,251 @@
 import React from 'react'
-import { Text, View, Button, NativeModules } from 'react-native'
-import SettingsStore from '@src/data/stores/SettingsStore'
-import AppConstants from '@src/data/constants/AppConstants'
-import VersionNumber from 'react-native-version-number'
 import I18n from '@src/i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import IndexView from '../components/IndexView'
 import { withSafeDarkView } from './BaseScreen'
+import {
+  TouchableWithoutFeedback,
+  LayoutAnimation,
+  NativeModules
+} from 'react-native'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import AppConstants from '@src/data/constants/AppConstants'
+import LogStore from '@src/data/stores/LogStore'
+
+const DEFAULT_ROW_LENGTH = 4
 
 class SetupGetRecovery extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      applicationNetwork: SettingsStore.getApplicationNetwork(),
-      testBytes: 'nothing yet...'
+      recoverPhraseFull: false,
+      confirmationError: false,
+      acquisitionError: false,
+      stepNumber: 0,
+      recoveryIndex: 0,
+      disableArrows: true,
+      spinner: false,
+      keyboardShown: false,
+      input: '',
+      wordsArray: []
     }
 
-    SettingsStore.addListener(this.updateSettings)
+    this.index = 0
+
+    // TODO: you can uncomment the below if you need to do some testing
+    // on a known phrase that works with 7MP-4FV prepopulated
+    this.recoveryPhrase = ['', '', '', '', '', '', '', '', '', '', '', '']
+    // this.recoveryPhrase = [
+    //   'crouch',
+    //   'loan',
+    //   'escape',
+    //   'idea',
+    //   'drop',
+    //   'blush',
+    //   'silver',
+    //   'history',
+    //   'gentle',
+    //   'pave',
+    //   'office',
+    //   'ginger'
+    // ]
+
+    this.rowLength = DEFAULT_ROW_LENGTH
 
     NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
-  updateSettings = settings => {
-    this.setState({ applicationNetwork: settings.applicationNetwork })
+  _adjustStepNumber = pageIndex => {
+    this.setState({ stepNumber: pageIndex })
+    if (pageIndex === this.recoveryPhrase.length) {
+      this.setState({ recoverPhraseFull: true })
+    }
   }
 
-  componentDidMount = async () => {
-    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.keyaddrWordsToBytes(
-      'en',
-      'crouch loan escape idea drop blush silver history gentle pave office ginger'
+  // Below are all the functions that the rendered child components
+  // will use
+  addToRecoveryPhrase = value => {
+    this.recoveryPhrase[this.state.recoveryIndex] = value
+  }
+
+  moveToNextWord = async () => {
+    return new Promise(resolve => {
+      // this allows a second prevention to move to the next
+      // word if there are problems, mainly for when keyboard
+      // stays up and user uses return key to progress
+      if (this.state.disableArrows) return
+
+      if (this.state.recoveryIndex <= 11) {
+        const newRecoveryIndex = this.state.recoveryIndex + 1
+        this.setState(
+          {
+            recoveryIndex: newRecoveryIndex,
+            disableArrows: this.recoveryPhrase[newRecoveryIndex] === ''
+          },
+          () => {
+            this._adjustStepNumber(this.state.recoveryIndex)
+            resolve(true)
+          }
+        )
+      }
+    })
+  }
+
+  moveBackAWord = () => {
+    if (this.state.recoveryIndex > 0) {
+      const newRecoveryIndex = this.state.recoveryIndex - 1
+      this.setState(
+        {
+          recoveryIndex: newRecoveryIndex,
+          disableArrows: false
+        },
+        () => {
+          this._adjustStepNumber(this.state.recoveryIndex)
+        }
+      )
+    }
+  }
+
+  nextWord = async () => {
+    LayoutAnimation.easeInEaseOut()
+    if (await this.moveToNextWord()) {
+      this.setState({ input: '', wordsArray: [] })
+    }
+  }
+
+  prevWord = () => {
+    LayoutAnimation.easeInEaseOut()
+    this.moveBackAWord()
+    this.setState({ input: '', wordsArray: [] })
+  }
+
+  handleWords = async text => {
+    const words =
+      text !== ''
+        ? await NativeModules.KeyAddressManager.keyaddrWordsFromPrefix(
+          AppConstants.APP_LANGUAGE,
+          text,
+          6
+        )
+        : ' '
+    this.setState({
+      wordsArray: this.groupArrayIntoRows(words.split(/\s+/g), 3)
+    })
+
+    this.checkIfArrowsNeedToBeDisabled(words, text)
+    this.setAcquisitionError(!words.length)
+    this.addToRecoveryPhrase(text)
+  }
+
+  handleWordClick = async text => {
+    LayoutAnimation.easeInEaseOut()
+    const words = await NativeModules.KeyAddressManager.keyaddrWordsFromPrefix(
+      AppConstants.APP_LANGUAGE,
+      text,
+      6
     )
-    this.setState({ testBytes: recoveryPhraseAsBytes })
+
+    this.setState({ input: text })
+
+    this.checkIfArrowsNeedToBeDisabled(words, text)
+    this.addToRecoveryPhrase(text)
+    this.nextWord()
+  }
+
+  setDisableArrows = value => {
+    this.setState({ disableArrows: value })
+  }
+
+  checkIfArrowsNeedToBeDisabled = (words, textEntered) => {
+    const wordsArray = words.split(' ')
+    let disableArrows = true
+
+    if (words === textEntered) {
+      // if the textEntered matches the full words string then
+      // we have an exact match, so we are all done. this happens
+      // when someone types the whole word
+      disableArrows = false
+    } else if (wordsArray.indexOf(textEntered) >= 0) {
+      // if we have a word that matches in the array of words
+      // then they have typed a word in there which is present
+      // 2 times. For example, if someone types in 'pig', you will
+      // see 'pig' and 'pigeon' in the list. The word 'pig' is a
+      // match, so they can move on...hence we enable the arrows
+      disableArrows = false
+    }
+
+    this.setDisableArrows(disableArrows)
+
+    return disableArrows
+  }
+
+  setAcquisitionError = value => {
+    if (value) {
+      this.setState({ disableArrows: value })
+    }
+    this.setState({ acquisitionError: value })
+  }
+
+  // TODO: REFACTOR THIS!!!
+  /**
+   * Given the array passed in, create a new array that
+   * contains rows.
+   *
+   * @param {Array} arr array to group into rows based on length
+   * @param {number} length row length
+   */
+  groupArrayIntoRows = (arr = [], length) => {
+    let res = []
+    for (let i = 0; i < arr.length; i += length) {
+      res.push(arr.slice(i, i + length))
+    }
+    return res
   }
 
   render () {
-    const { applicationNetwork, testBytes } = this.state
+    const words = this.groupArrayIntoRows(this.recoveryPhrase, this.rowLength)
+
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>
-          {I18n.t('setup')} {`v${VersionNumber.appVersion}`}
-        </Text>
-        <IndexView />
-        <Text>{testBytes}</Text>
-        <Text>{applicationNetwork}</Text>
-        <Button
-          title={I18n.t('devnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)
-          }}
-        />
-        <Button
-          title={I18n.t('testnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
-          }}
-        />
-        <Button
-          title={I18n.t('mainnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
-          }}
-        />
-      </View>
+      <IndexView
+        {...this.props}
+        {...this.state}
+        autoCapitalize='none'
+        error={this.props.error}
+        onChangeText={text => {
+          LayoutAnimation.easeInEaseOut()
+          this.handleWords(text)
+          this.setState({ input: text })
+        }}
+        value={
+          this.state.input || this.recoveryPhrase[this.state.recoveryIndex]
+        }
+        blurOnSubmit={false}
+        onSubmitEditing={this.nextWord}
+        autoCorrect={false}
+        recoveryIndex={this.state.recoveryIndex}
+        recoveryPhrase={this.recoveryPhrase}
+        keyboardShown={this.state.keyboardShown}
+        error={this.state.acquisitionError}
+        errorText='please enter a valid word'
+        moveBackAWord={this.prevWord}
+        moveToNextWord={this.nextWord}
+        words={this.state.wordsArray}
+        addToRecoveryPhrase={this.addToRecoveryPhrase}
+        setDisableArrows={this.setDisableArrows}
+        setAcquisitionError={this.setAcquisitionError}
+        checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
+        handleWordClick={this.handleWordClick}
+      />
     )
   }
 }
 
-export default withSafeDarkView(SetupGetRecovery, I18n.t('setup'))
+export default withSafeDarkView(
+  SetupGetRecovery,
+  I18n.t('setup'),
+  <TouchableWithoutFeedback>
+    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
+  </TouchableWithoutFeedback>
+)

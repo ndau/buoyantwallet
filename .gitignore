@@ -64,3 +64,4 @@ buck-out/
 
 # npmrc can contain secrets for private repos
 .npmrc
+.private_keys
