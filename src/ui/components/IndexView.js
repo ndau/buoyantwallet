@@ -142,7 +142,6 @@ const ButtonWrapper9 = styled.Text`
 const Div10 = styled.View`
   margin-left: auto;
   margin-right: auto;
-  max-width: 940px;
   position: relative;
   display: flex;
   margin-top: 0px;
@@ -307,29 +306,6 @@ const ButtonWrapper21 = styled.Text`
   text-transform: uppercase;
 `
 
-const FadeInView = props => {
-  const [fadeAnim] = useState(new Animated.Value(0)) // Initial value for opacity: 0
-
-  useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: '100%',
-      easing: Easing.bounce(),
-      duration: 2000
-    }).start()
-  }, [])
-
-  return (
-    <Animated.View // Special animatable View
-      style={{
-        ...props.style,
-        height: fadeAnim // Bind opacity to animated value
-      }}
-    >
-      {props.children}
-    </Animated.View>
-  )
-}
-
 class IndexView extends React.Component {
   constructor (props) {
     super(props)
@@ -369,7 +345,10 @@ class IndexView extends React.Component {
 
   render () {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior='padding'>
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={Platform.OS === 'android' ? 160 : 0}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+      >
         <Body>
           <Animated.View style={[{ height: this.imageHeight }]}>
             <Div10>

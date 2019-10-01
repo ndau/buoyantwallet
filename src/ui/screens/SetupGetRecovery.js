@@ -6,7 +6,9 @@ import { withSafeDarkView } from './BaseScreen'
 import {
   TouchableWithoutFeedback,
   LayoutAnimation,
-  NativeModules
+  NativeModules,
+  ScrollView,
+  KeyboardAvoidingView
 } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
@@ -208,36 +210,46 @@ class SetupGetRecovery extends React.Component {
     const words = this.groupArrayIntoRows(this.recoveryPhrase, this.rowLength)
 
     return (
-      <IndexView
-        {...this.props}
-        {...this.state}
-        autoCapitalize='none'
-        error={this.props.error}
-        onChangeText={text => {
-          LayoutAnimation.easeInEaseOut()
-          this.handleWords(text)
-          this.setState({ input: text })
-        }}
-        value={
-          this.state.input || this.recoveryPhrase[this.state.recoveryIndex]
-        }
-        blurOnSubmit={false}
-        onSubmitEditing={this.nextWord}
-        autoCorrect={false}
-        recoveryIndex={this.state.recoveryIndex}
-        recoveryPhrase={this.recoveryPhrase}
-        keyboardShown={this.state.keyboardShown}
-        error={this.state.acquisitionError}
-        errorText='please enter a valid word'
-        moveBackAWord={this.prevWord}
-        moveToNextWord={this.nextWord}
-        words={this.state.wordsArray}
-        addToRecoveryPhrase={this.addToRecoveryPhrase}
-        setDisableArrows={this.setDisableArrows}
-        setAcquisitionError={this.setAcquisitionError}
-        checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
-        handleWordClick={this.handleWordClick}
-      />
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps='always'
+      >
+        <KeyboardAvoidingView
+          keyboardVerticalOffset={Platform.OS === 'android' ? 160 : 0}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+        >
+          <IndexView
+            {...this.props}
+            {...this.state}
+            autoCapitalize='none'
+            error={this.props.error}
+            onChangeText={text => {
+              LayoutAnimation.easeInEaseOut()
+              this.handleWords(text)
+              this.setState({ input: text })
+            }}
+            value={
+              this.state.input || this.recoveryPhrase[this.state.recoveryIndex]
+            }
+            blurOnSubmit={false}
+            onSubmitEditing={this.nextWord}
+            autoCorrect={false}
+            recoveryIndex={this.state.recoveryIndex}
+            recoveryPhrase={this.recoveryPhrase}
+            keyboardShown={this.state.keyboardShown}
+            error={this.state.acquisitionError}
+            errorText='please enter a valid word'
+            moveBackAWord={this.prevWord}
+            moveToNextWord={this.nextWord}
+            words={this.state.wordsArray}
+            addToRecoveryPhrase={this.addToRecoveryPhrase}
+            setDisableArrows={this.setDisableArrows}
+            setAcquisitionError={this.setAcquisitionError}
+            checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
+            handleWordClick={this.handleWordClick}
+          />
+        </KeyboardAvoidingView>
+      </ScrollView>
     )
   }
 }
