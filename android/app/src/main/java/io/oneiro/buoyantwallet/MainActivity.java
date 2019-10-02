@@ -1,4 +1,4 @@
-package com.buoyantwallet;
+package io.oneiro.buoyantwallet;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

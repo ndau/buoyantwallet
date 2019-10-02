@@ -32,7 +32,7 @@ export default (styles = StyleSheet.create({
   drawerText: {
     color: AppConstants.TEXT_COLOR,
     fontFamily: 'Open Sans',
-    fontSize: 18,
+    fontSize: 15,
     marginLeft: wp('2%'),
     paddingTop: 0
   },

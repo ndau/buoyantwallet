@@ -9,6 +9,7 @@ import SendReceive from '@src/ui/screens/SendReceive'
 import Todo from '@src/ui/screens/Todo'
 import Authentication from '@src/ui/screens/Authentication'
 import AuthLoading from './AuthLoading'
+import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -22,6 +23,8 @@ import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import More from '@src/ui/screens/More'
 import AppDrawer from './AppDrawer'
 
+// Helper method to return navigation options that will be
+// used for most screens.
 const getNavigationOptions = (title, icon, iconSize, fontSize) => {
   return {
     tabBarIcon: ({ focused }) => {
@@ -185,13 +188,13 @@ const AppStack = createBottomTabNavigator(
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 8,
-        elevation: 1
+        elevation: 20
       }
     }
   }
 )
 
-// Auth is a separate stack with the header invisible
+// Auth is a separate stack with no header and no bottom menu
 const AuthStack = createStackNavigator(
   {
     Authentication
@@ -199,11 +202,18 @@ const AuthStack = createStackNavigator(
   { headerMode: 'none' }
 )
 
+// Auth is a separate stack with no header and no bottom menu
+const SetupStack = createStackNavigator(
+  { SetupGetRecovery },
+  { headerMode: 'none' }
+)
+
 const SwitchNavigator = createSwitchNavigator(
   {
     AuthLoading: AuthLoading,
     App: AppStack,
-    Auth: AuthStack
+    Auth: AuthStack,
+    Setup: SetupStack
   },
   {
     initialRouteName: 'AuthLoading'

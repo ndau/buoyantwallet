@@ -53,11 +53,7 @@ class AppDrawer extends React.Component {
   }
 
   getVersion () {
-    let version = `V${VersionNumber.appVersion}`
-    if (Platform.OS === 'ios') {
-      version += `.${VersionNumber.buildVersion}`
-    }
-    return version
+    return `V${VersionNumber.appVersion}`
   }
 
   logout = () => {
@@ -134,8 +130,8 @@ class AppDrawer extends React.Component {
                 <DrawerEntryItem
                   fontAwesomeIcon={
                     SettingsStore.getApplicationNetwork() === I18n.t('testnet')
-                      ? { faFlask }
-                      : { faLaptopCode }
+                      ? faFlask
+                      : faLaptopCode
                   }
                 >
                   {SettingsStore.getApplicationNetwork()} environment
