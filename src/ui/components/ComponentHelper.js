@@ -16,6 +16,12 @@ export const createButtons = (props, Button) => {
   })
 }
 
+export const createConfirmationButtons = (props, Button) => {
+  return props.words.map((word, index) => {
+    return <Button key={index}>{item}</Button>
+  })
+}
+
 export const addTextInputAttributes = props => {
   return {
     placeholder: 'Please enter a valid word',
@@ -24,7 +30,7 @@ export const addTextInputAttributes = props => {
     error: props.error,
     value: props.value,
     blurOnSubmit: false,
-    onSubmitEditing: props.nextWord,
+    onSubmitEditing: props.moveToNextWord,
     autoCorrect: false
   }
 }

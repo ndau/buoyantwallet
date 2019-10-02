@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StatusBar } from 'react-native'
+import { SafeAreaView, StatusBar, ScrollView } from 'react-native'
 
 export const withSafeDarkView = (
   WrappedComponent,
@@ -29,7 +29,12 @@ export const withSafeDarkView = (
       return (
         <SafeAreaView style={{ flex: 1 }}>
           <StatusBar barStyle='light-content' />
-          <WrappedComponent {...this.props} />
+          <ScrollView
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps='always'
+          >
+            <WrappedComponent {...this.props} />
+          </ScrollView>
         </SafeAreaView>
       )
     }

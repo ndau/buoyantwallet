@@ -1,14 +1,16 @@
 import React from 'react'
 import I18n from '@src/i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
-import IndexView from '../components/IndexView'
+import GetRecoveryPhrase from '../components/GetRecoveryPhrase'
+import ConfirmRecoveryPhrase from '@src/ui/components/ConfirmRecoveryPhrase'
 import { withSafeDarkView } from './BaseScreen'
 import {
   TouchableWithoutFeedback,
   LayoutAnimation,
   NativeModules,
-  ScrollView,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Animated,
+  Keyboard
 } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
@@ -55,6 +57,7 @@ class SetupGetRecovery extends React.Component {
     // ]
 
     this.rowLength = DEFAULT_ROW_LENGTH
+    this.topPanelHeight = new Animated.Value(137)
 
     NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
@@ -206,19 +209,44 @@ class SetupGetRecovery extends React.Component {
     return res
   }
 
-  render () {
-    const words = this.groupArrayIntoRows(this.recoveryPhrase, this.rowLength)
+  componentWillMount () {
+    this.keyboardWillShowSub = Keyboard.addListener(
+      'keyboardWillShow',
+      this.keyboardWillShow
+    )
+    this.keyboardWillHideSub = Keyboard.addListener(
+      'keyboardWillHide',
+      this.keyboardWillHide
+    )
+  }
 
+  componentWillUnmount () {
+    this.keyboardWillShowSub.remove()
+    this.keyboardWillHideSub.remove()
+  }
+
+  keyboardWillShow = event => {
+    Animated.timing(this.topPanelHeight, {
+      duration: event.duration,
+      toValue: 0
+    }).start()
+  }
+
+  keyboardWillHide = event => {
+    Animated.timing(this.topPanelHeight, {
+      duration: event.duration,
+      toValue: 137
+    }).start()
+  }
+
+  render () {
     return (
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps='always'
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
-        <KeyboardAvoidingView
-          keyboardVerticalOffset={Platform.OS === 'android' ? 160 : 0}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-        >
-          <IndexView
+        {!this.state.recoverPhraseFull ? (
+          <GetRecoveryPhrase
             {...this.props}
             {...this.state}
             autoCapitalize='none'
@@ -247,9 +275,12 @@ class SetupGetRecovery extends React.Component {
             setAcquisitionError={this.setAcquisitionError}
             checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
             handleWordClick={this.handleWordClick}
+            topPanelHeight={this.topPanelHeight}
           />
-        </KeyboardAvoidingView>
-      </ScrollView>
+        ) : (
+          <ConfirmRecoveryPhrase />
+        )}
+      </KeyboardAvoidingView>
     )
   }
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import IndexView from '../components/IndexView'
 import { withSafeDarkView } from './BaseScreen'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
-import { TouchableWithoutFeedback } from 'react-native'
+import { TouchableWithoutFeedback, View } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { faBell } from '@fortawesome/pro-solid-svg-icons'
@@ -16,7 +15,7 @@ class Overview extends React.Component {
   }
 
   render () {
-    return <IndexView />
+    return <View />
   }
 }
 
