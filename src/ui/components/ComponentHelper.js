@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const createButtons = (props, Button) => {
+const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
     return (
       <React.Fragment key={rowIndex}>
@@ -16,13 +16,13 @@ export const createButtons = (props, Button) => {
   })
 }
 
-export const createConfirmationButtons = (props, Button) => {
-  return props.words.map((word, index) => {
+const createConfirmationButtons = (words, Button) => {
+  return words.map((item, index) => {
     return <Button key={index}>{item}</Button>
   })
 }
 
-export const addTextInputAttributes = props => {
+const addTextInputAttributes = props => {
   return {
     placeholder: 'Please enter a valid word',
     onChangeText: props.onChangeText,
@@ -33,4 +33,10 @@ export const addTextInputAttributes = props => {
     onSubmitEditing: props.moveToNextWord,
     autoCorrect: false
   }
+}
+
+export default {
+  createButtons,
+  createConfirmationButtons,
+  addTextInputAttributes
 }

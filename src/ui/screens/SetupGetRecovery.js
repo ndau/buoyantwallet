@@ -278,7 +278,7 @@ class SetupGetRecovery extends React.Component {
             topPanelHeight={this.topPanelHeight}
           />
         ) : (
-          <ConfirmRecoveryPhrase />
+          <ConfirmRecoveryPhrase recoveryPhrase={this.recoveryPhrase} />
         )}
       </KeyboardAvoidingView>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { createButtons, addTextInputAttributes } from './ComponentHelper'
+import ComponentHelper from './ComponentHelper'
 import { Animated } from 'react-native'
 
 const Body = styled.View`
@@ -50,21 +50,21 @@ const Div3 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 8% 3%;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   align-content: flex-start;
   align-self: flex-start;
+  flex: 0 auto;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
-  flex-direction: row;
 `
 
 const ButtonWrapper4 = styled.Text`
-  padding: 9px 15px;
+  padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
   border: 0;
@@ -73,17 +73,18 @@ const ButtonWrapper4 = styled.Text`
   display: flex;
   width: 96%;
   min-height: 48px;
-  margin-top: 16px;
+  margin-top: 16%;
   margin-bottom: 0px;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  flex-direction: row;
 `
 
 const Div5 = styled.View`
@@ -124,21 +125,21 @@ const Div7 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 8% 3%;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   align-content: flex-start;
   align-self: flex-start;
+  flex: 0 auto;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
-  flex-direction: row;
 `
 
 const ButtonWrapper8 = styled.Text`
-  padding: 9px 15px;
+  padding: 3% 5%;
   background-color: #e3f8f0;
   color: #4e957a;
   border: 1px solid #4e957a;
@@ -146,8 +147,8 @@ const ButtonWrapper8 = styled.Text`
   border-radius: 4px;
   display: flex;
   min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
+  margin-right: 2%;
+  margin-bottom: 2%;
   justify-content: center;
   flex-wrap: nowrap;
   align-items: center;
@@ -163,7 +164,7 @@ const ButtonWrapper8 = styled.Text`
 `
 
 const ButtonWrapper9 = styled.Text`
-  padding: 9px 15px;
+  padding: 3% 5%;
   background-color: #e3f8f0;
   color: #4e957a;
   border: 1px solid #4e957a;
@@ -171,8 +172,8 @@ const ButtonWrapper9 = styled.Text`
   border-radius: 4px;
   display: flex;
   min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
+  margin-right: 2%;
+  margin-bottom: 2%;
   justify-content: center;
   flex-wrap: nowrap;
   align-items: center;
@@ -188,257 +189,7 @@ const ButtonWrapper9 = styled.Text`
 `
 
 const ButtonWrapper10 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper11 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper12 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper13 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper14 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper15 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper16 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper17 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper18 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper19 = styled.Text`
-  padding: 9px 15px;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
-const ButtonWrapper20 = styled.Text`
-  padding: 9px 15px;
+  padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
   border: 0;
@@ -447,20 +198,21 @@ const ButtonWrapper20 = styled.Text`
   display: flex;
   width: 96%;
   min-height: 48px;
-  margin-top: 16px;
+  margin-top: 16%;
   margin-bottom: 0px;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  flex-direction: row;
 `
 
-class IndexView extends React.Component {
+class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
@@ -468,23 +220,15 @@ class IndexView extends React.Component {
           <TextWrapper6>Is this the correct recovery phrase?</TextWrapper6>
         </Div5>
         <Div7>
-          <ButtonWrapper8>Chair</ButtonWrapper8>
-          <ButtonWrapper9>Chair</ButtonWrapper9>
-          <ButtonWrapper10>ChaT</ButtonWrapper10>
-          <ButtonWrapper11>ChaT</ButtonWrapper11>
-          <ButtonWrapper12>ChaT</ButtonWrapper12>
-          <ButtonWrapper13>ChaT</ButtonWrapper13>
-          <ButtonWrapper14>ChaT</ButtonWrapper14>
-          <ButtonWrapper15>ChaT</ButtonWrapper15>
-          <ButtonWrapper16>ChaT</ButtonWrapper16>
-          <ButtonWrapper17>ChaT</ButtonWrapper17>
-          <ButtonWrapper18>Chair</ButtonWrapper18>
-          <ButtonWrapper19>Chair</ButtonWrapper19>
-          <ButtonWrapper20>CONFIrM&nbsp;MY&nbsp;phrase</ButtonWrapper20>
+          {ComponentHelper.createConfirmationButtons(
+            this.props.recoveryPhrase,
+            ButtonWrapper9
+          )}
+          <ButtonWrapper10>CONFIrM&nbsp;MY&nbsp;phrase</ButtonWrapper10>
         </Div7>
       </Body>
     )
   }
 }
 
-export default IndexView
+export default BuoyantWalletView
