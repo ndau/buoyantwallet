@@ -1,4 +1,5 @@
 import React from 'react'
+import I18n from '@src/i18n'
 
 const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
@@ -24,7 +25,7 @@ const createConfirmationButtons = (words, Button) => {
 
 const addTextInputAttributes = props => {
   return {
-    placeholder: 'Please enter a valid word',
+    placeholder: I18n.t('pleaseenteravalidword'),
     onChangeText: props.onChangeText,
     autoCapitalize: 'none',
     error: props.error,
