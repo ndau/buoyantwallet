@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.179",
+  "version": "0.1.180",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -21,10 +21,12 @@
     "@fortawesome/react-native-fontawesome": "^0.1.0",
     "@react-native-community/async-storage": "^1.6.1",
     "@react-native-community/cli": "^2.9.0",
+    "crypto-json": "^2.0.2",
     "hermes-engine": "^0.1.1",
     "hermesvm": "^0.1.1",
     "i18n-js": "^3.3.0",
     "moment": "^2.24.0",
+    "ndaujs": "github:oneiro-ndev/ndaujs",
     "react": "16.9.0",
     "react-native": "0.61.0-rc.2",
     "react-native-gesture-handler": "^1.4.1",
