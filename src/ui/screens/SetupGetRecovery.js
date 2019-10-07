@@ -209,7 +209,7 @@ class SetupGetRecovery extends React.Component {
     return res
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.keyboardWillShowSub = Keyboard.addListener(
       'keyboardWillShow',
       this.keyboardWillShow
@@ -238,6 +238,13 @@ class SetupGetRecovery extends React.Component {
       toValue: 137
     }).start()
   }
+
+  // _recoverUser = async () => {
+  //   return await RecoveryPhraseHelper.recoverUser(
+  //     DataFormatHelper.convertRecoveryArrayToString(this.recoveryPhrase),
+  //     UserStore.getUser()
+  //   )
+  // }
 
   render () {
     return (
