@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.180",
+  "version": "0.1.181",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -29,6 +29,7 @@
     "ndaujs": "github:oneiro-ndev/ndaujs",
     "react": "16.9.0",
     "react-native": "0.61.0-rc.2",
+    "react-native-crypto": "^2.2.0",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-i18n": "^2.0.15",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
