@@ -1,11 +1,14 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, TouchableWithoutFeedback } from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import I18n from '@src/i18n'
 import VersionNumber from 'react-native-version-number'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import { withSafeDarkView } from './BaseScreen'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { faBell } from '@fortawesome/pro-solid-svg-icons'
 
 class Buy extends React.Component {
   constructor (props) {
@@ -55,4 +58,13 @@ class Buy extends React.Component {
   }
 }
 
-export default withSafeDarkView(Buy, I18n.t('buy'))
+export default withSafeDarkView(
+  Buy,
+  I18n.t('buy'),
+  <TouchableWithoutFeedback>
+    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
+  </TouchableWithoutFeedback>,
+  <TouchableWithoutFeedback>
+    <FontAwesomeIcon icon={faBell} size={24} style={{ color: 'white' }} />
+  </TouchableWithoutFeedback>
+)

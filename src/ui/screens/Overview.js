@@ -1,18 +1,14 @@
 import React from 'react'
-import {
-  Text,
-  View,
-  Button,
-  NativeModules,
-  TouchableWithoutFeedback
-} from 'react-native'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import AppConstants from '@src/data/constants/AppConstants'
 import VersionNumber from 'react-native-version-number'
 import I18n from '@src/i18n'
-import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
-import IndexView from '../components/IndexView'
 import { withSafeDarkView } from './BaseScreen'
+import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
+import { TouchableWithoutFeedback, View, Text, Button } from 'react-native'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { faBell } from '@fortawesome/pro-solid-svg-icons'
 
 class Overview extends React.Component {
   constructor (props) {
@@ -42,6 +38,7 @@ class Overview extends React.Component {
 
   render () {
     const { applicationNetwork, testBytes } = this.state
+
     return (
       <View
         style={{
@@ -78,4 +75,13 @@ class Overview extends React.Component {
   }
 }
 
-export default withSafeDarkView(Overview, I18n.t('overview'))
+export default withSafeDarkView(
+  Overview,
+  I18n.t('overview'),
+  <TouchableWithoutFeedback>
+    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
+  </TouchableWithoutFeedback>,
+  <TouchableWithoutFeedback>
+    <FontAwesomeIcon icon={faBell} size={24} style={{ color: 'white' }} />
+  </TouchableWithoutFeedback>
+)

@@ -8,11 +8,11 @@ class AuthLoadingScreen extends React.Component {
   constructor (props) {
     super(props)
 
-    if (__DEV__) {
-      this._bootstrapDev()
-    } else {
-      this._bootstrap()
-    }
+    // if (__DEV__) {
+    //   this._bootstrapDev()
+    // } else {
+    this._bootstrap()
+    // }
   }
 
   /**
@@ -34,10 +34,23 @@ class AuthLoadingScreen extends React.Component {
    */
   _bootstrap = async () => {
     LogStore.log('Bootstraping PROD...')
-    try {
-      this.props.navigation.navigate('Authentication')
-    } catch (error) {
-      // TODO LOG ERROR
+
+    // TODO: This is the final implementation once we have
+    // TODO: everything in ndaujs
+    // const multiSafes = await MultiSafe.isAMultiSafePresent()
+    const multiSafes = false
+    if (!multiSafes) {
+      try {
+        this.props.navigation.navigate('Setup')
+      } catch (error) {
+        // TODO LOG ERROR
+      }
+    } else {
+      try {
+        this.props.navigation.navigate('Authentication')
+      } catch (error) {
+        // TODO LOG ERROR
+      }
     }
   }
 

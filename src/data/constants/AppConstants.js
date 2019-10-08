@@ -18,6 +18,9 @@ const APPLICATION_NETWORK = 'bwApplicationNetwork'
 const TEXT_COLOR = '#FFFFFF'
 const DRAWER_ICON_COLOR = '#4B9176'
 
+// Application specific properties
+const APP_LANGUAGE = 'en'
+
 export default {
   HARDENED_CHILD_BIP_44,
   ACCOUNT_CREATION_KEY_CHILD,
@@ -30,5 +33,6 @@ export default {
   LAST_SCREEN_FOCUSED,
   APPLICATION_NETWORK,
   TEXT_COLOR,
-  DRAWER_ICON_COLOR
+  DRAWER_ICON_COLOR,
+  APP_LANGUAGE
 }
