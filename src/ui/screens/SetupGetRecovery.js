@@ -273,7 +273,6 @@ class SetupGetRecovery extends React.Component {
             recoveryPhrase={this.recoveryPhrase}
             keyboardShown={this.state.keyboardShown}
             error={this.state.acquisitionError}
-            errorText='please enter a valid word'
             moveBackAWord={this.prevWord}
             moveToNextWord={this.nextWord}
             words={this.state.wordsArray}

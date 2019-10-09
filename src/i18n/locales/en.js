@@ -13,5 +13,6 @@ export default {
   marketanalysis: 'Market analysis',
   yourreports: 'Your reports',
   logout: 'Log out',
-  setup: 'Setup'
+  setup: 'Setup',
+  pleaseenteravalidword: 'Please enter a valid word'
 }
