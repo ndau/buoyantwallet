@@ -27,7 +27,7 @@ export default class Dashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.keyaddrWordsToBytes(
+    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.wordsToBytes(
       'en',
       'crouch loan escape idea drop blush silver history gentle pave office ginger'
     )

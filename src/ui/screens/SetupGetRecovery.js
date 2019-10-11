@@ -129,7 +129,7 @@ class SetupGetRecovery extends React.Component {
   handleWords = async text => {
     const words =
       text !== ''
-        ? await NativeModules.KeyAddressManager.keyaddrWordsFromPrefix(
+        ? await NativeModules.KeyAddressManager.wordsFromPrefix(
           AppConstants.APP_LANGUAGE,
           text,
           6
@@ -146,7 +146,7 @@ class SetupGetRecovery extends React.Component {
 
   handleWordClick = async text => {
     LayoutAnimation.easeInEaseOut()
-    const words = await NativeModules.KeyAddressManager.keyaddrWordsFromPrefix(
+    const words = await NativeModules.KeyAddressManager.wordsFromPrefix(
       AppConstants.APP_LANGUAGE,
       text,
       6
@@ -284,7 +284,11 @@ class SetupGetRecovery extends React.Component {
             topPanelHeight={this.topPanelHeight}
           />
         ) : (
-          <ConfirmRecoveryPhrase recoveryPhrase={this.recoveryPhrase} />
+          <ConfirmRecoveryPhrase
+            {...this.props}
+            {...this.state}
+            recoveryPhrase={this.recoveryPhrase}
+          />
         )}
       </KeyboardAvoidingView>
     )

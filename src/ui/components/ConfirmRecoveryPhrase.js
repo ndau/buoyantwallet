@@ -224,7 +224,9 @@ class BuoyantWalletView extends React.Component {
             this.props.recoveryPhrase,
             ButtonWrapper9
           )}
-          <ButtonWrapper10>CONFIrM&nbsp;MY&nbsp;phrase</ButtonWrapper10>
+          <ButtonWrapper10 {...ComponentHelper.addConfirmRecovery(this.props)}>
+            CONFIrM&nbsp;MY&nbsp;phrase
+          </ButtonWrapper10>
         </Div7>
       </Body>
     )

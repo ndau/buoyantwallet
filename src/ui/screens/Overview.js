@@ -29,7 +29,7 @@ class Overview extends React.Component {
   }
 
   componentDidMount = async () => {
-    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.keyaddrWordsToBytes(
+    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.wordsToBytes(
       'en',
       'crouch loan escape idea drop blush silver history gentle pave office ginger'
     )
@@ -49,7 +49,6 @@ class Overview extends React.Component {
         <Text>
           {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
         </Text>
-        <IndexView />
         <Text>{testBytes}</Text>
         <Text>{applicationNetwork}</Text>
         <Button
