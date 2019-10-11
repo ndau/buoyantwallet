@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.205",
+  "version": "0.1.206",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -39,6 +39,7 @@
     "react-native-reanimated": "^1.2.0",
     "react-native-responsive-screen": "^1.2.2",
     "react-native-screens": "^2.0.0-alpha.3",
+    "react-native-securerandom": "^1.0.0-rc.0",
     "react-native-svg": "^9.9.3",
     "react-native-version-number": "^0.3.6",
     "react-navigation": "^4.0.5",
