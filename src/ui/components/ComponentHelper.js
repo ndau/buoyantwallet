@@ -40,10 +40,7 @@ const addTextInputAttributes = props => {
 const addConfirmRecovery = props => {
   return {
     onPress: async () => {
-      const user = await RecoveryPhraseHelper.default.recoverUser(
-        props.recoveryPhrase
-      )
-      console.log(JSON.stringify(user, null, 2))
+      await RecoveryPhraseHelper.default.recoverUser(props.recoveryPhrase)
       props.navigation.navigate('Overview')
     }
   }
