@@ -17,7 +17,9 @@ class SetupPassword extends React.Component {
     super(props)
 
     this.state = {
-      showThePassword: false
+      password: '',
+      confirmPassword: '',
+      showPasswords: false
     }
 
     this.textAreaHeight = 150
@@ -55,7 +57,13 @@ class SetupPassword extends React.Component {
     }).start()
   }
 
-  showPassword = event => {}
+  setPassword = password => {
+    this.setState({ password })
+  }
+
+  setConfirmPassword = confirmPassword => {
+    this.setState({ confirmPassword })
+  }
 
   render () {
     return (
@@ -67,10 +75,12 @@ class SetupPassword extends React.Component {
           {...this.props}
           {...this.state}
           topPanelHeight={this.topPanelHeight}
+          setPassword={this.setPassword}
+          setConfirmPassword={this.setConfirmPassword}
           checkBox={
             <CheckBox
-              onValueChange={value => this.setState({ showThePassword: value })}
-              checked={this.state.showThePassword}
+              onValueChange={value => this.setState({ showPasswords: value })}
+              checked={this.state.showPasswords}
               label='Show password'
             />
           }

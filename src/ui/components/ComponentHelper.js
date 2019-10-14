@@ -46,9 +46,32 @@ const addConfirmRecovery = props => {
   }
 }
 
+const addPasswordAttributes = props => {
+  return {
+    onChangeText: password => props.setPassword(password),
+    value: props.password,
+    placeholder: I18n.t('enterapassword'),
+    secureTextEntry: !props.showPasswords,
+    autoCapitalize: 'none'
+  }
+}
+
+const addConfirmPasswordAttributes = props => {
+  return {
+    onChangeText: password => props.setConfirmPassword(password),
+    value: props.confirmPassword,
+    placeholder: I18n.t('enterapassword'),
+    secureTextEntry: !props.showPasswords,
+    autoCapitalize: 'none',
+    onSubmitEditing: props.showNextSetup
+  }
+}
+
 export default {
   createButtons,
   createConfirmationButtons,
   addTextInputAttributes,
-  addConfirmRecovery
+  addConfirmRecovery,
+  addPasswordAttributes,
+  addConfirmPasswordAttributes
 }

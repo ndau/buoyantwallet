@@ -14,5 +14,6 @@ export default {
   yourreports: 'Your reports',
   logout: 'Log out',
   setup: 'Setup',
-  pleaseenteravalidword: 'Please enter a valid word'
+  pleaseenteravalidword: 'Please enter a valid word',
+  enterapassword: 'Enter a password'
 }

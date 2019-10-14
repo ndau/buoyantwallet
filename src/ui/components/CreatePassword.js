@@ -1022,11 +1022,15 @@ class BuoyantWalletView extends React.Component {
         <Div52>
           <Div53>
             <TextWrapper54>Password</TextWrapper54>
-            <TextInputWrapper55 placeholder='Enter a password' />
+            <TextInputWrapper55
+              {...ComponentHelper.addPasswordAttributes(this.props)}
+            />
           </Div53>
           <Div56>
             <TextWrapper57>Password</TextWrapper57>
-            <TextInputWrapper58 placeholder='Enter a password' />
+            <TextInputWrapper58
+              {...ComponentHelper.addConfirmPasswordAttributes(this.props)}
+            />
             {this.props.checkBox}
           </Div56>
           <ButtonWrapper61>next</ButtonWrapper61>
