@@ -10,10 +10,15 @@ import {
 } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { CheckBox } from '@src/ui/components'
 
 class SetupPassword extends React.Component {
   constructor (props) {
     super(props)
+
+    this.state = {
+      showThePassword: false
+    }
 
     this.textAreaHeight = 150
 
@@ -50,6 +55,8 @@ class SetupPassword extends React.Component {
     }).start()
   }
 
+  showPassword = event => {}
+
   render () {
     return (
       <KeyboardAvoidingView
@@ -60,6 +67,13 @@ class SetupPassword extends React.Component {
           {...this.props}
           {...this.state}
           topPanelHeight={this.topPanelHeight}
+          checkBox={
+            <CheckBox
+              onValueChange={value => this.setState({ showThePassword: value })}
+              checked={this.state.showThePassword}
+              label='Show password'
+            />
+          }
         />
       </KeyboardAvoidingView>
     )
