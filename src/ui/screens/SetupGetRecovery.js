@@ -37,24 +37,7 @@ class SetupGetRecovery extends React.Component {
     }
 
     this.index = 0
-
-    // TODO: you can uncomment the below if you need to do some testing
-    // on a known phrase that works with 7MP-4FV prepopulated
     this.recoveryPhrase = ['', '', '', '', '', '', '', '', '', '', '', '']
-    // this.recoveryPhrase = [
-    //   'crouch',
-    //   'loan',
-    //   'escape',
-    //   'idea',
-    //   'drop',
-    //   'blush',
-    //   'silver',
-    //   'history',
-    //   'gentle',
-    //   'pave',
-    //   'office',
-    //   'ginger'
-    // ]
 
     this.rowLength = DEFAULT_ROW_LENGTH
     this.topPanelHeight = new Animated.Value(137)
@@ -238,13 +221,6 @@ class SetupGetRecovery extends React.Component {
       toValue: 137
     }).start()
   }
-
-  // _recoverUser = async () => {
-  //   return await RecoveryPhraseHelper.recoverUser(
-  //     DataFormatHelper.convertRecoveryArrayToString(this.recoveryPhrase),
-  //     UserStore.getUser()
-  //   )
-  // }
 
   render () {
     return (
