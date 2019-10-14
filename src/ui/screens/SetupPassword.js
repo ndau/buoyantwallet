@@ -15,7 +15,9 @@ class SetupPassword extends React.Component {
   constructor (props) {
     super(props)
 
-    this.topPanelHeight = new Animated.Value(137)
+    this.textAreaHeight = 150
+
+    this.topPanelHeight = new Animated.Value(this.textAreaHeight)
   }
 
   componentDidMount () {
@@ -44,14 +46,14 @@ class SetupPassword extends React.Component {
   keyboardWillHide = event => {
     Animated.timing(this.topPanelHeight, {
       duration: event.duration,
-      toValue: 137
+      toValue: this.textAreaHeight
     }).start()
   }
 
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
+        keyboardVerticalOffset={Platform.OS === 'android' ? 0 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreatePassword
