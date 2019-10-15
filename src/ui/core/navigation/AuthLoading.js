@@ -3,6 +3,7 @@ import { ActivityIndicator, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import AppConstants from '@src/data/constants/AppConstants'
 import LogStore from '@src/data/stores/LogStore'
+import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
 
 class AuthLoadingScreen extends React.Component {
   constructor (props) {
@@ -35,10 +36,7 @@ class AuthLoadingScreen extends React.Component {
   _bootstrap = async () => {
     LogStore.log('Bootstraping PROD...')
 
-    // TODO: This is the final implementation once we have
-    // TODO: everything in ndaujs
-    // const multiSafes = await MultiSafe.isAMultiSafePresent()
-    const multiSafes = false
+    const multiSafes = await MultiSafeHelper.isAMultiSafePresent()
     if (!multiSafes) {
       try {
         this.props.navigation.navigate('SetupGetRecovery')

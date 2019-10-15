@@ -22,10 +22,10 @@ class SetupTermsAndConditions extends React.Component {
   next = () => {
     if (this.state.iAgree) {
       this.setState({ spinner: true }, async () => {
-        await MultiSafeHelper.saveUser(
-          user,
-          password,
-          DataFormatHelper.convertRecoveryArrayToString(
+        await MultiSafeHelper.default.saveUser(
+          SetupStore.user,
+          SetupStore.encryptionPassword,
+          DataFormatHelper.default.convertRecoveryArrayToString(
             SetupStore.recoveryPhrase
           )
         )
