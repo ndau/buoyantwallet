@@ -17,6 +17,7 @@ const APPLICATION_NETWORK = 'bwApplicationNetwork'
 // Comon UI Colors
 const TEXT_COLOR = '#FFFFFF'
 const DRAWER_ICON_COLOR = '#4B9176'
+const WARNING_ICON_COLOR = '#F05123'
 
 // Application specific properties
 const APP_LANGUAGE = 'en'
@@ -34,5 +35,6 @@ export default {
   APPLICATION_NETWORK,
   TEXT_COLOR,
   DRAWER_ICON_COLOR,
-  APP_LANGUAGE
+  APP_LANGUAGE,
+  WARNING_ICON_COLOR
 }

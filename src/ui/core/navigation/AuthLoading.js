@@ -41,7 +41,7 @@ class AuthLoadingScreen extends React.Component {
     const multiSafes = false
     if (!multiSafes) {
       try {
-        this.props.navigation.navigate('SetupPassword')
+        this.props.navigation.navigate('SetupGetRecovery')
       } catch (error) {
         // TODO LOG ERROR
       }

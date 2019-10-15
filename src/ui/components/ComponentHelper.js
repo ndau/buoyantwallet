@@ -1,6 +1,6 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import { RecoveryPhraseHelper } from 'ndaujs'
+import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
 
 const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
@@ -39,10 +39,7 @@ const addTextInputAttributes = props => {
 
 const addConfirmRecovery = props => {
   return {
-    onPress: async () => {
-      await RecoveryPhraseHelper.default.recoverUser(props.recoveryPhrase)
-      props.navigation.navigate('Overview')
-    }
+    onPress: props.confirmRecovery
   }
 }
 
@@ -63,7 +60,32 @@ const addConfirmPasswordAttributes = props => {
     placeholder: I18n.t('enterapassword'),
     secureTextEntry: !props.showPasswords,
     autoCapitalize: 'none',
-    onSubmitEditing: props.showNextSetup
+    onSubmitEditing: props.confirmedPassword
+  }
+}
+
+const addConfirmPasswordButtonAttributes = props => {
+  return {
+    onPress: props.confirmedPassword
+  }
+}
+
+const addWalletNameAttributes = props => {
+  return {
+    placeholder: I18n.t('exdefaultwallet'),
+    onChangeText: props.onChangeText,
+    autoCapitalize: 'none',
+    error: props.error,
+    value: props.value,
+    blurOnSubmit: false,
+    onSubmitEditing: props.next,
+    autoCorrect: false
+  }
+}
+
+const addButtonAttributes = props => {
+  return {
+    onPress: props.next
   }
 }
 
@@ -73,5 +95,8 @@ export default {
   addTextInputAttributes,
   addConfirmRecovery,
   addPasswordAttributes,
-  addConfirmPasswordAttributes
+  addConfirmPasswordAttributes,
+  addConfirmPasswordButtonAttributes,
+  addWalletNameAttributes,
+  addButtonAttributes
 }

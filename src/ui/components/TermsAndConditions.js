@@ -623,7 +623,6 @@ const Div36 = styled.View`
 `
 
 const Div37 = styled.View`
-  float: left;
   margin-bottom: 0px;
   margin-left: -20px;
   margin-right: 0px;
@@ -655,390 +654,39 @@ const ButtonWrapper38 = styled.Text`
   text-transform: uppercase;
 `
 
-const Div39 = styled.View`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 940px;
-  position: relative;
-  display: flex;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
-`
-
-const TextWrapper40 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const TextWrapper41 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const ButtonWrapper42 = styled.Text`
-  padding: 3.2% 5%;
-  background-color: #f99d1c;
-  color: #fff;
-  border: 0;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  width: 96%;
-  min-height: 48px;
-  margin-top: 16%;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-`
-
-const Div43 = styled.View`
-  margin: 0 0 15px;
-  flex-direction: row;
-`
-
-const TextInputWrapper44 = styled.TextInput`
-  flex-direction: row;
-  flex-grow: 1;
-`
-
-const ButtonWrapper45 = styled.Text`
-  padding: 9px 15px;
-  background-color: #3898ec;
-  color: white;
-  border: 0;
-  text-decoration: none;
-  border-radius: 0;
-  flex-direction: row;
-`
-
-const Div46 = styled.View`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 940px;
-  position: relative;
-  display: flex;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
-`
-
-const TextWrapper47 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const Div48 = styled.View`
-  position: relative;
-  display: flex;
-  width: 100%;
-  padding: 8% 3%;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  background-color: #fff;
-`
-
-const ButtonWrapper49 = styled.Text`
-  padding: 3.2% 5%;
-  background-color: #f99d1c;
-  color: #fff;
-  border: 0;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  width: 96%;
-  min-height: 48px;
-  margin-top: 16%;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-`
-
-const Div50 = styled.View`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 940px;
-  position: relative;
-  display: flex;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
-`
-
-const TextWrapper51 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const Div52 = styled.View`
-  position: relative;
-  display: flex;
-  width: 100%;
-  padding: 8% 3%;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  background-color: #fff;
-`
-
-const Div53 = styled.View`
-  margin: 0 0 15px;
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-self: center;
-  flex: 0 auto;
-`
-
-const TextWrapper54 = styled.Text`
-  display: flex;
-  width: 100%;
-  padding-top: 0px;
-  padding-bottom: 4px;
-  justify-content: flex-start;
-  align-items: baseline;
-  font-family: opensans-regular;
-  color: #15232a;
-  font-size: 18px;
-  font-weight: 400;
-  flex-direction: row;
-`
-
-const TextInputWrapper55 = styled.TextInput`
-  overflow: visible;
-  width: 100%;
-  min-height: 48px;
-  min-width: auto;
-  margin-bottom: 0px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  align-self: center;
-  flex: 0 auto;
-  border: 1px solid #e4e9f2;
-  border-radius: 4px;
-  background-color: #f7f9fc;
-  font-family: opensans-regular;
-  color: #8f9bb3;
-  font-size: 15px;
-  flex-direction: row;
-`
-
-const Div56 = styled.View`
-  margin: 0 0 15px;
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-self: center;
-  flex: 0 auto;
-`
-
-const TextWrapper57 = styled.Text`
-  display: flex;
-  width: 100%;
-  padding-top: 0px;
-  padding-bottom: 4px;
-  justify-content: flex-start;
-  align-items: baseline;
-  font-family: opensans-regular;
-  color: #15232a;
-  font-size: 18px;
-  font-weight: 400;
-  flex-direction: row;
-`
-
-const TextInputWrapper58 = styled.TextInput`
-  overflow: visible;
-  width: 100%;
-  min-height: 48px;
-  min-width: auto;
-  margin-bottom: 0px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  align-self: center;
-  flex: 0 auto;
-  border: 1px solid #e4e9f2;
-  border-radius: 4px;
-  background-color: #f7f9fc;
-  font-family: opensans-regular;
-  color: #8f9bb3;
-  font-size: 15px;
-  flex-direction: row;
-`
-
-const Div59 = styled.View`
-  margin-bottom: 0px;
-  margin-left: -20px;
-  margin-right: 0px;
-  margin-top: 4px;
-  flex-direction: row;
-`
-
-const TextWrapper60 = styled.Text`
-  font-weight: normal;
-  margin-bottom: 0px;
-  padding-left: 0%;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex: 0 auto;
-`
-
-const ButtonWrapper61 = styled.Text`
-  padding: 3.2% 5%;
-  background-color: #f99d1c;
-  color: #fff;
-  border: 0;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  width: 96%;
-  min-height: 48px;
-  margin-top: 16%;
-  margin-bottom: 0px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-`
-
 class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Animated.View style={[{ height: this.props.topPanelHeight }]}>
-          <Div50>
-            <TextWrapper51>
-              Data in this app will be encrypted to protect your ndau. You will
-              need to enter a password to decrypt it whenever you open this app.
-            </TextWrapper51>
-          </Div50>
-        </Animated.View>
-        <Div52>
-          <Div53>
-            <TextWrapper54>Password</TextWrapper54>
-            <TextInputWrapper55
-              {...ComponentHelper.addPasswordAttributes(this.props)}
-            />
-          </Div53>
-          <Div56>
-            <TextWrapper57>Password</TextWrapper57>
-            <TextInputWrapper58
-              {...ComponentHelper.addConfirmPasswordAttributes(this.props)}
-            />
-            {this.props.checkBox}
-          </Div56>
-          <ButtonWrapper61
-            {...ComponentHelper.addConfirmPasswordButtonAttributes(this.props)}
-          >
+        <Div31>
+          <TextWrapper32>
+            [DRAFT] IMPORTANT LEGAL INFORMATION FOR NDAU HOLDERS
+          </TextWrapper32>
+        </Div31>
+        <Div33>
+          <TextWrapper34>
+            All POTENTIAL ndau holders should acknowledge that while the Target
+            Price may rise AS ADOPTION MOVES along the S-curve there is no
+            guarantee that this will happen. &nbsp;There is no guarantee that a
+            holder of ndau WILL get any particular minimum price upon selling.
+            &nbsp;The Floor Price is not an absolute guaranteed price.
+            &nbsp;There may be temporary or permanent liquidity constraints.
+            &nbsp;Further, as the Floor Price is dependent on the dynamic value
+            of the Endowment, it will rise and fall accordingly to that value
+            and other factors.All POTENTIAL ndau holders should understand that
+            features such as the STABILIZATION INCENTIVE BURN
+            (&ldquo;SIB&rdquo;) cannot apply to off-blockchain &nbsp;etc
+          </TextWrapper34>
+          <Div35>
+            <Div36>
+              <Div37 />
+            </Div36>
+          </Div35>
+          {this.props.checkBox}
+          <ButtonWrapper38 {...ComponentHelper.addButtonAttributes(this.props)}>
             next
-          </ButtonWrapper61>
-        </Div52>
+          </ButtonWrapper38>
+        </Div33>
       </Body>
     )
   }

@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import AppConstants from '@src/data/constants/AppConstants'
 import LogStore from '@src/data/stores/LogStore'
+import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
+import WaitingForBlockchainSpinner from './WaitingForBlockchainSpinner'
 
 const DEFAULT_ROW_LENGTH = 4
 
@@ -33,7 +35,8 @@ class SetupGetRecovery extends React.Component {
       spinner: false,
       keyboardShown: false,
       input: '',
-      wordsArray: []
+      wordsArray: [],
+      spinner: false
     }
 
     this.index = 0
@@ -222,12 +225,25 @@ class SetupGetRecovery extends React.Component {
     }).start()
   }
 
+  confirmRecovery = async () => {
+    this.setState({ spinner: true }, async () => {
+      const user = await RecoveryPhraseHelper.default.recoverUser(
+        this.recoveryPhrase
+      )
+      SetupStore.user = user
+      SetupStore.recoveryPhrase = this.recoveryPhrase
+      this.props.navigation.navigate('SetupPassword')
+      this.setState({ spinner: false })
+    })
+  }
+
   render () {
     return (
       <KeyboardAvoidingView
         keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
+        <WaitingForBlockchainSpinner spinner={this.state.spinner} />
         {!this.state.recoverPhraseFull ? (
           <GetRecoveryPhrase
             {...this.props}
@@ -264,6 +280,7 @@ class SetupGetRecovery extends React.Component {
             {...this.props}
             {...this.state}
             recoveryPhrase={this.recoveryPhrase}
+            confirmRecovery={this.confirmRecovery}
           />
         )}
       </KeyboardAvoidingView>

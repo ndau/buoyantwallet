@@ -15,5 +15,8 @@ export default {
   logout: 'Log out',
   setup: 'Setup',
   pleaseenteravalidword: 'Please enter a valid word',
-  enterapassword: 'Enter a password'
+  enterapassword: 'Enter a password',
+  exdefaultwallet: 'ex. default wallet',
+  showpassword: 'Show password',
+  iagree: 'I agree'
 }
