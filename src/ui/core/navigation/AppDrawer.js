@@ -93,21 +93,21 @@ class AppDrawer extends React.Component {
               onPress={() => this.dashboard()}
               fontAwesomeIcon={faHome}
             >
-              {I18n.t('sellndau')}
+              {I18n.t('sell-ndau')}
             </DrawerEntryItem>
 
             <DrawerEntryItem
               onPress={() => this.addWallet()}
               fontAwesomeIcon={faPlusSquare}
             >
-              {I18n.t('marketanalysis')}
+              {I18n.t('market-analysis')}
             </DrawerEntryItem>
 
             <DrawerEntryItem
               onPress={() => this.recoverWallet()}
               fontAwesomeIcon={faClock}
             >
-              {I18n.t('yourreports')}
+              {I18n.t('your-reports')}
             </DrawerEntryItem>
 
             <DrawerEntryItem
@@ -121,7 +121,7 @@ class AppDrawer extends React.Component {
               onPress={() => this.showSettings()}
               fontAwesomeIcon={faCommentAlt}
             >
-              {I18n.t('contactsupport')}
+              {I18n.t('contact-support')}
             </DrawerEntryItem>
 
             {!SettingsStore.isMainNet() ? (

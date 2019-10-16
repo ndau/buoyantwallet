@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import AppConstants from '@src/data/constants/AppConstants'
 import LogStore from '@src/data/stores/LogStore'
+import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
+import WaitSpinner from './WaitSpinner'
 
 const DEFAULT_ROW_LENGTH = 4
 
@@ -33,28 +35,12 @@ class SetupGetRecovery extends React.Component {
       spinner: false,
       keyboardShown: false,
       input: '',
-      wordsArray: []
+      wordsArray: [],
+      spinner: false
     }
 
     this.index = 0
-
-    // TODO: you can uncomment the below if you need to do some testing
-    // on a known phrase that works with 7MP-4FV prepopulated
     this.recoveryPhrase = ['', '', '', '', '', '', '', '', '', '', '', '']
-    // this.recoveryPhrase = [
-    //   'crouch',
-    //   'loan',
-    //   'escape',
-    //   'idea',
-    //   'drop',
-    //   'blush',
-    //   'silver',
-    //   'history',
-    //   'gentle',
-    //   'pave',
-    //   'office',
-    //   'ginger'
-    // ]
 
     this.rowLength = DEFAULT_ROW_LENGTH
     this.topPanelHeight = new Animated.Value(137)
@@ -239,12 +225,17 @@ class SetupGetRecovery extends React.Component {
     }).start()
   }
 
-  // _recoverUser = async () => {
-  //   return await RecoveryPhraseHelper.recoverUser(
-  //     DataFormatHelper.convertRecoveryArrayToString(this.recoveryPhrase),
-  //     UserStore.getUser()
-  //   )
-  // }
+  confirmRecovery = async () => {
+    this.setState({ spinner: true }, async () => {
+      const user = await RecoveryPhraseHelper.default.recoverUser(
+        this.recoveryPhrase
+      )
+      SetupStore.user = user
+      SetupStore.recoveryPhrase = this.recoveryPhrase
+      this.props.navigation.navigate('SetupPassword')
+      this.setState({ spinner: false })
+    })
+  }
 
   render () {
     return (
@@ -252,6 +243,10 @@ class SetupGetRecovery extends React.Component {
         keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
+        <WaitSpinner
+          spinner={this.state.spinner}
+          label={I18n.t('talking-to-blockchain')}
+        />
         {!this.state.recoverPhraseFull ? (
           <GetRecoveryPhrase
             {...this.props}
@@ -288,6 +283,7 @@ class SetupGetRecovery extends React.Component {
             {...this.props}
             {...this.state}
             recoveryPhrase={this.recoveryPhrase}
+            confirmRecovery={this.confirmRecovery}
           />
         )}
       </KeyboardAvoidingView>

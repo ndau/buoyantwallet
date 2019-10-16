@@ -9,6 +9,7 @@ import { TouchableWithoutFeedback, View, Text, Button } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { faBell } from '@fortawesome/pro-solid-svg-icons'
+import { SetupStore } from 'ndaujs'
 
 class Overview extends React.Component {
   constructor (props) {
@@ -29,7 +30,7 @@ class Overview extends React.Component {
   }
 
   componentDidMount = async () => {
-    const recoveryPhraseAsBytes = await NativeModules.KeyAddressManager.wordsToBytes(
+    const recoveryPhraseAsBytes = await Keyaddr.wordsToBytes(
       'en',
       'crouch loan escape idea drop blush silver history gentle pave office ginger'
     )
@@ -49,7 +50,7 @@ class Overview extends React.Component {
         <Text>
           {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
         </Text>
-        <Text>{testBytes}</Text>
+        <Text>{JSON.stringify(SetupStore.user, null, 2)}</Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
