@@ -110,7 +110,6 @@ class SetupPassword extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 0 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreatePassword
@@ -124,7 +123,7 @@ class SetupPassword extends React.Component {
             <CheckBox
               onValueChange={value => this.setState({ showPasswords: value })}
               checked={this.state.showPasswords}
-              label={I18n.t('showpassword')}
+              label={I18n.t('show-password')}
             />
           }
         />

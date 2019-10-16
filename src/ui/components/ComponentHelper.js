@@ -26,7 +26,7 @@ const createConfirmationButtons = (words, Button) => {
 
 const addTextInputAttributes = props => {
   return {
-    placeholder: I18n.t('pleaseenteravalidword'),
+    placeholder: I18n.t('please-enter-a-valid-word'),
     onChangeText: props.onChangeText,
     autoCapitalize: 'none',
     error: props.error,
@@ -47,7 +47,7 @@ const addPasswordAttributes = props => {
   return {
     onChangeText: password => props.setPassword(password),
     value: props.password,
-    placeholder: I18n.t('enterapassword'),
+    placeholder: I18n.t('enter-a-password'),
     secureTextEntry: !props.showPasswords,
     autoCapitalize: 'none'
   }
@@ -57,7 +57,7 @@ const addConfirmPasswordAttributes = props => {
   return {
     onChangeText: password => props.setConfirmPassword(password),
     value: props.confirmPassword,
-    placeholder: I18n.t('enterapassword'),
+    placeholder: I18n.t('enter-a-password'),
     secureTextEntry: !props.showPasswords,
     autoCapitalize: 'none',
     onSubmitEditing: props.confirmedPassword
@@ -72,7 +72,7 @@ const addConfirmPasswordButtonAttributes = props => {
 
 const addWalletNameAttributes = props => {
   return {
-    placeholder: I18n.t('exdefaultwallet'),
+    placeholder: I18n.t('ex-default-wallet'),
     onChangeText: props.onChangeText,
     autoCapitalize: 'none',
     error: props.error,

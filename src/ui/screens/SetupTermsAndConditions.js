@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { SetupStore, MultiSafeHelper, DataFormatHelper } from 'ndaujs'
 import { CheckBox } from '@src/ui/components'
-import WaitingForBlockchainSpinner from './WaitingForBlockchainSpinner'
+import WaitingForBlockchainSpinner from './WaitSpinner'
 
 class SetupTermsAndConditions extends React.Component {
   constructor (props) {
@@ -38,7 +38,6 @@ class SetupTermsAndConditions extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 0 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <WaitingForBlockchainSpinner spinner={this.state.spinner} />
@@ -51,7 +50,7 @@ class SetupTermsAndConditions extends React.Component {
             <CheckBox
               onValueChange={value => this.setState({ iAgree: value })}
               checked={this.state.iAgree}
-              label={I18n.t('iagree')}
+              label={I18n.t('i-agree')}
             />
           }
         />

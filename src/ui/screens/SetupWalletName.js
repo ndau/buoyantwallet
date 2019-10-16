@@ -28,7 +28,6 @@ class SetupWalletName extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 0 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreateWalletName

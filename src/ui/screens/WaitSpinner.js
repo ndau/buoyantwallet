@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import Spinner from 'react-native-loading-spinner-overlay'
 
-class WaitingForBlockchainSpinner extends Component {
+class WaitSpinner extends Component {
   render () {
     return (
       <Spinner
         visible={this.props.spinner}
-        textContent={this.props.label || 'Talking to blockchain...'}
+        textContent={`${this.props.label}...`}
         textStyle={{
           color: '#ffffff',
           fontSize: 20,
@@ -19,4 +19,4 @@ class WaitingForBlockchainSpinner extends Component {
   }
 }
 
-export default WaitingForBlockchainSpinner
+export default WaitSpinner

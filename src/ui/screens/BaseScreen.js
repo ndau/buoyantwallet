@@ -27,7 +27,7 @@ export const withSafeDarkView = (
 
     render () {
       return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#15232A' }}>
+        <SafeAreaView style={{ flex: 1 }}>
           <StatusBar barStyle='light-content' />
           <ScrollView
             contentContainerStyle={{ flexGrow: 1 }}
