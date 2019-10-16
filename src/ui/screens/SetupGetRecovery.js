@@ -17,7 +17,7 @@ import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import AppConstants from '@src/data/constants/AppConstants'
 import LogStore from '@src/data/stores/LogStore'
 import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
-import WaitingForBlockchainSpinner from './WaitingForBlockchainSpinner'
+import WaitSpinner from './WaitSpinner'
 
 const DEFAULT_ROW_LENGTH = 4
 
@@ -243,7 +243,10 @@ class SetupGetRecovery extends React.Component {
         keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
-        <WaitingForBlockchainSpinner spinner={this.state.spinner} />
+        <WaitSpinner
+          spinner={this.state.spinner}
+          label={I18n.t('talking-to-blockchain')}
+        />
         {!this.state.recoverPhraseFull ? (
           <GetRecoveryPhrase
             {...this.props}

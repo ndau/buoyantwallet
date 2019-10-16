@@ -4,12 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCheck } from '@fortawesome/pro-light-svg-icons'
 
 /**
- * This is a homegrown button as opposed to using nachosui. The reason
- * here is that they way nachosui inserts Icon objects does not allow
- * customization. You can change the fontset but the button doesn't call
- * the Icon correctly to pass in the name of the icon. It uses a hardcoded
- * map of name to unicode characters. These unicode characters do not line
- * up to the FontAwesomePro5 set.
+ * This is a homegrown button as opposed to using react native components.
+ * Note the props that are passed in and deconstructed. This is how
+ * we can control this React Component.
  *
  * @param {Object} props
  */
