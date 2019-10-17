@@ -25,7 +25,7 @@
     "hermesvm": "^0.1.1",
     "i18n-js": "^3.3.0",
     "moment": "^2.24.0",
-    "ndaujs": "github:oneiro-ndev/ndaujs#kp-createuser",
+    "ndaujs": "github:oneiro-ndev/ndaujs",
     "react": "16.9.0",
     "react-native": "0.61.0-rc.2",
     "react-native-gesture-handler": "^1.4.1",
