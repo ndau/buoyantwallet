@@ -151,7 +151,7 @@ const HomeStack = createBottomTabNavigator(
         contentComponent: AppDrawer,
         drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
-          I18n.t('todo'),
+          I18n.t('to-do'),
           faCalendarCheck,
           24,
           10

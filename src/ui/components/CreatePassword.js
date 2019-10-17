@@ -5,8 +5,10 @@ import { Animated } from 'react-native'
 
 const Body = styled.View`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   align-items: baseline;
   background-color: #15232a;
   text-align: left;
@@ -56,8 +58,8 @@ const Div3 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -78,7 +80,7 @@ const ButtonWrapper4 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -131,8 +133,8 @@ const Div7 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -203,7 +205,7 @@ const ButtonWrapper10 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -269,8 +271,8 @@ const Div14 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -443,8 +445,8 @@ const Div25 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -524,7 +526,7 @@ const ButtonWrapper30 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -577,8 +579,8 @@ const Div33 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -622,16 +624,7 @@ const Div36 = styled.View`
   flex: 0 auto;
 `
 
-const Div37 = styled.View`
-  float: left;
-  margin-bottom: 0px;
-  margin-left: -20px;
-  margin-right: 0px;
-  margin-top: 4px;
-  flex-direction: row;
-`
-
-const ButtonWrapper38 = styled.Text`
+const ButtonWrapper37 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -646,7 +639,7 @@ const ButtonWrapper38 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -655,7 +648,7 @@ const ButtonWrapper38 = styled.Text`
   text-transform: uppercase;
 `
 
-const Div39 = styled.View`
+const Div38 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -670,6 +663,23 @@ const Div39 = styled.View`
   align-content: flex-start;
   align-self: flex-start;
   flex: 0 auto;
+`
+
+const TextWrapper39 = styled.Text`
+  display: flex;
+  width: 96%;
+  min-width: 96%;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  flex-direction: row;
 `
 
 const TextWrapper40 = styled.Text`
@@ -689,24 +699,7 @@ const TextWrapper40 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper41 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const ButtonWrapper42 = styled.Text`
+const ButtonWrapper41 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -721,7 +714,7 @@ const ButtonWrapper42 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -730,17 +723,17 @@ const ButtonWrapper42 = styled.Text`
   text-transform: uppercase;
 `
 
-const Div43 = styled.View`
+const Div42 = styled.View`
   margin: 0 0 15px;
   flex-direction: row;
 `
 
-const TextInputWrapper44 = styled.TextInput`
+const TextInputWrapper43 = styled.TextInput`
   flex-direction: row;
   flex-grow: 1;
 `
 
-const ButtonWrapper45 = styled.Text`
+const ButtonWrapper44 = styled.Text`
   padding: 9px 15px;
   background-color: #3898ec;
   color: white;
@@ -750,7 +743,7 @@ const ButtonWrapper45 = styled.Text`
   flex-direction: row;
 `
 
-const Div46 = styled.View`
+const Div45 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -767,7 +760,7 @@ const Div46 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper47 = styled.Text`
+const TextWrapper46 = styled.Text`
   display: flex;
   width: 96%;
   min-width: 96%;
@@ -784,7 +777,7 @@ const TextWrapper47 = styled.Text`
   flex-direction: row;
 `
 
-const Div48 = styled.View`
+const Div47 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
@@ -794,14 +787,14 @@ const Div48 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
 `
 
-const ButtonWrapper49 = styled.Text`
+const ButtonWrapper48 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -816,7 +809,7 @@ const ButtonWrapper49 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -825,7 +818,7 @@ const ButtonWrapper49 = styled.Text`
   text-transform: uppercase;
 `
 
-const Div50 = styled.View`
+const Div49 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -842,7 +835,7 @@ const Div50 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper51 = styled.Text`
+const TextWrapper50 = styled.Text`
   display: flex;
   width: 96%;
   min-width: 96%;
@@ -859,7 +852,7 @@ const TextWrapper51 = styled.Text`
   flex-direction: row;
 `
 
-const Div52 = styled.View`
+const Div51 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
@@ -869,14 +862,14 @@ const Div52 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
 `
 
-const Div53 = styled.View`
+const Div52 = styled.View`
   margin: 0 0 15px;
   display: flex;
   width: 100%;
@@ -887,7 +880,7 @@ const Div53 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper54 = styled.Text`
+const TextWrapper53 = styled.Text`
   display: flex;
   width: 100%;
   padding-top: 0px;
@@ -901,7 +894,7 @@ const TextWrapper54 = styled.Text`
   flex-direction: row;
 `
 
-const TextInputWrapper55 = styled.TextInput`
+const TextInputWrapper54 = styled.TextInput`
   overflow: visible;
   width: 100%;
   min-height: 48px;
@@ -921,7 +914,7 @@ const TextInputWrapper55 = styled.TextInput`
   flex-direction: row;
 `
 
-const Div56 = styled.View`
+const Div55 = styled.View`
   margin: 0 0 15px;
   display: flex;
   width: 100%;
@@ -932,7 +925,7 @@ const Div56 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper57 = styled.Text`
+const TextWrapper56 = styled.Text`
   display: flex;
   width: 100%;
   padding-top: 0px;
@@ -946,7 +939,7 @@ const TextWrapper57 = styled.Text`
   flex-direction: row;
 `
 
-const TextInputWrapper58 = styled.TextInput`
+const TextInputWrapper57 = styled.TextInput`
   overflow: visible;
   width: 100%;
   min-height: 48px;
@@ -966,24 +959,7 @@ const TextInputWrapper58 = styled.TextInput`
   flex-direction: row;
 `
 
-const Div59 = styled.View`
-  margin-bottom: 0px;
-  margin-left: -20px;
-  margin-right: 0px;
-  margin-top: 4px;
-  flex-direction: row;
-`
-
-const TextWrapper60 = styled.Text`
-  font-weight: normal;
-  margin-bottom: 0px;
-  padding-left: 0%;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex: 0 auto;
-`
-
-const ButtonWrapper61 = styled.Text`
+const ButtonWrapper58 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -998,7 +974,7 @@ const ButtonWrapper61 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -1012,33 +988,33 @@ class BuoyantWalletView extends React.Component {
     return (
       <Body>
         <Animated.View style={[{ height: this.props.topPanelHeight }]}>
-          <Div50>
-            <TextWrapper51>
+          <Div49>
+            <TextWrapper50>
               Data in this app will be encrypted to protect your ndau. You will
               need to enter a password to decrypt it whenever you open this app.
-            </TextWrapper51>
-          </Div50>
+            </TextWrapper50>
+          </Div49>
         </Animated.View>
-        <Div52>
-          <Div53>
-            <TextWrapper54>Password</TextWrapper54>
-            <TextInputWrapper55
+        <Div51>
+          <Div52>
+            <TextWrapper53>Password</TextWrapper53>
+            <TextInputWrapper54
               {...ComponentHelper.addPasswordAttributes(this.props)}
             />
-          </Div53>
-          <Div56>
-            <TextWrapper57>Password</TextWrapper57>
-            <TextInputWrapper58
+          </Div52>
+          <Div55>
+            <TextWrapper56>Password</TextWrapper56>
+            <TextInputWrapper57
               {...ComponentHelper.addConfirmPasswordAttributes(this.props)}
             />
             {this.props.checkBox}
-          </Div56>
-          <ButtonWrapper61
+          </Div55>
+          <ButtonWrapper58
             {...ComponentHelper.addConfirmPasswordButtonAttributes(this.props)}
           >
             next
-          </ButtonWrapper61>
-        </Div52>
+          </ButtonWrapper58>
+        </Div51>
       </Body>
     )
   }

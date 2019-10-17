@@ -5,8 +5,10 @@ import { Animated } from 'react-native'
 
 const Body = styled.View`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   align-items: baseline;
   background-color: #15232a;
   text-align: left;
@@ -56,8 +58,8 @@ const Div3 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -78,7 +80,7 @@ const ButtonWrapper4 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -131,8 +133,8 @@ const Div7 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -203,7 +205,7 @@ const ButtonWrapper10 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;
@@ -269,8 +271,8 @@ const Div14 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -443,8 +445,8 @@ const Div25 = styled.View`
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: 1;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -524,7 +526,7 @@ const ButtonWrapper30 = styled.Text`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: stretch;
   flex: 0 auto;
   font-family: opensans-regular;
   font-size: 16px;

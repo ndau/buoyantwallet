@@ -7,6 +7,8 @@ const Body = styled.View`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   align-items: baseline;
   background-color: #15232a;
   text-align: left;

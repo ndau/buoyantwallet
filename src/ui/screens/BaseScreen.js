@@ -1,5 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StatusBar, ScrollView } from 'react-native'
+import AppConstants from '@src/data/constants/AppConstants'
 
 export const withSafeDarkView = (
   WrappedComponent,
@@ -11,7 +12,7 @@ export const withSafeDarkView = (
     static navigationOptions = {
       title,
       headerStyle: {
-        backgroundColor: '#15232A'
+        backgroundColor: AppConstants.BACKGROUND_COLOR
       },
       headerTitleStyle: {
         color: '#8CC74F',
@@ -27,7 +28,9 @@ export const withSafeDarkView = (
 
     render () {
       return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView
+          style={{ flex: 1, backgroundColor: AppConstants.BACKGROUND_COLOR }}
+        >
           <StatusBar barStyle='light-content' />
           <ScrollView
             contentContainerStyle={{ flexGrow: 1 }}

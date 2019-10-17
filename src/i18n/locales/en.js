@@ -13,6 +13,7 @@ export default {
   'market-analysis': 'Market analysis',
   'your-reports': 'Your reports',
   logout: 'Log out',
+  login: 'Log in',
   setup: 'Setup',
   'please-enter-a-valid-word': 'Please enter a valid word',
   'enter-a-password': 'Enter a password',
