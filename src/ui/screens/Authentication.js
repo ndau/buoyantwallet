@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, Button } from 'react-native'
 import LogStore from '@src/data/stores/LogStore'
+import { withSafeDarkView } from './BaseScreen'
+import I18n from '@src/i18n'
 
 class Authentication extends Component {
   constructor (props) {
@@ -23,4 +25,4 @@ class Authentication extends Component {
   }
 }
 
-export default Authentication
+export default withSafeDarkView(Authentication, I18n.t('login'))

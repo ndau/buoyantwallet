@@ -19,7 +19,7 @@ public class KeyAddressManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void keyaddrWordsFromBytes(String lang, String bytes, Promise promise) {
+    public void wordsFromBytes(String lang, String bytes, Promise promise) {
         try {
             promise.resolve(Keyaddr.wordsFromBytes(lang, bytes));
         } catch (Exception e) {
@@ -28,7 +28,7 @@ public class KeyAddressManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void keyaddrWordsToBytes(String lang, String words, Promise promise) {
+    public void wordsToBytes(String lang, String words, Promise promise) {
         try {
             promise.resolve(Keyaddr.wordsToBytes(lang, words));
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class KeyAddressManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void keyaddrWordsFromPrefix(String lang, String prefix, Integer max, Promise promise) {
+    public void wordsFromPrefix(String lang, String prefix, Integer max, Promise promise) {
         try {
             promise.resolve(Keyaddr.wordsFromPrefix(lang, prefix, max));
         } catch (Exception e) {

@@ -234,6 +234,8 @@ PODS:
     - React
   - RNScreens (2.0.0-alpha.3):
     - React
+  - RNSecureRandom (1.0.0-rc.0):
+    - React
   - RNSVG (9.9.4):
     - React
   - Yoga (1.14.0)
@@ -274,11 +276,12 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSecureRandom (from `../node_modules/react-native-securerandom`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -350,6 +353,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSecureRandom:
+    :path: "../node_modules/react-native-securerandom"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -391,9 +396,10 @@ SPEC CHECKSUMS:
   RNLocalize: 3d67438cbed25c21d512edb6357e29b6db9ed2d9
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
   RNScreens: 402a99b0a27c0c32f079cec12d3ccbd35e20cd7f
+  RNSecureRandom: 1f19ad1492f7ed416b8fc79e92216a1f73f13a4c
   RNSVG: 435cda60cd9e1ea6188eb0e21c12fc0f85def8e8
   Yoga: ec296b22dbed143b218926f1a2652c6a647874db
 
 PODFILE CHECKSUM: 32ff498915fad05b566b3f5fd1142b082246ee35
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

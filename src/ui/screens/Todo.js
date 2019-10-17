@@ -55,4 +55,4 @@ class Todo extends React.Component {
   }
 }
 
-export default withSafeDarkView(Todo, I18n.t('todo'))
+export default withSafeDarkView(Todo, I18n.t('to-do'))

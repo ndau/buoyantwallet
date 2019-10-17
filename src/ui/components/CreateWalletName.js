@@ -401,42 +401,160 @@ const ButtonWrapper22 = styled.Text`
   flex-direction: row;
 `
 
+const Div23 = styled.View`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+  position: relative;
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  align-self: flex-start;
+  flex: 0 auto;
+`
+
+const TextWrapper24 = styled.Text`
+  display: flex;
+  width: 96%;
+  min-width: 96%;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  flex-direction: row;
+`
+
+const Div25 = styled.View`
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 8% 3%;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  background-color: #fff;
+`
+
+const TextWrapper26 = styled.Text`
+  display: flex;
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 4px;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-family: opensans-regular;
+  color: #15232a;
+  font-size: 18px;
+  font-weight: 400;
+  flex-direction: row;
+`
+
+const Div27 = styled.View`
+  margin: 0 0 15px;
+  display: flex;
+  overflow: visible;
+  width: 100%;
+  padding: 0px 0px 0px 0%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  align-self: stretch;
+  flex: 0 auto;
+`
+
+const Div28 = styled.View`
+  display: flex;
+  width: 100%;
+  margin-top: 32px;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-self: center;
+  flex: 0 auto;
+`
+
+const TextInputWrapper29 = styled.TextInput`
+  overflow: visible;
+  width: 100%;
+  min-height: 48px;
+  min-width: auto;
+  margin-bottom: 0px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  align-self: center;
+  flex: 0 auto;
+  border: 1px solid #e4e9f2;
+  border-radius: 4px;
+  background-color: #f7f9fc;
+  font-family: opensans-regular;
+  color: #8f9bb3;
+  font-size: 15px;
+  flex-direction: row;
+  flex-grow: 1;
+`
+
+const ButtonWrapper30 = styled.Text`
+  padding: 3.2% 5%;
+  background-color: #f99d1c;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  border-radius: 4px;
+  display: flex;
+  width: 96%;
+  min-height: 48px;
+  margin-top: 16%;
+  margin-bottom: 0px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+`
+
 class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Animated.View style={[{ height: this.props.topPanelHeight }]}>
-          <Div11>
-            <TextWrapper12>
-              Type your 12 word recovery phrase below to recover your wallet.
-            </TextWrapper12>
-            <ButtonWrapper13>
-              I don&rsquo;t have my recovery phrase
-            </ButtonWrapper13>
-          </Div11>
-        </Animated.View>
-        <Div14>
-          <TextWrapper15>
-            Recovery phrase word {this.props.recoveryIndex + 1} of{' '}
-            {this.props.recoveryPhrase.length}
-          </TextWrapper15>
-          <Div16>
-            <Div17>
-              <ButtonWrapper18 onPress={this.props.moveBackAWord}>
-                &lt;
-              </ButtonWrapper18>
-              <TextInputWrapper19
-                placeholder='Please type your first word'
-                {...ComponentHelper.addTextInputAttributes(this.props)}
+        <Div23>
+          <TextWrapper24>Give this wallet a name.</TextWrapper24>
+        </Div23>
+        <Div25>
+          <TextWrapper26>Wallet name</TextWrapper26>
+          <Div27>
+            <Div28>
+              <TextInputWrapper29
+                {...ComponentHelper.addWalletNameAttributes(this.props)}
               />
-              <ButtonWrapper20 onPress={this.props.moveToNextWord}>
-                &gt;
-              </ButtonWrapper20>
-            </Div17>
-          </Div16>
-          <TextWrapper21>Suggested words</TextWrapper21>
-          {ComponentHelper.createButtons(this.props, ButtonWrapper22)}
-        </Div14>
+            </Div28>
+          </Div27>
+          <ButtonWrapper30 {...ComponentHelper.addButtonAttributes(this.props)}>
+            next
+          </ButtonWrapper30>
+        </Div25>
       </Body>
     )
   }

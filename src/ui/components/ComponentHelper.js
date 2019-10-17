@@ -1,5 +1,6 @@
 import React from 'react'
 import I18n from '@src/i18n'
+import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
 
 const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
@@ -25,7 +26,7 @@ const createConfirmationButtons = (words, Button) => {
 
 const addTextInputAttributes = props => {
   return {
-    placeholder: I18n.t('pleaseenteravalidword'),
+    placeholder: I18n.t('please-enter-a-valid-word'),
     onChangeText: props.onChangeText,
     autoCapitalize: 'none',
     error: props.error,
@@ -36,8 +37,66 @@ const addTextInputAttributes = props => {
   }
 }
 
+const addConfirmRecovery = props => {
+  return {
+    onPress: props.confirmRecovery
+  }
+}
+
+const addPasswordAttributes = props => {
+  return {
+    onChangeText: password => props.setPassword(password),
+    value: props.password,
+    placeholder: I18n.t('enter-a-password'),
+    secureTextEntry: !props.showPasswords,
+    autoCapitalize: 'none'
+  }
+}
+
+const addConfirmPasswordAttributes = props => {
+  return {
+    onChangeText: password => props.setConfirmPassword(password),
+    value: props.confirmPassword,
+    placeholder: I18n.t('enter-a-password'),
+    secureTextEntry: !props.showPasswords,
+    autoCapitalize: 'none',
+    onSubmitEditing: props.confirmedPassword
+  }
+}
+
+const addConfirmPasswordButtonAttributes = props => {
+  return {
+    onPress: props.confirmedPassword
+  }
+}
+
+const addWalletNameAttributes = props => {
+  return {
+    placeholder: I18n.t('ex-default-wallet'),
+    onChangeText: props.onChangeText,
+    autoCapitalize: 'none',
+    error: props.error,
+    value: props.value,
+    blurOnSubmit: false,
+    onSubmitEditing: props.next,
+    autoCorrect: false
+  }
+}
+
+const addButtonAttributes = props => {
+  return {
+    onPress: props.next
+  }
+}
+
 export default {
   createButtons,
   createConfirmationButtons,
-  addTextInputAttributes
+  addTextInputAttributes,
+  addConfirmRecovery,
+  addPasswordAttributes,
+  addConfirmPasswordAttributes,
+  addConfirmPasswordButtonAttributes,
+  addWalletNameAttributes,
+  addButtonAttributes
 }

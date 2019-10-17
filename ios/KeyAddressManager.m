@@ -15,7 +15,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_REMAP_METHOD(keyaddrWordsFromBytes, lang:(NSString*)lang bytes:(NSString*)bytes
+RCT_REMAP_METHOD(wordsFromBytes, lang:(NSString*)lang bytes:(NSString*)bytes
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
@@ -29,7 +29,7 @@ RCT_REMAP_METHOD(keyaddrWordsFromBytes, lang:(NSString*)lang bytes:(NSString*)by
   }
 }
 
-RCT_REMAP_METHOD(keyaddrWordsToBytes, lang:(NSString*)lang words:(NSString*)words
+RCT_REMAP_METHOD(wordsToBytes, lang:(NSString*)lang words:(NSString*)words
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
@@ -43,7 +43,7 @@ RCT_REMAP_METHOD(keyaddrWordsToBytes, lang:(NSString*)lang words:(NSString*)word
   }
 }
 
-RCT_REMAP_METHOD(keyaddrWordsFromPrefix, lang:(NSString*)lang prefix:(NSString*)prefix max:(nonnull NSNumber*)max
+RCT_REMAP_METHOD(wordsFromPrefix, lang:(NSString*)lang prefix:(NSString*)prefix max:(nonnull NSNumber*)max
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {

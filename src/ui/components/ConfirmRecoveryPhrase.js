@@ -7,6 +7,8 @@ const Body = styled.View`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   align-items: baseline;
   background-color: #15232a;
   text-align: left;
@@ -224,7 +226,9 @@ class BuoyantWalletView extends React.Component {
             this.props.recoveryPhrase,
             ButtonWrapper9
           )}
-          <ButtonWrapper10>CONFIrM&nbsp;MY&nbsp;phrase</ButtonWrapper10>
+          <ButtonWrapper10 {...ComponentHelper.addConfirmRecovery(this.props)}>
+            CONFIrM&nbsp;MY&nbsp;phrase
+          </ButtonWrapper10>
         </Div7>
       </Body>
     )
