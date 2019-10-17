@@ -39,7 +39,7 @@ class AuthLoadingScreen extends React.Component {
     const multiSafes = await MultiSafeHelper.isAMultiSafePresent()
     if (!multiSafes) {
       try {
-        this.props.navigation.navigate('SetupWalletName')
+        this.props.navigation.navigate('SetupGetRecovery')
       } catch (error) {
         // TODO LOG ERROR
       }
