@@ -799,7 +799,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.oneiro.buoyantwallet;
 				PRODUCT_NAME = buoyantwallet;
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc io.oneiro.buoyantwallet";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore io.oneiro.buoyantwallet";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
