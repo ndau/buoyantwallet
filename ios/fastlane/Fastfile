@@ -25,6 +25,7 @@ platform :ios do
     match(app_identifier: ["io.oneiro.buoyantwallet"], type: "appstore", readonly: true)
     build_app(
       scheme: "buoyantwallet",
+      include_symbols: false,
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {
