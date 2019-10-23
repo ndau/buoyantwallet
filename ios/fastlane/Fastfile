@@ -22,13 +22,14 @@ platform :ios do
 
   desc "Build the app"
   lane :build do
-    match(app_identifier: ["io.oneiro.buoyantwallet"], type: "adhoc", readonly: true)
+    match(app_identifier: ["io.oneiro.buoyantwallet"], type: "appstore", readonly: true)
     build_app(
       scheme: "buoyantwallet",
-      export_method: "ad-hoc",
+      include_symbols: false,
+      export_method: "app-store",
       export_options: {
           provisioningProfiles: {
-              "io.oneiro.buoyantwallet" => "match AdHoc io.oneiro.buoyantwallet"
+              "io.oneiro.buoyantwallet" => "match AppStore io.oneiro.buoyantwallet"
           }
       }
     )
