@@ -2,9 +2,6 @@ import React from 'react'
 import I18n from '@src/i18n'
 import OnboardingType from '@src/ui/components/OnboardingType'
 import { withSafeDarkView } from './BaseScreen'
-import { TouchableWithoutFeedback } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 
 class SetupOnboardingType extends React.Component {
   constructor (props) {
@@ -21,11 +18,7 @@ class SetupOnboardingType extends React.Component {
   }
 
   newWallet = () => {
-    this.props.navigation.navigate('SetupGetRecovery')
-  }
-
-  goBack = () => {
-    this.props.navigation.goBack()
+    this.props.navigation.navigate('SetupPrepareCreateRecovery')
   }
 
   render () {
