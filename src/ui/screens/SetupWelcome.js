@@ -1,16 +1,7 @@
 import React from 'react'
 import I18n from '@src/i18n'
 import Welcome from '@src/ui/components/Welcome'
-import { withSafeDarkView } from './BaseScreen'
-import {
-  TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-  ImageBackground,
-  StatusBar
-} from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
-import { SetupStore } from 'ndaujs'
+import { ImageBackground, StatusBar } from 'react-native'
 
 class SetupWelcome extends React.Component {
   constructor (props) {
@@ -20,7 +11,7 @@ class SetupWelcome extends React.Component {
   }
 
   next = () => {
-    this.props.navigation.navigate('Setup')
+    this.props.navigation.navigate('SetupOnboardingType')
   }
 
   render () {

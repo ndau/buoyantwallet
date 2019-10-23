@@ -89,6 +89,18 @@ const addButtonAttributes = props => {
   }
 }
 
+const addRecoverButtonAttributes = props => {
+  return {
+    onPress: props.recover
+  }
+}
+
+const addNewWalletButtonAttributes = props => {
+  return {
+    onPress: props.newWallet
+  }
+}
+
 export default {
   createButtons,
   createConfirmationButtons,
@@ -98,5 +110,7 @@ export default {
   addConfirmPasswordAttributes,
   addConfirmPasswordButtonAttributes,
   addWalletNameAttributes,
-  addButtonAttributes
+  addButtonAttributes,
+  addRecoverButtonAttributes,
+  addNewWalletButtonAttributes
 }

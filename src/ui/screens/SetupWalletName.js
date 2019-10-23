@@ -2,9 +2,8 @@ import React from 'react'
 import I18n from '@src/i18n'
 import CreateWalletName from '@src/ui/components/CreateWalletName'
 import { withSafeDarkView } from './BaseScreen'
-import { TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { KeyboardAvoidingView } from 'react-native'
+
 import { SetupStore } from 'ndaujs'
 
 class SetupWalletName extends React.Component {
@@ -42,10 +41,4 @@ class SetupWalletName extends React.Component {
   }
 }
 
-export default withSafeDarkView(
-  SetupWalletName,
-  I18n.t('setup'),
-  <TouchableWithoutFeedback>
-    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
-  </TouchableWithoutFeedback>
-)
+export default withSafeDarkView(SetupWalletName, I18n.t('setup'), true)

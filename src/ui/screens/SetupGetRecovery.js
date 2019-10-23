@@ -291,10 +291,4 @@ class SetupGetRecovery extends React.Component {
   }
 }
 
-export default withSafeDarkView(
-  SetupGetRecovery,
-  I18n.t('setup'),
-  <TouchableWithoutFeedback>
-    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
-  </TouchableWithoutFeedback>
-)
+export default withSafeDarkView(SetupGetRecovery, I18n.t('setup'), true)

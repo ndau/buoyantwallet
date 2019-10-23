@@ -14,6 +14,7 @@ import SetupPassword from '@src/ui/screens/SetupPassword'
 import SetupWalletName from '@src/ui/screens/SetupWalletName'
 import SetupTermsAndConditions from '@src/ui/screens/SetupTermsAndConditions'
 import SetupWelcome from '@src/ui/screens/SetupWelcome'
+import SetupOnboardingType from '@src/ui/screens/SetupOnboardingType'
 import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -213,11 +214,11 @@ const AuthStack = createStackNavigator(
 // Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
   {
+    SetupOnboardingType,
     SetupGetRecovery,
     SetupPassword,
     SetupWalletName,
-    SetupTermsAndConditions,
-    SetupWelcome
+    SetupTermsAndConditions
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
