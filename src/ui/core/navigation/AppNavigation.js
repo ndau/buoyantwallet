@@ -13,6 +13,7 @@ import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
 import SetupWalletName from '@src/ui/screens/SetupWalletName'
 import SetupTermsAndConditions from '@src/ui/screens/SetupTermsAndConditions'
+import SetupWelcome from '@src/ui/screens/SetupWelcome'
 import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -211,8 +212,21 @@ const AuthStack = createStackNavigator(
 
 // Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
-  { SetupGetRecovery, SetupPassword, SetupWalletName, SetupTermsAndConditions },
+  {
+    SetupGetRecovery,
+    SetupPassword,
+    SetupWalletName,
+    SetupTermsAndConditions,
+    SetupWelcome
+  },
   { headerMode: 'float', headerLayoutPreset: 'center' }
+)
+
+const WelcomeStack = createStackNavigator(
+  {
+    SetupWelcome
+  },
+  { headerMode: 'none' }
 )
 
 const AppNavigator = createSwitchNavigator(
@@ -220,7 +234,8 @@ const AppNavigator = createSwitchNavigator(
     AuthLoading: AuthLoading,
     App: HomeStack,
     Auth: AuthStack,
-    Setup: SetupStack
+    Setup: SetupStack,
+    Welcome: WelcomeStack
   },
   {
     initialRouteName: 'AuthLoading'
