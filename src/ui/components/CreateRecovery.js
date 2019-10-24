@@ -143,7 +143,11 @@ class BuoyantWalletView extends React.Component {
           </TextWrapper69>
         </Div66>
         <Div70>
-          <ButtonWrapper71>create new wallet</ButtonWrapper71>
+          <ButtonWrapper71
+            {...ComponentHelper.addNewWalletButtonAttributes(this.props)}
+          >
+            create new wallet
+          </ButtonWrapper71>
         </Div70>
       </Body>
     )
