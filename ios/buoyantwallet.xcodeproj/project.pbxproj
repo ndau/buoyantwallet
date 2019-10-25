@@ -24,7 +24,7 @@
 		8E134D5D766FB9545F4D8E52 /* libPods-buoyantwallet-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275717EA7B8A022E9DEC21F0 /* libPods-buoyantwallet-tvOS.a */; };
 		96104DD86AC04830A910F35D /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743427E475B7427BAE75C716 /* TitilliumWeb-Regular.ttf */; };
 		9AE1A13A76754A408CE477A2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA6C578FB6124E65BF5E123C /* OpenSans-Bold.ttf */; };
-		9E61353D23564930001F835E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E61353C23564930001F835E /* LaunchScreen.storyboard */; };
+		9E72ED5C23635863004ED7A7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E72ED5B23635863004ED7A7 /* Launch Screen.storyboard */; };
 		9ECC682D2304FE220092EC68 /* titilliumweb-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68252304FE220092EC68 /* titilliumweb-italic.ttf */; };
 		9ECC682E2304FE220092EC68 /* titilliumweb-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68262304FE220092EC68 /* titilliumweb-light.ttf */; };
 		9ECC682F2304FE220092EC68 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC68272304FE220092EC68 /* titilliumweb-regular.ttf */; };
@@ -89,7 +89,7 @@
 		5E15A522D585F72D3EE9788F /* Pods-buoyantwalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buoyantwalletTests.debug.xcconfig"; path = "Target Support Files/Pods-buoyantwalletTests/Pods-buoyantwalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		711BD2AC0BCC460C85C33F7A /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		743427E475B7427BAE75C716 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Regular.ttf"; path = "../assets/fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
-		9E61353C23564930001F835E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E72ED5B23635863004ED7A7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9ECC68252304FE220092EC68 /* titilliumweb-italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-italic.ttf"; path = "../../assets/fonts/titilliumweb-italic.ttf"; sourceTree = "<group>"; };
 		9ECC68262304FE220092EC68 /* titilliumweb-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-light.ttf"; path = "../../assets/fonts/titilliumweb-light.ttf"; sourceTree = "<group>"; };
 		9ECC68272304FE220092EC68 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "../../assets/fonts/titilliumweb-regular.ttf"; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				9E61353C23564930001F835E /* LaunchScreen.storyboard */,
+				9E72ED5B23635863004ED7A7 /* Launch Screen.storyboard */,
 			);
 			name = buoyantwallet;
 			sourceTree = "<group>";
@@ -443,7 +443,6 @@
 				9ECC682D2304FE220092EC68 /* titilliumweb-italic.ttf in Resources */,
 				9ECC6838230502CE0092EC68 /* opensans-semibold.ttf in Resources */,
 				9ECC68342304FE220092EC68 /* opensans-light.ttf in Resources */,
-				9E61353D23564930001F835E /* LaunchScreen.storyboard in Resources */,
 				9ECC68362305023E0092EC68 /* titilliumweb-semibold.ttf in Resources */,
 				9ECC682F2304FE220092EC68 /* titilliumweb-regular.ttf in Resources */,
 				62B5D2EBB9A64825B625E7EE /* ndau-0.ttf in Resources */,
@@ -456,6 +455,7 @@
 				0F10E9FF25AC49EA8AE65013 /* TitilliumWeb-Italic.ttf in Resources */,
 				BA702B852EB6411D9C8656B8 /* TitilliumWeb-Light.ttf in Resources */,
 				96104DD86AC04830A910F35D /* TitilliumWeb-Regular.ttf in Resources */,
+				9E72ED5C23635863004ED7A7 /* Launch Screen.storyboard in Resources */,
 				DB294CE6D4F54E3589887190 /* TitilliumWeb-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
