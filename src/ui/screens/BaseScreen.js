@@ -3,7 +3,7 @@ import {
   SafeAreaView,
   StatusBar,
   ScrollView,
-  TouchableWithoutFeedback
+  TouchableOpacity
 } from 'react-native'
 import AppConstants from '@src/data/constants/AppConstants'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -35,13 +35,13 @@ export const withSafeDarkView = (
           alignSelf: 'center'
         },
         headerLeft: headerLeft ? (
-          <TouchableWithoutFeedback onPress={goBack}>
+          <TouchableOpacity onPress={goBack}>
             <FontAwesomeIcon
               icon={faArrowLeft}
               size={28}
               style={{ color: 'white' }}
             />
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         ) : null,
         headerRight: headerRight ? (
           <FontAwesomeIcon icon={faBell} size={24} style={{ color: 'white' }} />

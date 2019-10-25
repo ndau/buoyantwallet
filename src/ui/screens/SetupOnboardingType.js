@@ -13,7 +13,6 @@ class SetupOnboardingType extends React.Component {
   }
 
   recover = () => {
-    console.log('working')
     this.props.navigation.navigate('SetupGetRecovery')
   }
 
