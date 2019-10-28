@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.333",
+  "version": "0.1.334",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -21,6 +21,7 @@
     "@fortawesome/react-native-fontawesome": "^0.1.0",
     "@react-native-community/async-storage": "^1.6.1",
     "@react-native-community/cli": "^2.9.0",
+    "base-64": "^0.1.0",
     "hermes-engine": "^0.1.1",
     "hermesvm": "^0.1.1",
     "i18n-js": "^3.3.0",
