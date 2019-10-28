@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.336",
+  "version": "0.1.337",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -25,6 +25,7 @@
     "hermes-engine": "^0.1.1",
     "hermesvm": "^0.1.1",
     "i18n-js": "^3.3.0",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "ndaujs": "github:oneiro-ndev/ndaujs",
     "react": "16.9.0",
