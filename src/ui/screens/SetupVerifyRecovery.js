@@ -1,9 +1,9 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import CreateRecovery from '@src/ui/components/CreateRecovery'
+import VerifyRecovery from '@src/ui/components/VerifyRecovery'
 import { withSafeDarkView } from './BaseScreen'
 
-class SetupCreateRecovery extends React.Component {
+class SetupVerifyRecovery extends React.Component {
   constructor (props) {
     super(props)
 
@@ -13,12 +13,12 @@ class SetupCreateRecovery extends React.Component {
   }
 
   newWallet = () => {
-    this.props.navigation.navigate('SetupVerifyRecovery')
+    this.props.navigation.navigate('SetupPassword')
   }
 
   render () {
     return (
-      <CreateRecovery
+      <VerifyRecovery
         {...this.props}
         {...this.state}
         newWallet={this.newWallet}
@@ -27,4 +27,4 @@ class SetupCreateRecovery extends React.Component {
   }
 }
 
-export default withSafeDarkView(SetupCreateRecovery, I18n.t('setup'), true)
+export default withSafeDarkView(SetupVerifyRecovery, I18n.t('setup'), true)
