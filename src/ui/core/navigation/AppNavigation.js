@@ -10,6 +10,7 @@ import Todo from '@src/ui/screens/Todo'
 import Authentication from '@src/ui/screens/Authentication'
 import AuthLoading from './AuthLoading'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
+import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
 import SetupWalletName from '@src/ui/screens/SetupWalletName'
 import SetupTermsAndConditions from '@src/ui/screens/SetupTermsAndConditions'
@@ -219,6 +220,7 @@ const SetupStack = createStackNavigator(
   {
     SetupOnboardingType,
     SetupGetRecovery,
+    SetupConfirmRecovery,
     SetupPrepareCreateRecovery,
     SetupCreateRecovery,
     SetupVerifyRecovery,

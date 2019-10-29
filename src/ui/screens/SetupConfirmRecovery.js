@@ -1,24 +1,27 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import VerifyRecovery from '@src/ui/components/VerifyRecovery'
+import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
+import ConfirmRecoveryPhrase from '@src/ui/components/ConfirmRecoveryPhrase'
 import { withSafeDarkView } from './BaseScreen'
-import { DataFormatHelper, SetupStore } from 'ndaujs'
 import { View } from 'react-native'
+import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
 import WaitSpinner from './WaitSpinner'
 
-class SetupVerifyRecovery extends React.Component {
+class SetupConfirmRecovery extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
       spinner: false
     }
+
+    NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
-  next = () => {
+  confirmRecovery = async () => {
     this.setState({ spinner: true }, async () => {
       const user = await RecoveryPhraseHelper.default.recoverUser(
-        this.recoveryPhrase
+        SetupStore.recoveryPhrase
       )
       SetupStore.user = user
       this.props.navigation.navigate('SetupPassword')
@@ -27,26 +30,23 @@ class SetupVerifyRecovery extends React.Component {
   }
 
   render () {
-    const words = DataFormatHelper.default.groupArrayIntoRows(
-      SetupStore.recoveryPhrase,
-      3
-    )
-
+    console.log(SetupStore.recoveryPhrase)
     return (
       <View>
         <WaitSpinner
           spinner={this.state.spinner}
           label={I18n.t('talking-to-blockchain')}
         />
-        <VerifyRecovery
+
+        <ConfirmRecoveryPhrase
           {...this.props}
           {...this.state}
-          next={this.next}
-          words={words}
+          recoveryPhrase={SetupStore.recoveryPhrase}
+          confirmRecovery={this.confirmRecovery}
         />
       </View>
     )
   }
 }
 
-export default withSafeDarkView(SetupVerifyRecovery, I18n.t('setup'), true)
+export default withSafeDarkView(SetupConfirmRecovery, I18n.t('setup'), true)

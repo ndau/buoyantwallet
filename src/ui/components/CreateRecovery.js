@@ -89,12 +89,13 @@ const Div70 = styled.View`
   display: flex;
   width: 100%;
   padding: 8% 3%;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: stretch;
-  flex: auto;
+  align-self: flex-start;
+  flex: 0 auto;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
@@ -125,6 +126,31 @@ const ButtonWrapper71 = styled.Text`
   text-transform: uppercase;
 `
 
+const ButtonWrapper9 = styled.Text`
+  padding: 3% 5%;
+  background-color: #e3f8f0;
+  color: #4e957a;
+  border: 1px solid #4e957a;
+  text-decoration: none;
+  border-radius: 4px;
+  display: flex;
+  min-height: 32px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  flex-direction: row;
+`
+
 class BuoyantWalletView extends React.Component {
   render () {
     return (
@@ -143,9 +169,8 @@ class BuoyantWalletView extends React.Component {
           </TextWrapper69>
         </Div66>
         <Div70>
-          <ButtonWrapper71
-            {...ComponentHelper.addNewWalletButtonAttributes(this.props)}
-          >
+          {ComponentHelper.createButtons(this.props, ButtonWrapper9)}
+          <ButtonWrapper71 {...ComponentHelper.addButtonAttributes(this.props)}>
             create new wallet
           </ButtonWrapper71>
         </Div70>
