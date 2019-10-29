@@ -14,7 +14,7 @@ const Body = styled.View`
   text-align: left;
 `
 
-const Div66 = styled.View`
+const Div56 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -22,8 +22,8 @@ const Div66 = styled.View`
   display: flex;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-right: 0%;
-  padding-left: 0%;
+  padding-right: 2%;
+  padding-left: 2%;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
@@ -33,11 +33,11 @@ const Div66 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper67 = styled.Text`
+const TextWrapper57 = styled.Text`
   display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -50,11 +50,11 @@ const TextWrapper67 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper68 = styled.Text`
+const TextWrapper58 = styled.Text`
   display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -67,41 +67,51 @@ const TextWrapper68 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper69 = styled.Text`
-  display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  flex-direction: row;
-`
-
-const Div70 = styled.View`
+const Div59 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  padding: 8% 3%;
-  flex-direction: row;
-  justify-content: center;
+  margin-top: 4%;
+  padding: 2% 3%;
+  justify-content: flex-end;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  align-self: flex-start;
-  flex: 0 auto;
+  align-self: stretch;
+  flex: auto;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
 `
 
-const ButtonWrapper71 = styled.Text`
+const Div60 = styled.View`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+`
+
+const TextWrapper61 = styled.Text`
+  display: flex;
+  margin-bottom: 4%;
+  padding: 0px 1% 8px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: stretch;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #15232a;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+`
+
+const ButtonWrapper73 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -126,54 +136,27 @@ const ButtonWrapper71 = styled.Text`
   text-transform: uppercase;
 `
 
-const ButtonWrapper9 = styled.Text`
-  padding: 3% 5%;
-  background-color: #e3f8f0;
-  color: #4e957a;
-  border: 1px solid #4e957a;
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  min-height: 32px;
-  margin-right: 2%;
-  margin-bottom: 2%;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  flex-direction: row;
-`
-
 class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Div66>
-          <TextWrapper67>
-            We are about to create the secure recovery phrase, which is the key
-            to restoring your wallet.
-          </TextWrapper67>
-          <TextWrapper68>
-            You must WRITE IT DOWN and store it in a secure location, or risk
-            losing access to your funds.
-          </TextWrapper68>
-          <TextWrapper69>
-            Do not save this phrase on your device or in the cloud.
-          </TextWrapper69>
-        </Div66>
-        <Div70>
-          {ComponentHelper.createButtons(this.props, ButtonWrapper9)}
-          <ButtonWrapper71 {...ComponentHelper.addButtonAttributes(this.props)}>
-            create new wallet
-          </ButtonWrapper71>
-        </Div70>
+        <Div56>
+          <TextWrapper57>
+            Please write down this phrase, in this exact order, and plan to
+            store it in a secure location.
+          </TextWrapper57>
+          <TextWrapper58>
+            We will confirm you have done so on the next screen.
+          </TextWrapper58>
+        </Div56>
+        <Div59>
+          <Div60>
+            {ComponentHelper.createButtons(this.props, TextWrapper61)}
+          </Div60>
+          <ButtonWrapper73 {...ComponentHelper.addButtonAttributes(this.props)}>
+            i've written it down
+          </ButtonWrapper73>
+        </Div59>
       </Body>
     )
   }

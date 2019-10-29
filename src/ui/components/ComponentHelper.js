@@ -18,6 +18,25 @@ const createButtons = (props, Button) => {
   })
 }
 
+const createSelectedItems = (items, Item) => {
+  return items.map((row, rowIndex) => {
+    return (
+      <React.Fragment key={rowIndex}>
+        {row.map((item, index) => {
+          return item !== '' ? (
+            <Item
+              key={index}
+              onPress={event => props.handleClick(index, event)}
+            >
+              {item}
+            </Item>
+          ) : null
+        })}
+      </React.Fragment>
+    )
+  })
+}
+
 const createConfirmationButtons = (words, Button) => {
   return words.map((item, index) => {
     return <Button key={index}>{item}</Button>
@@ -103,6 +122,7 @@ const addNewWalletButtonAttributes = props => {
 
 export default {
   createButtons,
+  createSelectedItems,
   createConfirmationButtons,
   addTextInputAttributes,
   addConfirmRecovery,

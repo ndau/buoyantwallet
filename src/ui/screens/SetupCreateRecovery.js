@@ -42,6 +42,8 @@ class SetupCreateRecovery extends React.Component {
     this.setState({ recoveryPhrase: recoveryPhrase })
   }
 
+  handleWordClick = () => {}
+
   next = () => {
     SetupStore.recoveryPhrase = this.state.recoveryPhrase
     this.props.navigation.navigate('SetupVerifyRecovery')

@@ -19,6 +19,7 @@ import SetupOnboardingType from '@src/ui/screens/SetupOnboardingType'
 import SetupPrepareCreateRecovery from '@src/ui/screens/SetupPrepareCreateRecovery'
 import SetupCreateRecovery from '@src/ui/screens/SetupCreateRecovery'
 import SetupVerifyRecovery from '@src/ui/screens/SetupVerifyRecovery'
+import SetupVerifyConfirmRecovery from '@src/ui/screens/SetupVerifyConfirmRecovery'
 import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -224,6 +225,7 @@ const SetupStack = createStackNavigator(
     SetupPrepareCreateRecovery,
     SetupCreateRecovery,
     SetupVerifyRecovery,
+    SetupVerifyConfirmRecovery,
     SetupPassword,
     SetupWalletName,
     SetupTermsAndConditions

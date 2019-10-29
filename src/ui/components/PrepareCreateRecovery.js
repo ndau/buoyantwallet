@@ -14,7 +14,7 @@ const Body = styled.View`
   text-align: left;
 `
 
-const Div66 = styled.View`
+const Div1 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -22,8 +22,8 @@ const Div66 = styled.View`
   display: flex;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-right: 0%;
-  padding-left: 0%;
+  padding-right: 2%;
+  padding-left: 2%;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
@@ -33,11 +33,11 @@ const Div66 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper67 = styled.Text`
+const TextWrapper2 = styled.Text`
   display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -50,11 +50,11 @@ const TextWrapper67 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper68 = styled.Text`
+const TextWrapper3 = styled.Text`
   display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -67,11 +67,11 @@ const TextWrapper68 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper69 = styled.Text`
+const TextWrapper4 = styled.Text`
   display: flex;
-  width: 96%;
-  min-width: 96%;
-  margin-top: 24px;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -84,11 +84,12 @@ const TextWrapper69 = styled.Text`
   flex-direction: row;
 `
 
-const Div70 = styled.View`
+const Div5 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  padding: 8% 3%;
+  margin-top: 4%;
+  padding: 2% 3%;
   justify-content: flex-end;
   flex-wrap: wrap;
   align-items: center;
@@ -100,7 +101,7 @@ const Div70 = styled.View`
   background-color: #fff;
 `
 
-const ButtonWrapper71 = styled.Text`
+const ButtonWrapper6 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -129,26 +130,26 @@ class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Div66>
-          <TextWrapper67>
+        <Div1>
+          <TextWrapper2>
             We are about to create the secure recovery phrase, which is the key
             to restoring your wallet.
-          </TextWrapper67>
-          <TextWrapper68>
+          </TextWrapper2>
+          <TextWrapper3>
             You must WRITE IT DOWN and store it in a secure location, or risk
             losing access to your funds.
-          </TextWrapper68>
-          <TextWrapper69>
+          </TextWrapper3>
+          <TextWrapper4>
             Do not save this phrase on your device or in the cloud.
-          </TextWrapper69>
-        </Div66>
-        <Div70>
-          <ButtonWrapper71
+          </TextWrapper4>
+        </Div1>
+        <Div5>
+          <ButtonWrapper6
             {...ComponentHelper.addNewWalletButtonAttributes(this.props)}
           >
             create new wallet
-          </ButtonWrapper71>
-        </Div70>
+          </ButtonWrapper6>
+        </Div5>
       </Body>
     )
   }

@@ -13,7 +13,7 @@ const Body = styled.View`
   text-align: left;
 `
 
-const Div55 = styled.View`
+const Div45 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -28,23 +28,23 @@ const Div55 = styled.View`
   align-items: stretch;
   align-content: flex-start;
   align-self: stretch;
-  flex: 1;
+  flex: 0 auto;
 `
 
-const Div56 = styled.View`
+const Div46 = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   align-self: center;
-  flex: 1;
+  flex: 0 auto;
 `
 
-const TextWrapper57 = styled.Text`
+const TextWrapper47 = styled.Text`
   display: flex;
-  width: auto;
+  width: 100%;
   min-width: auto;
-  margin-top: 24px;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -57,17 +57,17 @@ const TextWrapper57 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper58 = styled.Text`
+const TextWrapper48 = styled.Text`
   font-size: 32px;
   font-weight: 700;
   flex-direction: row;
 `
 
-const TextWrapper59 = styled.Text`
+const TextWrapper49 = styled.Text`
   display: flex;
-  width: auto;
+  width: 100%;
   min-width: auto;
-  margin-top: 24px;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -80,16 +80,16 @@ const TextWrapper59 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper60 = styled.Text`
+const TextWrapper50 = styled.Text`
   font-weight: 400;
   flex-direction: row;
 `
 
-const TextWrapper61 = styled.Text`
+const TextWrapper51 = styled.Text`
   display: flex;
-  width: auto;
+  width: 100%;
   min-width: auto;
-  margin-top: 24px;
+  margin-top: 5%;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -102,22 +102,70 @@ const TextWrapper61 = styled.Text`
   flex-direction: row;
 `
 
-const TextWrapper62 = styled.Text`
+const TextWrapper52 = styled.Text`
   font-weight: 400;
   flex-direction: row;
 `
 
-const Div63 = styled.View`
+const TextWrapper53 = styled.Text`
   display: flex;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
+  margin-bottom: 8px;
   justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-self: auto;
-  flex: 0 0 auto;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
   flex-direction: row;
 `
 
-const ButtonWrapper64 = styled.Text`
+const TextWrapper54 = styled.Text`
+  font-weight: 400;
+  flex-direction: row;
+`
+
+const TextWrapper55 = styled.Text`
+  display: flex;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  flex-direction: row;
+`
+
+const TextWrapper56 = styled.Text`
+  font-weight: 400;
+  flex-direction: row;
+`
+
+const Div57 = styled.View`
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 4%;
+  padding: 2% 3%;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  align-self: stretch;
+  flex: auto;
+`
+
+const ButtonWrapper58 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -146,32 +194,42 @@ class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Div55>
-          <Div56>
-            <TextWrapper57>
-              <TextWrapper58>Welcome to ndau</TextWrapper58>
-            </TextWrapper57>
-            <TextWrapper59>
-              <TextWrapper60>
-                ndau is a cryptocurrency designed to be a buoyant long-term
+        <Div45>
+          <Div46>
+            <TextWrapper47>
+              <TextWrapper48>Welcome to ndau</TextWrapper48>
+            </TextWrapper47>
+            <TextWrapper49>
+              <TextWrapper50>
+                ndau is a buoyant virtual currency optimized for the long-term
                 store of value.
-              </TextWrapper60>
-            </TextWrapper59>
-            <TextWrapper61>
-              <TextWrapper62>
+              </TextWrapper50>
+            </TextWrapper49>
+            <TextWrapper51>
+              <TextWrapper52>
+                In the next few minutes, you will: &nbsp;
+              </TextWrapper52>
+            </TextWrapper51>
+            <TextWrapper53>
+              <TextWrapper54>
+                &bull; Create a new wallet{'\n'}&bull; Recover a wallet{'\n'}
+                &bull; Protect it with a secure password{'\n'}&bull; Create a
+                recovery phrase
+              </TextWrapper54>
+            </TextWrapper53>
+            <TextWrapper55>
+              <TextWrapper56>
                 If you ever lose access to your device, you must have the
                 recovery phrase to restore your wallet.
-              </TextWrapper62>
-            </TextWrapper61>
-          </Div56>
-          <Div63>
-            <ButtonWrapper64
-              {...ComponentHelper.addButtonAttributes(this.props)}
-            >
-              setup new wallet
-            </ButtonWrapper64>
-          </Div63>
-        </Div55>
+              </TextWrapper56>
+            </TextWrapper55>
+          </Div46>
+        </Div45>
+        <Div57>
+          <ButtonWrapper58 {...ComponentHelper.addButtonAttributes(this.props)}>
+            setup new wallet
+          </ButtonWrapper58>
+        </Div57>
       </Body>
     )
   }
