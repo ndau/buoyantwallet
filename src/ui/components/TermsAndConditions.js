@@ -91,7 +91,6 @@ const Div43 = styled.View`
   overflow: visible;
   width: 100%;
   padding: 0px 0px 0px 0%;
-  flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
   align-self: stretch;
@@ -102,7 +101,6 @@ const Div44 = styled.View`
   display: flex;
   width: 100%;
   margin-top: 32px;
-  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: nowrap;
   align-self: center;

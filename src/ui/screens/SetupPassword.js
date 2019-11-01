@@ -20,7 +20,7 @@ class SetupPassword extends React.Component {
       textInputColor: AppConstants.TEXT_COLOR
     }
 
-    this.textAreaHeight = 150
+    this.textAreaHeight = 100
 
     this.topPanelHeight = new Animated.Value(this.textAreaHeight)
   }
@@ -102,7 +102,7 @@ class SetupPassword extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? -90 : 50}
+        keyboardVerticalOffset={Platform.OS === 'android' ? -50 : 50}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreatePassword
