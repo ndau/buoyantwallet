@@ -2,7 +2,7 @@ import React from 'react'
 import I18n from '@src/i18n'
 import TermsAndConditions from '@src/ui/components/TermsAndConditions'
 import { withSafeDarkView } from './BaseScreen'
-import { KeyboardAvoidingView } from 'react-native'
+import { View } from 'react-native'
 import { SetupStore, MultiSafeHelper, DataFormatHelper } from 'ndaujs'
 import { CheckBox } from '@src/ui/components'
 import WaitingForBlockchainSpinner from './WaitSpinner'
@@ -35,9 +35,7 @@ class SetupTermsAndConditions extends React.Component {
 
   render () {
     return (
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-      >
+      <View>
         <WaitingForBlockchainSpinner spinner={this.state.spinner} />
         <TermsAndConditions
           {...this.props}
@@ -52,7 +50,7 @@ class SetupTermsAndConditions extends React.Component {
             />
           }
         />
-      </KeyboardAvoidingView>
+      </View>
     )
   }
 }

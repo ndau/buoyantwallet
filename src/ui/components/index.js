@@ -37,12 +37,7 @@ export function CheckBox (props) {
   }
 
   return (
-    <View
-      style={[
-        { flexDirection: 'row', marginTop: '4%' },
-        disabled ? disabledStyle : {}
-      ]}
-    >
+    <View style={[{ flexDirection: 'row', marginTop: '4%' }]}>
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.checkbox}
