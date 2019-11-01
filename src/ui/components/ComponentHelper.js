@@ -8,7 +8,10 @@ const createButtons = (props, Button) => {
       <React.Fragment key={rowIndex}>
         {row.map((item, index) => {
           return item !== '' ? (
-            <Button key={index} onPress={() => props.handleWordClick(item)}>
+            <Button
+              key={index}
+              onPress={() => props.handleWordClick(item, index)}
+            >
               {item}
             </Button>
           ) : null
@@ -18,8 +21,8 @@ const createButtons = (props, Button) => {
   })
 }
 
-const createSelectedItems = (items, Item) => {
-  return items.map((row, rowIndex) => {
+const createSelectedItems = (props, Item) => {
+  return props.selected.map((row, rowIndex) => {
     return (
       <React.Fragment key={rowIndex}>
         {row.map((item, index) => {

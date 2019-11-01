@@ -19,6 +19,6 @@ export default {
   'enter-a-password': 'Enter a password',
   'ex-default-wallet': 'ex. default wallet',
   'show-password': 'Show password',
-  'i-agree': 'I agree',
+  'i-agree': 'I understand and I accept the terms',
   'talking-to-blockchain': 'Talking to blockchain'
 }

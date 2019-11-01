@@ -3,8 +3,7 @@ import I18n from '@src/i18n'
 import CreateWalletName from '@src/ui/components/CreateWalletName'
 import { withSafeDarkView } from './BaseScreen'
 import { KeyboardAvoidingView } from 'react-native'
-
-import { SetupStore } from 'ndaujs'
+import { DataFormatHelper, SetupStore } from 'ndaujs'
 
 class SetupWalletName extends React.Component {
   constructor (props) {
@@ -19,14 +18,29 @@ class SetupWalletName extends React.Component {
     this.setState({ walletName: text })
   }
 
+  replaceTempIds = () => {
+    const user = SetupStore.user
+    if (user) {
+      DataFormatHelper.default.moveTempUserToWalletName(
+        user,
+        this.state.walletName
+      )
+    } else {
+      console.log('No user exists, so temp-id replacement is not possible')
+    }
+  }
+
   next = () => {
     SetupStore.walletName = this.state.walletName
+
+    this.replaceTempIds()
     this.props.navigation.navigate('SetupTermsAndConditions')
   }
 
   render () {
     return (
       <KeyboardAvoidingView
+        keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 50}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreateWalletName
