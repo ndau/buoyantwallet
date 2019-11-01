@@ -21,7 +21,8 @@ class SetupVerifyRecovery extends React.Component {
       mustRetry: false,
       errorCount: 0,
       match: false,
-      selected: []
+      selected: [],
+      selectedItems: []
     }
 
     this.shuffledMap = []
@@ -48,40 +49,40 @@ class SetupVerifyRecovery extends React.Component {
     }, [])
   }
 
-  // These are stubbed out so we can use common conventions in the
-  // components.
-  handleClick = () => {}
-  next = () => {}
-
   handleWordClick = (selectedItem, index) => {
     const selected = this.state.selected.slice()
-    const foundIndex = selected.indexOf(selectedItem)
+    const selectedItems = this.state.selectedItems.slice()
+    const foundIndex = selected.indexOf(index)
+    console.log('selected: ', selected)
     if (foundIndex !== -1) {
       // already selected item was clicked
       selected.splice(foundIndex, 1)
-      this.setState({ selected: selected, inError: false })
+      selectedItems.splice(foundIndex, 1)
+      this.setState({ selected, selectedItems }, this.afterClick)
     } else if (!this.state.inError) {
-      selected.push(selectedItem)
-      this.setState({ selected: selected }, this.afterClick(selected))
+      selected.push(index)
+      selectedItems.push(selectedItem)
+      this.setState({ selected, selectedItems }, this.afterClick)
     }
   }
 
   isCorrect (selected) {
-    const correctSoFar = this.shuffledWords.slice(0, selected.length)
-    const correctSoFarIndex = this.shuffledMap.slice(0, selected.length)
-
-    const recoveryPhrase = SetupStore.recoveryPhrase
-    const recoveryPhraseSlice = recoveryPhrase.slice(0, selected.length)
+    const correctSoFar = this.shuffledMap.slice(0, this.state.selected.length)
+    const recoveryPhrase = this.shuffledWords
     console.log(
+      'isCorrect: ',
       correctSoFar,
       selected,
-      recoveryPhrase[selected.length - 1],
-      recoveryPhrase[correctSoFarIndex]
+      recoveryPhrase[_(selected).last()],
+      recoveryPhrase[_(correctSoFar).last()]
     )
-    if (_.isEqual(recoveryPhraseSlice, selected)) {
+    console.log('shuffledWords: ', this.shuffledWords)
+    console.log('shuffledMap: ', this.shuffledMap)
+    if (_.isEqual(correctSoFar, selected)) {
       return true
     } else if (
-      recoveryPhrase[selected.length - 1] === recoveryPhrase[correctSoFarIndex]
+      recoveryPhrase[_(selected).last()] ===
+      recoveryPhrase[_(correctSoFar).last()]
     ) {
       // compare the last element of the arrays by string
       return true
@@ -90,20 +91,19 @@ class SetupVerifyRecovery extends React.Component {
     }
   }
 
-  checkMistakes (selected) {
+  checkMistakes () {
+    const { selected } = this.state
+
     if (!this.isCorrect(selected)) {
       const errorText = this.state.mustRetry
         ? 'Please click the Back button to generate a new recovery phrase. Write down your phrase instead of memorizing it, or you may lose access to your ndau.'
         : 'Please enter the words in the correct order. De-select the last word to continue.'
-
-      Alert.alert('Verify Recovery', errorText, [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel'
-        },
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
-      ])
+      Alert.alert(
+        'Verify Recovery Phrase',
+        errorText,
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        { cancelable: true }
+      )
 
       let errorCount = this.state.errorCount + 1
       this.setState({
@@ -120,16 +120,16 @@ class SetupVerifyRecovery extends React.Component {
     }
   }
 
-  checkDone (selected) {
-    if (_(selected).isEqual(SetupStore.recoveryPhrase)) {
+  checkDone () {
+    if (_(this.state.selected).isEqual(this.shuffledMap)) {
       this.setState({ match: true })
       this.props.navigation.navigate('SetupVerifyConfirmRecovery')
     }
   }
 
-  afterClick (selected) {
-    this.checkMistakes(selected)
-    this.checkDone(selected)
+  afterClick () {
+    this.checkMistakes()
+    this.checkDone()
   }
 
   render () {
@@ -144,6 +144,10 @@ class SetupVerifyRecovery extends React.Component {
       this.state.selected,
       3
     )
+    const selectedItems = DataFormatHelper.default.groupArrayIntoRows(
+      this.state.selectedItems,
+      3
+    )
 
     return (
       <View>
@@ -154,11 +158,12 @@ class SetupVerifyRecovery extends React.Component {
         <VerifyRecovery
           {...this.props}
           {...this.state}
-          next={this.next}
+          next={() => {}}
           words={words}
           selected={selected}
+          selectedItems={selectedItems}
           handleWordClick={this.handleWordClick}
-          handleClick={this.handleClick}
+          handleClick={() => {}}
         />
       </View>
     )

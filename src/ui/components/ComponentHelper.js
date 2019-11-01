@@ -1,17 +1,14 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
 
 const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
     return (
       <React.Fragment key={rowIndex}>
         {row.map((item, index) => {
+          const i = index + row.length * rowIndex
           return item !== '' ? (
-            <Button
-              key={index}
-              onPress={() => props.handleWordClick(item, index)}
-            >
+            <Button key={index} onPress={() => props.handleWordClick(item, i)}>
               {item}
             </Button>
           ) : null
@@ -21,16 +18,13 @@ const createButtons = (props, Button) => {
   })
 }
 
-const createSelectedItems = (props, Item) => {
-  return props.selected.map((row, rowIndex) => {
+const createSelectedItems = (selectedItems, handleClick, Item) => {
+  return selectedItems.map((row, rowIndex) => {
     return (
       <React.Fragment key={rowIndex}>
         {row.map((item, index) => {
           return item !== '' ? (
-            <Item
-              key={index}
-              onPress={event => props.handleClick(index, event)}
-            >
+            <Item key={index} onPress={event => handleClick(index, event)}>
               {item}
             </Item>
           ) : null

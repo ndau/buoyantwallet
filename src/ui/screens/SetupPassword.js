@@ -102,7 +102,7 @@ class SetupPassword extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 50}
+        keyboardVerticalOffset={Platform.OS === 'android' ? -90 : 50}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreatePassword

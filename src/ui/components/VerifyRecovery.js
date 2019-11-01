@@ -164,7 +164,11 @@ class BuoyantWalletView extends React.Component {
         </Div81>
         <Div83>
           <Div84>
-            {ComponentHelper.createSelectedItems(this.props, ButtonWrapper85)}
+            {ComponentHelper.createSelectedItems(
+              this.props.selectedItems,
+              this.props.handleWordClick,
+              ButtonWrapper85
+            )}
           </Div84>
           <TextWrapper86>
             Please tap each word in the correct order.
