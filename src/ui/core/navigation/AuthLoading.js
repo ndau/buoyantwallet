@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, View } from 'react-native'
+import { ActivityIndicator, ImageBackground } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import AppConstants from '@src/data/constants/AppConstants'
 import LogStore from '@src/data/stores/LogStore'
@@ -57,9 +57,10 @@ class AuthLoadingScreen extends React.Component {
    */
   render () {
     return (
-      <View>
-        <ActivityIndicator />
-      </View>
+      <ImageBackground
+        source={require('img/New-dashboard.png')}
+        style={{ backgroundColor: '#15232a', width: '100%', height: '100%' }}
+      />
     )
   }
 }
