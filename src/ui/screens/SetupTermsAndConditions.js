@@ -5,7 +5,7 @@ import { withSafeDarkView } from './BaseScreen'
 import { View } from 'react-native'
 import { SetupStore, MultiSafeHelper, DataFormatHelper } from 'ndaujs'
 import { CheckBox } from '@src/ui/components'
-import WaitingForBlockchainSpinner from './WaitSpinner'
+import WaitSpinner from './WaitSpinner'
 
 class SetupTermsAndConditions extends React.Component {
   constructor (props) {
@@ -36,12 +36,16 @@ class SetupTermsAndConditions extends React.Component {
   render () {
     return (
       <View>
-        <WaitingForBlockchainSpinner spinner={this.state.spinner} />
+        <WaitSpinner
+          label={I18n.t('talking-to-blockchain')}
+          spinner={this.state.spinner}
+        />
         <TermsAndConditions
           {...this.props}
           {...this.state}
           topPanelHeight={this.topPanelHeight}
           next={this.next}
+          disabled={!this.state.iAgree}
           checkBox={
             <CheckBox
               onValueChange={value => this.setState({ iAgree: value })}

@@ -6,6 +6,7 @@ import { withSafeDarkView } from './BaseScreen'
 import { DataFormatHelper, SetupStore } from 'ndaujs'
 import { View } from 'react-native'
 import WaitSpinner from './WaitSpinner'
+import FlashNotification from '../components/FlashNotification'
 
 const _ = require('lodash')
 
@@ -98,12 +99,7 @@ class SetupVerifyRecovery extends React.Component {
       const errorText = this.state.mustRetry
         ? 'Please click the Back button to generate a new recovery phrase. Write down your phrase instead of memorizing it, or you may lose access to your ndau.'
         : 'Please enter the words in the correct order. De-select the last word to continue.'
-      Alert.alert(
-        'Verify Recovery Phrase',
-        errorText,
-        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-        { cancelable: true }
-      )
+      FlashNotification.showError(errorText)
 
       let errorCount = this.state.errorCount + 1
       this.setState({
