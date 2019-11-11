@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.370",
+  "version": "0.1.371",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -27,7 +27,7 @@
     "i18n-js": "^3.3.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "ndaujs": "github:oneiro-ndev/ndaujs",
+    "ndaujs": "github:oneiro-ndev/ndaujs#kp-repairincorrectpaths",
     "react": "16.11.0",
     "react-native": "0.61.4",
     "react-native-flash-message": "^0.1.15",
