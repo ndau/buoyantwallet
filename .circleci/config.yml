@@ -4,7 +4,7 @@ jobs:
   # This job runs tests on a mac environment
   test:
     macos:
-      xcode: "10.3.0"
+      xcode: "11.1.0"
     working_directory: ~/mbw
     environment:
       # max_old_space_size prevents an out of memory error.
@@ -42,7 +42,7 @@ jobs:
 
   build: # this needs to be named simply build because CircleCI made it a "requirement"
     macos:
-      xcode: "10.3.0"
+      xcode: "11.1.0"
 
     working_directory: ~/mbw
     environment:
@@ -78,6 +78,7 @@ jobs:
       - run:
           name: build ios
           command: |
+            echo "xcode version: $(/usr/bin/xcodebuild -version)"
             bundle install
             cd ios
             pod install
