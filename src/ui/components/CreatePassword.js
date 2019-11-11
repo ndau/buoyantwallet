@@ -58,7 +58,6 @@ const Div119 = styled.View`
   margin-top: 4%;
   padding: 2% 3%;
   justify-content: flex-end;
-  flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
   align-self: stretch;

@@ -58,7 +58,6 @@ const Div41 = styled.View`
   margin-top: 0%;
   padding: 8% 3%;
   justify-content: flex-start;
-  flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
   align-self: stretch;
@@ -153,15 +152,17 @@ class BuoyantWalletView extends React.Component {
           source={require('img/New-dashboard.png')}
           style={{ width: '100%', height: '50%' }}
         > */}
-        <Div38>
-          <Div39>
-            <NdauImage40
-              resizeMode='contain'
-              style={{ width: '50%', height: '50%' }}
-              source={require('img/ndau_logo.png')}
-            />
-          </Div39>
-        </Div38>
+        <Animated.View style={[{ height: this.props.topPanelHeight }]}>
+          <Div38>
+            <Div39>
+              <NdauImage40
+                resizeMode='contain'
+                style={{ width: '50%', height: '50%' }}
+                source={require('img/ndau_logo.png')}
+              />
+            </Div39>
+          </Div38>
+        </Animated.View>
         {/* </ImageBackground> */}
         <Div41>
           <Div42>
