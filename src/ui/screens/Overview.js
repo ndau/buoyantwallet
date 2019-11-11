@@ -6,7 +6,7 @@ import I18n from '@src/i18n'
 import { withSafeDarkView } from './BaseScreen'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import { View, Text, Button } from 'react-native'
-import { SetupStore } from 'ndaujs'
+import { UserStore } from 'ndaujs'
 
 class Overview extends React.Component {
   constructor (props) {
@@ -47,7 +47,7 @@ class Overview extends React.Component {
         <Text>
           {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
         </Text>
-        <Text>{SetupStore.user.userId} has been created successfully!</Text>
+        <Text>{UserStore.user.userId} has been created successfully!</Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
