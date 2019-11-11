@@ -74,7 +74,10 @@ jobs:
           paths:
             - ~/mbw/node_modules
           key: wallet-node-{{ .Branch }}-{{ checksum "~/mbw/yarn.lock" }}
-
+      - run:
+          name: Fetch CocoaPods Specs
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
           name: build ios
           command: |
