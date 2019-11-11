@@ -1,6 +1,5 @@
 app_identifier("io.oneiro.buoyantwallet")
 apple_id("josh.anderson@oneiro.io")
 
-
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile

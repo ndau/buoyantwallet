@@ -10,9 +10,16 @@ import Todo from '@src/ui/screens/Todo'
 import Authentication from '@src/ui/screens/Authentication'
 import AuthLoading from './AuthLoading'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
+import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
 import SetupWalletName from '@src/ui/screens/SetupWalletName'
 import SetupTermsAndConditions from '@src/ui/screens/SetupTermsAndConditions'
+import SetupWelcome from '@src/ui/screens/SetupWelcome'
+import SetupOnboardingType from '@src/ui/screens/SetupOnboardingType'
+import SetupPrepareCreateRecovery from '@src/ui/screens/SetupPrepareCreateRecovery'
+import SetupCreateRecovery from '@src/ui/screens/SetupCreateRecovery'
+import SetupVerifyRecovery from '@src/ui/screens/SetupVerifyRecovery'
+import SetupVerifyConfirmRecovery from '@src/ui/screens/SetupVerifyConfirmRecovery'
 import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -211,8 +218,26 @@ const AuthStack = createStackNavigator(
 
 // Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
-  { SetupGetRecovery, SetupPassword, SetupWalletName, SetupTermsAndConditions },
+  {
+    SetupOnboardingType,
+    SetupGetRecovery,
+    SetupConfirmRecovery,
+    SetupPrepareCreateRecovery,
+    SetupCreateRecovery,
+    SetupVerifyRecovery,
+    SetupVerifyConfirmRecovery,
+    SetupPassword,
+    SetupWalletName,
+    SetupTermsAndConditions
+  },
   { headerMode: 'float', headerLayoutPreset: 'center' }
+)
+
+const WelcomeStack = createStackNavigator(
+  {
+    SetupWelcome
+  },
+  { headerMode: 'none' }
 )
 
 const AppNavigator = createSwitchNavigator(
@@ -220,7 +245,8 @@ const AppNavigator = createSwitchNavigator(
     AuthLoading: AuthLoading,
     App: HomeStack,
     Auth: AuthStack,
-    Setup: SetupStack
+    Setup: SetupStack,
+    Welcome: WelcomeStack
   },
   {
     initialRouteName: 'AuthLoading'

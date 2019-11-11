@@ -14,7 +14,7 @@ const Body = styled.View`
   text-align: left;
 `
 
-const Div26 = styled.View`
+const Div1 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -33,7 +33,7 @@ const Div26 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper27 = styled.Text`
+const TextWrapper2 = styled.Text`
   display: flex;
   width: 100%;
   min-width: auto;
@@ -47,11 +47,44 @@ const TextWrapper27 = styled.Text`
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  text-align: left;
   flex-direction: row;
 `
 
-const Div28 = styled.View`
+const TextWrapper3 = styled.Text`
+  display: flex;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  flex-direction: row;
+`
+
+const TextWrapper4 = styled.Text`
+  display: flex;
+  width: 100%;
+  min-width: auto;
+  margin-top: 5%;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-self: flex-start;
+  flex: 0 auto;
+  font-family: opensans-regular;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  flex-direction: row;
+`
+
+const Div5 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
@@ -68,59 +101,7 @@ const Div28 = styled.View`
   background-color: #fff;
 `
 
-const Div29 = styled.View`
-  margin: 0 0 15px;
-  display: flex;
-  overflow: visible;
-  width: 100%;
-  padding: 0px 0px 0px 0%;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-self: stretch;
-  flex: 0 0 auto;
-`
-
-const TextWrapper30 = styled.Text`
-  display: flex;
-  margin-bottom: 0%;
-  padding: 0px 1% 2%;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: stretch;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #15232a;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-`
-
-const TextInputWrapper31 = styled.TextInput`
-  overflow: visible;
-  width: 100%;
-  min-height: 48px;
-  min-width: auto;
-  margin-bottom: 0px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  align-self: center;
-  flex: 0 auto;
-  border: 1px solid #e4e9f2;
-  border-radius: 4px;
-  background-color: #f7f9fc;
-  font-family: opensans-regular;
-  color: #8f9bb3;
-  font-size: 15px;
-  flex-direction: row;
-  flex-grow: 1;
-`
-
-const ButtonWrapper32 = styled.Text`
+const ButtonWrapper6 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -149,21 +130,26 @@ class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
-        <Div26>
-          <TextWrapper27>Give this wallet a name.</TextWrapper27>
-        </Div26>
-        <Div28>
-          <Div29>
-            <TextWrapper30>Wallet name</TextWrapper30>
-            <TextInputWrapper31
-              {...ComponentHelper.addWalletNameAttributes(this.props)}
-              placeholder='ex. default wallet'
-            />
-          </Div29>
-          <ButtonWrapper32 {...ComponentHelper.addButtonAttributes(this.props)}>
-            next
-          </ButtonWrapper32>
-        </Div28>
+        <Div1>
+          <TextWrapper2>
+            We are about to create the secure recovery phrase, which is the key
+            to restoring your wallet.
+          </TextWrapper2>
+          <TextWrapper3>
+            You must WRITE IT DOWN and store it in a secure location, or risk
+            losing access to your funds.
+          </TextWrapper3>
+          <TextWrapper4>
+            Do not save this phrase on your device or in the cloud.
+          </TextWrapper4>
+        </Div1>
+        <Div5>
+          <ButtonWrapper6
+            {...ComponentHelper.addNewWalletButtonAttributes(this.props)}
+          >
+            create new wallet
+          </ButtonWrapper6>
+        </Div5>
       </Body>
     )
   }

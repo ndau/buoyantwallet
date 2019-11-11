@@ -1,16 +1,32 @@
 import React from 'react'
 import I18n from '@src/i18n'
-import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
 
 const createButtons = (props, Button) => {
   return props.words.map((row, rowIndex) => {
     return (
       <React.Fragment key={rowIndex}>
         {row.map((item, index) => {
+          const i = index + row.length * rowIndex
           return item !== '' ? (
-            <Button key={index} onPress={() => props.handleWordClick(item)}>
+            <Button key={index} onPress={() => props.handleWordClick(item, i)}>
               {item}
             </Button>
+          ) : null
+        })}
+      </React.Fragment>
+    )
+  })
+}
+
+const createSelectedItems = (selectedItems, handleClick, Item) => {
+  return selectedItems.map((row, rowIndex) => {
+    return (
+      <React.Fragment key={rowIndex}>
+        {row.map((item, index) => {
+          return item !== '' ? (
+            <Item key={index} onPress={event => handleClick(index, event)}>
+              {item}
+            </Item>
           ) : null
         })}
       </React.Fragment>
@@ -89,8 +105,21 @@ const addButtonAttributes = props => {
   }
 }
 
+const addRecoverButtonAttributes = props => {
+  return {
+    onPress: props.recover
+  }
+}
+
+const addNewWalletButtonAttributes = props => {
+  return {
+    onPress: props.newWallet
+  }
+}
+
 export default {
   createButtons,
+  createSelectedItems,
   createConfirmationButtons,
   addTextInputAttributes,
   addConfirmRecovery,
@@ -98,5 +127,7 @@ export default {
   addConfirmPasswordAttributes,
   addConfirmPasswordButtonAttributes,
   addWalletNameAttributes,
-  addButtonAttributes
+  addButtonAttributes,
+  addRecoverButtonAttributes,
+  addNewWalletButtonAttributes
 }

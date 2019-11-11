@@ -2,21 +2,16 @@ import React from 'react'
 import I18n from '@src/i18n'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import GetRecoveryPhrase from '../components/GetRecoveryPhrase'
-import ConfirmRecoveryPhrase from '@src/ui/components/ConfirmRecoveryPhrase'
 import { withSafeDarkView } from './BaseScreen'
 import {
-  TouchableWithoutFeedback,
   LayoutAnimation,
   NativeModules,
   KeyboardAvoidingView,
   Animated,
   Keyboard
 } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import AppConstants from '@src/data/constants/AppConstants'
-import LogStore from '@src/data/stores/LogStore'
-import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
+import { SetupStore, DataFormatHelper } from 'ndaujs'
 import WaitSpinner from './WaitSpinner'
 
 const DEFAULT_ROW_LENGTH = 4
@@ -51,7 +46,7 @@ class SetupGetRecovery extends React.Component {
   _adjustStepNumber = pageIndex => {
     this.setState({ stepNumber: pageIndex })
     if (pageIndex === this.recoveryPhrase.length) {
-      this.setState({ recoverPhraseFull: true })
+      this.props.navigation.navigate('SetupConfirmRecovery')
     }
   }
 
@@ -59,6 +54,7 @@ class SetupGetRecovery extends React.Component {
   // will use
   addToRecoveryPhrase = value => {
     this.recoveryPhrase[this.state.recoveryIndex] = value
+    SetupStore.recoveryPhrase = this.recoveryPhrase
   }
 
   moveToNextWord = async () => {
@@ -122,7 +118,10 @@ class SetupGetRecovery extends React.Component {
         )
         : ' '
     this.setState({
-      wordsArray: this.groupArrayIntoRows(words.split(/\s+/g), 3)
+      wordsArray: DataFormatHelper.default.groupArrayIntoRows(
+        words.split(/\s+/g),
+        3
+      )
     })
 
     this.checkIfArrowsNeedToBeDisabled(words, text)
@@ -179,22 +178,6 @@ class SetupGetRecovery extends React.Component {
     this.setState({ acquisitionError: value })
   }
 
-  // TODO: REFACTOR THIS!!!
-  /**
-   * Given the array passed in, create a new array that
-   * contains rows.
-   *
-   * @param {Array} arr array to group into rows based on length
-   * @param {number} length row length
-   */
-  groupArrayIntoRows = (arr = [], length) => {
-    let res = []
-    for (let i = 0; i < arr.length; i += length) {
-      res.push(arr.slice(i, i + length))
-    }
-    return res
-  }
-
   componentDidMount () {
     this.keyboardWillShowSub = Keyboard.addListener(
       'keyboardWillShow',
@@ -226,15 +209,8 @@ class SetupGetRecovery extends React.Component {
   }
 
   confirmRecovery = async () => {
-    this.setState({ spinner: true }, async () => {
-      const user = await RecoveryPhraseHelper.default.recoverUser(
-        this.recoveryPhrase
-      )
-      SetupStore.user = user
-      SetupStore.recoveryPhrase = this.recoveryPhrase
-      this.props.navigation.navigate('SetupPassword')
-      this.setState({ spinner: false })
-    })
+    SetupStore.recoveryPhrase = this.recoveryPhrase
+    this.props.navigation.navigate('SetupConfirmRecovery')
   }
 
   render () {
@@ -247,54 +223,39 @@ class SetupGetRecovery extends React.Component {
           spinner={this.state.spinner}
           label={I18n.t('talking-to-blockchain')}
         />
-        {!this.state.recoverPhraseFull ? (
-          <GetRecoveryPhrase
-            {...this.props}
-            {...this.state}
-            autoCapitalize='none'
-            error={this.props.error}
-            onChangeText={text => {
-              LayoutAnimation.easeInEaseOut()
-              this.handleWords(text)
-              this.setState({ input: text })
-            }}
-            value={
-              this.state.input || this.recoveryPhrase[this.state.recoveryIndex]
-            }
-            blurOnSubmit={false}
-            onSubmitEditing={this.nextWord}
-            autoCorrect={false}
-            recoveryIndex={this.state.recoveryIndex}
-            recoveryPhrase={this.recoveryPhrase}
-            keyboardShown={this.state.keyboardShown}
-            error={this.state.acquisitionError}
-            moveBackAWord={this.prevWord}
-            moveToNextWord={this.nextWord}
-            words={this.state.wordsArray}
-            addToRecoveryPhrase={this.addToRecoveryPhrase}
-            setDisableArrows={this.setDisableArrows}
-            setAcquisitionError={this.setAcquisitionError}
-            checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
-            handleWordClick={this.handleWordClick}
-            topPanelHeight={this.topPanelHeight}
-          />
-        ) : (
-          <ConfirmRecoveryPhrase
-            {...this.props}
-            {...this.state}
-            recoveryPhrase={this.recoveryPhrase}
-            confirmRecovery={this.confirmRecovery}
-          />
-        )}
+        <GetRecoveryPhrase
+          {...this.props}
+          {...this.state}
+          autoCapitalize='none'
+          error={this.props.error}
+          onChangeText={text => {
+            LayoutAnimation.easeInEaseOut()
+            this.handleWords(text)
+            this.setState({ input: text })
+          }}
+          value={
+            this.state.input || this.recoveryPhrase[this.state.recoveryIndex]
+          }
+          blurOnSubmit={false}
+          onSubmitEditing={this.nextWord}
+          autoCorrect={false}
+          recoveryIndex={this.state.recoveryIndex}
+          recoveryPhrase={this.recoveryPhrase}
+          keyboardShown={this.state.keyboardShown}
+          error={this.state.acquisitionError}
+          moveBackAWord={this.prevWord}
+          moveToNextWord={this.nextWord}
+          words={this.state.wordsArray}
+          addToRecoveryPhrase={this.addToRecoveryPhrase}
+          setDisableArrows={this.setDisableArrows}
+          setAcquisitionError={this.setAcquisitionError}
+          checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
+          handleWordClick={this.handleWordClick}
+          topPanelHeight={this.topPanelHeight}
+        />
       </KeyboardAvoidingView>
     )
   }
 }
 
-export default withSafeDarkView(
-  SetupGetRecovery,
-  I18n.t('setup'),
-  <TouchableWithoutFeedback>
-    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
-  </TouchableWithoutFeedback>
-)
+export default withSafeDarkView(SetupGetRecovery, I18n.t('setup'), true)

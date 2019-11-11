@@ -2,15 +2,7 @@ import React from 'react'
 import I18n from '@src/i18n'
 import CreatePassword from '@src/ui/components/CreatePassword'
 import { withSafeDarkView } from './BaseScreen'
-import {
-  TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-  Keyboard,
-  Animated,
-  Alert
-} from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { KeyboardAvoidingView, Keyboard, Animated, Alert } from 'react-native'
 import { CheckBox } from '@src/ui/components'
 import AppConstants from '@src/data/constants/AppConstants'
 import { SetupStore } from 'ndaujs'
@@ -28,7 +20,7 @@ class SetupPassword extends React.Component {
       textInputColor: AppConstants.TEXT_COLOR
     }
 
-    this.textAreaHeight = 150
+    this.textAreaHeight = 100
 
     this.topPanelHeight = new Animated.Value(this.textAreaHeight)
   }
@@ -110,6 +102,7 @@ class SetupPassword extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
+        keyboardVerticalOffset={Platform.OS === 'android' ? -50 : 50}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <CreatePassword
@@ -132,10 +125,4 @@ class SetupPassword extends React.Component {
   }
 }
 
-export default withSafeDarkView(
-  SetupPassword,
-  I18n.t('setup'),
-  <TouchableWithoutFeedback>
-    <FontAwesomeIcon icon={faArrowLeft} size={28} style={{ color: 'white' }} />
-  </TouchableWithoutFeedback>
-)
+export default withSafeDarkView(SetupPassword, I18n.t('setup'), true)
