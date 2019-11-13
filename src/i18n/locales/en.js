@@ -20,5 +20,11 @@ export default {
   'ex-default-wallet': 'ex. default wallet',
   'show-password': 'Show password',
   'i-agree': 'I understand and I accept the terms',
-  'talking-to-blockchain': 'Talking to blockchain'
+  'talking-to-blockchain': 'Talking to blockchain',
+  'please-click-back-button-error-message':
+    'Please click the Back button to generate a new recovery phrase. Write down your phrase instead of memorizing it, or you may lose access to your ndau.',
+  'please-enter-words-in-correct-order':
+    'Please enter the words in the correct order. De-select the last word to continue.',
+  'password-do-not-match': 'The passwords do not match',
+  'passwords-must-be-8': 'The password must be at least 8 characters'
 }

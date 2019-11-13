@@ -74,13 +74,13 @@ class SetupPassword extends React.Component {
 
   confirmedPassword = () => {
     if (!this.checkPasswordsMatch()) {
-      FlashNotification.showError('The passwords do not match')
+      FlashNotification.showError(I18n.t('password-do-not-match'))
 
       this.setState({ textInputColor: AppConstants.WARNING_ICON_COLOR })
       return
     }
     if (!this.checkPasswordLength()) {
-      FlashNotification.showError('The password must be at least 8 characters')
+      FlashNotification.showError(I18n.t('passwords-must-be-8'))
       this.setState({ textInputColor: AppConstants.WARNING_ICON_COLOR })
       return
     }

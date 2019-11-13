@@ -7,7 +7,7 @@ import Overview from '@src/ui/screens/Overview'
 import Buy from '@src/ui/screens/Buy'
 import SendReceive from '@src/ui/screens/SendReceive'
 import Todo from '@src/ui/screens/Todo'
-import Authentication from '@src/ui/screens/Authentication'
+import AuthenticationWrapper from '@src/ui/screens/AuthenticationWrapper'
 import AuthLoading from './AuthLoading'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
@@ -211,7 +211,7 @@ const HomeStack = createBottomTabNavigator(
 // Auth is a separate stack with no header and no bottom menu
 const AuthStack = createStackNavigator(
   {
-    Authentication
+    AuthenticationWrapper
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )

@@ -27,6 +27,7 @@ class SetupTermsAndConditions extends React.Component {
             SetupStore.recoveryPhrase
           )
         )
+        UserStore.user = SetupStore.user
         this.props.navigation.navigate('Overview')
         this.setState({ spinner: false })
       })

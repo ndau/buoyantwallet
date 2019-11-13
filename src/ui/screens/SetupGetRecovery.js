@@ -216,7 +216,7 @@ class SetupGetRecovery extends React.Component {
   render () {
     return (
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? 190 : 0}
+        keyboardVerticalOffset={Platform.OS === 'android' ? -100 : 0}
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       >
         <WaitSpinner

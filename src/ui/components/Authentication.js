@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ComponentHelper from './ComponentHelper'
-import { Animated } from 'react-native'
+import { Animated, ImageBackground } from 'react-native'
 
 const Body = styled.View`
   display: flex;
@@ -14,7 +14,7 @@ const Body = styled.View`
   text-align: left;
 `
 
-const Div117 = styled.View`
+const Div38 = styled.View`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
@@ -33,31 +33,31 @@ const Div117 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper118 = styled.Text`
+const Div39 = styled.View`
   display: flex;
   width: 100%;
-  min-width: auto;
-  margin-top: 5%;
-  margin-bottom: 8px;
-  justify-content: flex-start;
-  align-items: baseline;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: left;
+  height: 80%;
   flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  align-self: stretch;
+  flex: 0 auto;
 `
 
-const Div119 = styled.View`
+const NdauImage40 = styled.Image`
+  margin-top: 15%;
+  margin-bottom: 35%;
+  padding-right: 20%;
+  padding-left: 20%;
+`
+
+const Div41 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  margin-top: 4%;
-  padding: 2% 3%;
-  justify-content: flex-end;
+  margin-top: 0%;
+  padding: 8% 3%;
+  justify-content: flex-start;
   align-items: center;
   align-content: flex-start;
   align-self: stretch;
@@ -67,7 +67,7 @@ const Div119 = styled.View`
   background-color: #fff;
 `
 
-const Div120 = styled.View`
+const Div42 = styled.View`
   margin: 0 0 15px;
   display: flex;
   width: 100%;
@@ -78,10 +78,12 @@ const Div120 = styled.View`
   flex: 0 auto;
 `
 
-const TextWrapper121 = styled.Text`
+const TextWrapper43 = styled.Text`
   display: flex;
-  margin-bottom: 0%;
-  padding: 0px 1% 2%;
+  margin-bottom: 2%;
+  padding-top: 0px;
+  padding-right: 0%;
+  padding-bottom: 0px;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -93,10 +95,10 @@ const TextWrapper121 = styled.Text`
   color: #15232a;
   font-size: 14px;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
 `
 
-const TextInputWrapper122 = styled.TextInput`
+const TextInputWrapper44 = styled.TextInput`
   overflow: visible;
   width: 100%;
   min-height: 48px;
@@ -117,57 +119,7 @@ const TextInputWrapper122 = styled.TextInput`
   flex-grow: 1;
 `
 
-const Div123 = styled.View`
-  margin: 0 0 15px;
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-self: center;
-  flex: 0 auto;
-`
-
-const TextWrapper124 = styled.Text`
-  display: flex;
-  margin-bottom: 0%;
-  padding: 0px 1% 2%;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: stretch;
-  align-self: flex-start;
-  flex: 0 auto;
-  font-family: opensans-regular;
-  color: #15232a;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-`
-
-const TextInputWrapper125 = styled.TextInput`
-  overflow: visible;
-  width: 100%;
-  min-height: 48px;
-  min-width: auto;
-  margin-bottom: 0px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  align-self: center;
-  flex: 0 auto;
-  border: 1px solid #e4e9f2;
-  border-radius: 4px;
-  background-color: #f7f9fc;
-  font-family: opensans-regular;
-  color: #8f9bb3;
-  font-size: 15px;
-  flex-direction: row;
-  flex-grow: 1;
-`
-
-const ButtonWrapper126 = styled.Text`
+const ButtonWrapper45 = styled.Text`
   padding: 3.2% 5%;
   background-color: #f99d1c;
   color: #fff;
@@ -196,34 +148,33 @@ class BuoyantWalletView extends React.Component {
   render () {
     return (
       <Body>
+        {/* <ImageBackground
+          source={require('img/New-dashboard.png')}
+          style={{ width: '100%', height: '50%' }}
+        > */}
         <Animated.View style={[{ height: this.props.topPanelHeight }]}>
-          <Div117>
-            <TextWrapper118>
-              Data in this app will be encrypted to protect your ndau. You will
-              need to enter a password to decrypt it whenever you open this app.
-            </TextWrapper118>
-          </Div117>
+          <Div38>
+            <Div39>
+              <NdauImage40
+                resizeMode='contain'
+                style={{ width: '50%', height: '50%' }}
+                source={require('img/ndau_logo.png')}
+              />
+            </Div39>
+          </Div38>
         </Animated.View>
-        <Div119>
-          <Div120>
-            <TextWrapper121>Password</TextWrapper121>
-            <TextInputWrapper122
+        {/* </ImageBackground> */}
+        <Div41>
+          <Div42>
+            <TextWrapper43>Password</TextWrapper43>
+            <TextInputWrapper44
               {...ComponentHelper.addPasswordAttributes(this.props)}
             />
-          </Div120>
-          <Div123>
-            <TextWrapper124>Confirm password</TextWrapper124>
-            <TextInputWrapper125
-              {...ComponentHelper.addConfirmPasswordAttributes(this.props)}
-            />
-            {this.props.checkBox}
-          </Div123>
-          <ButtonWrapper126
-            {...ComponentHelper.addConfirmPasswordButtonAttributes(this.props)}
-          >
-            next
-          </ButtonWrapper126>
-        </Div119>
+          </Div42>
+          <ButtonWrapper45 {...ComponentHelper.addButtonAttributes(this.props)}>
+            log in
+          </ButtonWrapper45>
+        </Div41>
       </Body>
     )
   }
