@@ -101,7 +101,8 @@ const addWalletNameAttributes = props => {
 
 const addButtonAttributes = props => {
   return {
-    onPress: props.next
+    onPress: props.next,
+    disabled: props.disabled
   }
 }
 

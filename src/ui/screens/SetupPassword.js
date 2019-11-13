@@ -6,6 +6,7 @@ import { KeyboardAvoidingView, Keyboard, Animated, Alert } from 'react-native'
 import { CheckBox } from '@src/ui/components'
 import AppConstants from '@src/data/constants/AppConstants'
 import { SetupStore } from 'ndaujs'
+import FlashNotification from '../components/FlashNotification'
 
 class SetupPassword extends React.Component {
   static MINIMUM_PASSWORD_LENGTH = 8
@@ -73,22 +74,13 @@ class SetupPassword extends React.Component {
 
   confirmedPassword = () => {
     if (!this.checkPasswordsMatch()) {
-      Alert.alert(
-        'Error',
-        'The passwords entered do not match.',
-        [{ text: 'OK', onPress: () => {} }],
-        { cancelable: false }
-      )
+      FlashNotification.showError('The passwords do not match')
+
       this.setState({ textInputColor: AppConstants.WARNING_ICON_COLOR })
       return
     }
     if (!this.checkPasswordLength()) {
-      Alert.alert(
-        'Error',
-        'The password must be at least 8 characters',
-        [{ text: 'OK', onPress: () => {} }],
-        { cancelable: false }
-      )
+      FlashNotification.showError('The password must be at least 8 characters')
       this.setState({ textInputColor: AppConstants.WARNING_ICON_COLOR })
       return
     }

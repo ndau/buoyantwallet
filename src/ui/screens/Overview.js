@@ -47,7 +47,7 @@ class Overview extends React.Component {
         <Text>
           {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
         </Text>
-        <Text>{JSON.stringify(SetupStore.user, null, 2)}</Text>
+        <Text>{SetupStore.user.userId} has been created successfully!</Text>
         <Text>{applicationNetwork}</Text>
         <Button
           title={I18n.t('devnet')}
