@@ -97,8 +97,8 @@ class SetupVerifyRecovery extends React.Component {
 
     if (!this.isCorrect(selected)) {
       const errorText = this.state.mustRetry
-        ? 'Please click the Back button to generate a new recovery phrase. Write down your phrase instead of memorizing it, or you may lose access to your ndau.'
-        : 'Please enter the words in the correct order. De-select the last word to continue.'
+        ? I18n.t('please-click-back-button-error-message')
+        : I18n.t('please-enter-words-in-correct-order')
       FlashNotification.showError(errorText)
 
       let errorCount = this.state.errorCount + 1
