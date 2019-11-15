@@ -1,6 +1,6 @@
 {
   "name": "buoyantwallet",
-  "version": "0.1.380",
+  "version": "0.1.381",
   "private": true,
   "scripts": {
     "start": "react-native start",
