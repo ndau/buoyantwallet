@@ -7,7 +7,7 @@ import { withSafeDarkView } from './BaseScreen'
 import VersionNumber from 'react-native-version-number'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
-class Todo extends React.Component {
+class Send extends React.Component {
   constructor (props) {
     super(props)
 
@@ -55,4 +55,4 @@ class Todo extends React.Component {
   }
 }
 
-export default withSafeDarkView(Todo, I18n.t('to-do'))
+export default withSafeDarkView(Send, I18n.t('Send'))
