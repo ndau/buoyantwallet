@@ -30,6 +30,8 @@ The best place to start is the [Getting Started](https://facebook.github.io/reac
 - [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 - [Android Studio](https://developer.android.com/studio/)
 - [CocoaPods](https://cocoapods.org)
+- `brew install yarn`
+- Execute `sudo xcode-select --switch /Applications/Xcode.app`. This allows pod installation of the a google library
 
 ## Mandatory Scripts
 
