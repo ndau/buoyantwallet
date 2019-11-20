@@ -7,7 +7,7 @@ import { withSafeDarkView } from './BaseScreen'
 import VersionNumber from 'react-native-version-number'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 
-class SendReceive extends React.Component {
+class Receive extends React.Component {
   constructor (props) {
     super(props)
 
@@ -55,4 +55,4 @@ class SendReceive extends React.Component {
   }
 }
 
-export default withSafeDarkView(SendReceive, I18n.t('sendreceive'))
+export default withSafeDarkView(Receive, I18n.t('receive'))

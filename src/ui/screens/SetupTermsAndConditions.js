@@ -3,7 +3,7 @@ import I18n from '@src/i18n'
 import TermsAndConditions from '@src/ui/components/TermsAndConditions'
 import { withSafeDarkView } from './BaseScreen'
 import { View } from 'react-native'
-import { SetupStore, MultiSafeHelper, DataFormatHelper } from 'ndaujs'
+import { SetupStore, MultiSafeHelper, DataFormatHelper, UserStore } from 'ndaujs'
 import { CheckBox } from '@src/ui/components'
 import WaitSpinner from './WaitSpinner'
 

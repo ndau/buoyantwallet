@@ -5,8 +5,8 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
 import Overview from '@src/ui/screens/Overview'
 import Buy from '@src/ui/screens/Buy'
-import SendReceive from '@src/ui/screens/SendReceive'
-import Todo from '@src/ui/screens/Todo'
+import Send from '@src/ui/screens/Send'
+import Receive from '@src/ui/screens/Receive'
 import AuthenticationWrapper from '@src/ui/screens/AuthenticationWrapper'
 import AuthLoading from './AuthLoading'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
@@ -24,7 +24,8 @@ import I18n from '@src/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
   faHome,
-  faRetweet,
+  faArrowAltSquareUp,
+  faArrowAltSquareDown,
   faUsdSquare,
   faEllipsisV,
   faCalendarCheck
@@ -114,16 +115,16 @@ const HomeStack = createBottomTabNavigator(
         navigationOptions: getNavigationOptions(
           I18n.t('buy'),
           faUsdSquare,
-          24,
+          26,
           10
         )
       }
     ),
-    SendReceive: createDrawerNavigator(
+    Send: createDrawerNavigator(
       {
         screen: createStackNavigator(
           {
-            SendReceive
+            Send
           },
           {
             headerMode: 'float',
@@ -135,18 +136,18 @@ const HomeStack = createBottomTabNavigator(
         contentComponent: AppDrawer,
         drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
-          I18n.t('sendreceive'),
-          faRetweet,
-          32,
+          I18n.t('send'),
+          faArrowAltSquareUp,
+          26,
           10
         )
       }
     ),
-    Todo: createDrawerNavigator(
+    Receive: createDrawerNavigator(
       {
         screen: createStackNavigator(
           {
-            Todo
+            Receive
           },
           {
             headerMode: 'float',
@@ -158,9 +159,9 @@ const HomeStack = createBottomTabNavigator(
         contentComponent: AppDrawer,
         drawerPosition: 'right',
         navigationOptions: getNavigationOptions(
-          I18n.t('to-do'),
-          faCalendarCheck,
-          24,
+          I18n.t('receive'),
+          faArrowAltSquareDown,
+          26,
           10
         )
       }
