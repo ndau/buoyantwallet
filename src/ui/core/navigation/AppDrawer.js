@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, ScrollView, Platform, View, SafeAreaView } from 'react-native'
+import { Alert, ScrollView, View, SafeAreaView } from 'react-native'
 import VersionNumber from 'react-native-version-number'
 import {
   DrawerEntryItem,
@@ -11,9 +11,6 @@ import {
 import I18n from '@src/i18n'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import {
-  faHome,
-  faPlusSquare,
-  faClock,
   faCommentAlt,
   faCog,
   faFlask,
@@ -89,36 +86,16 @@ class AppDrawer extends React.Component {
         <DrawerContainer logoutHandler={() => this.logout()}>
           <ScrollView>
             <DrawerExit onPress={() => this.closeDrawer()} />
-            <DrawerEntryItem
-              onPress={() => this.dashboard()}
-              fontAwesomeIcon={faHome}
-            >
-              {I18n.t('sell-ndau')}
-            </DrawerEntryItem>
 
             <DrawerEntryItem
-              onPress={() => this.addWallet()}
-              fontAwesomeIcon={faPlusSquare}
-            >
-              {I18n.t('market-analysis')}
-            </DrawerEntryItem>
-
-            <DrawerEntryItem
-              onPress={() => this.recoverWallet()}
-              fontAwesomeIcon={faClock}
-            >
-              {I18n.t('your-reports')}
-            </DrawerEntryItem>
-
-            <DrawerEntryItem
-              onPress={() => this.props.navigation.navigate('ContactSupport')}
+              onPress={() => this.showSettings()}
               fontAwesomeIcon={faCog}
             >
               {I18n.t('settings')}
             </DrawerEntryItem>
 
             <DrawerEntryItem
-              onPress={() => this.showSettings()}
+              onPress={() => this.props.navigation.navigate('ContactSupport')}
               fontAwesomeIcon={faCommentAlt}
             >
               {I18n.t('contact-support')}

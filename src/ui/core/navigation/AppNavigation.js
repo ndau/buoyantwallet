@@ -4,11 +4,11 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
 import Overview from '@src/ui/screens/Overview'
-import Buy from '@src/ui/screens/Buy'
 import Send from '@src/ui/screens/Send'
 import Receive from '@src/ui/screens/Receive'
 import AuthenticationWrapper from '@src/ui/screens/AuthenticationWrapper'
 import AuthLoading from './AuthLoading'
+import ContactSupport from '@src/ui/screens/ContactSupport'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
@@ -93,29 +93,6 @@ const HomeStack = createBottomTabNavigator(
           I18n.t('overview'),
           faHome,
           28,
-          10
-        )
-      }
-    ),
-    Buy: createDrawerNavigator(
-      {
-        screen: createStackNavigator(
-          {
-            Buy
-          },
-          {
-            headerMode: 'float',
-            headerLayoutPreset: 'center'
-          }
-        )
-      },
-      {
-        contentComponent: AppDrawer,
-        drawerPosition: 'right',
-        navigationOptions: getNavigationOptions(
-          I18n.t('buy'),
-          faUsdSquare,
-          26,
           10
         )
       }
@@ -247,7 +224,8 @@ const AppNavigator = createSwitchNavigator(
     App: HomeStack,
     Auth: AuthStack,
     Setup: SetupStack,
-    Welcome: WelcomeStack
+    Welcome: WelcomeStack,
+    ContactSupport: ContactSupport
   },
   {
     initialRouteName: 'AuthLoading'
