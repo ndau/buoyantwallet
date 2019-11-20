@@ -3,10 +3,14 @@ import { Alert } from 'react-native'
 import I18n from '@src/i18n'
 import VerifyRecovery from '@src/ui/components/VerifyRecovery'
 import { withSafeDarkView } from './BaseScreen'
-import { DataFormatHelper, SetupStore } from 'ndaujs'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import { View } from 'react-native'
 import WaitSpinner from './WaitSpinner'
 import FlashNotification from '../components/FlashNotification'
+
+const l = LoggerHelper.curryLogger('SetupVerifyRecovery')
 
 const _ = require('lodash')
 
@@ -54,7 +58,7 @@ class SetupVerifyRecovery extends React.Component {
     const selected = this.state.selected.slice()
     const selectedItems = this.state.selectedItems.slice()
     const foundIndex = selected.indexOf(index)
-    console.log('selected: ', selected)
+    l.debug('selected: ', selected)
     if (foundIndex !== -1) {
       // already selected item was clicked
       selected.splice(foundIndex, 1)
@@ -70,15 +74,15 @@ class SetupVerifyRecovery extends React.Component {
   isCorrect (selected) {
     const correctSoFar = this.shuffledMap.slice(0, this.state.selected.length)
     const recoveryPhrase = this.shuffledWords
-    console.log(
+    l.debug(
       'isCorrect: ',
       correctSoFar,
       selected,
       recoveryPhrase[_(selected).last()],
       recoveryPhrase[_(correctSoFar).last()]
     )
-    console.log('shuffledWords: ', this.shuffledWords)
-    console.log('shuffledMap: ', this.shuffledMap)
+    l.debug('shuffledWords: ', this.shuffledWords)
+    l.debug('shuffledMap: ', this.shuffledMap)
     if (_.isEqual(correctSoFar, selected)) {
       return true
     } else if (
@@ -132,15 +136,9 @@ class SetupVerifyRecovery extends React.Component {
     if (!this.shuffledWords.length) {
       this.shuffleTheWords()
     }
-    const words = DataFormatHelper.default.groupArrayIntoRows(
-      this.shuffledWords,
-      3
-    )
-    const selected = DataFormatHelper.default.groupArrayIntoRows(
-      this.state.selected,
-      3
-    )
-    const selectedItems = DataFormatHelper.default.groupArrayIntoRows(
+    const words = DataFormatHelper.groupArrayIntoRows(this.shuffledWords, 3)
+    const selected = DataFormatHelper.groupArrayIntoRows(this.state.selected, 3)
+    const selectedItems = DataFormatHelper.groupArrayIntoRows(
       this.state.selectedItems,
       3
     )

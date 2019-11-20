@@ -2,8 +2,10 @@ import React from 'react'
 import { ActivityIndicator, ImageBackground } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import AppConstants from '@src/data/constants/AppConstants'
-import LogStore from '@src/data/stores/LogStore'
 import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+
+const l = LoggerHelper.curryLogger('AuthLoadingScreen')
 
 class AuthLoadingScreen extends React.Component {
   constructor (props) {
@@ -21,7 +23,7 @@ class AuthLoadingScreen extends React.Component {
    */
   _bootstrapDev = async () => {
     // Load the last screen used
-    LogStore.log('Bootstraping DEV...')
+    l.debug('Bootstraping DEV...')
     const screen = await AsyncStorage.getItem(AppConstants.LAST_SCREEN_FOCUSED)
     if (screen) {
       this.props.navigation.navigate(screen)
@@ -34,7 +36,7 @@ class AuthLoadingScreen extends React.Component {
    * bootstrap the application in a production mode
    */
   _bootstrap = async () => {
-    LogStore.log('Bootstraping PROD...')
+    l.debug('Bootstraping PROD...')
 
     const multiSafes = await MultiSafeHelper.isAMultiSafePresent()
     if (!multiSafes) {

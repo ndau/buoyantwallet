@@ -11,7 +11,8 @@ import {
   Keyboard
 } from 'react-native'
 import AppConstants from '@src/data/constants/AppConstants'
-import { SetupStore, DataFormatHelper } from 'ndaujs'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
 import WaitSpinner from './WaitSpinner'
 
 const DEFAULT_ROW_LENGTH = 4
@@ -118,10 +119,7 @@ class SetupGetRecovery extends React.Component {
         )
         : ' '
     this.setState({
-      wordsArray: DataFormatHelper.default.groupArrayIntoRows(
-        words.split(/\s+/g),
-        3
-      )
+      wordsArray: DataFormatHelper.groupArrayIntoRows(words.split(/\s+/g), 3)
     })
 
     this.checkIfArrowsNeedToBeDisabled(words, text)

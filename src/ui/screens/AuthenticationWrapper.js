@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import LogStore from '@src/data/stores/LogStore'
 import Authentication from '@src/ui/components/Authentication'
 import { withSafeDarkView } from './BaseScreen'
 import I18n from '@src/i18n'
 import { Alert, KeyboardAvoidingView, Keyboard, Animated } from 'react-native'
-import { MultiSafeHelper, UserStore } from 'ndaujs'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
+import UserStore from 'ndaujs/src/stores/UserStore'
 import FlashNotification from '../components/FlashNotification'
+
+const l = LoggerHelper.curryLogger('AuthenticationWrapper')
 
 class AuthenticationWrapper extends Component {
   constructor (props) {
@@ -82,18 +85,16 @@ class AuthenticationWrapper extends Component {
   }
 
   login = async () => {
-    LogStore.log('Authenticating...')
+    l.debug('Authenticating...')
     try {
-      const user = await MultiSafeHelper.default.getDefaultUser(
-        this.state.password
-      )
+      const user = await MultiSafeHelper.getDefaultUser(this.state.password)
       if (user) {
         FlashNotification.hideMessage()
-        UserStore.user = user
+        UserStore.setUser(user)
         this.props.navigation.navigate('App')
       }
     } catch (error) {
-      console.log(error)
+      l.debug(error)
       this._showLoginError()
     }
   }
