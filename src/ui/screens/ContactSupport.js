@@ -1,8 +1,7 @@
+import React, { Component } from 'react'
 import { CheckBox } from '@src/ui/components'
 import axios from 'axios'
 import I18n from '@src/i18n'
-
-import React, { Component } from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
 import { withSafeDarkView } from './BaseScreen'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
