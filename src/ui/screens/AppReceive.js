@@ -17,7 +17,7 @@ class AppReceive extends React.Component {
   }
 
   render () {
-    return <Receive />
+    return <Receive {...this.props} {...this.state} />
   }
 }
 

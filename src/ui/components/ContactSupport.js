@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ComponentHelper from './ComponentHelper'
 import { Animated } from 'react-native'
+import AppConfig from '../../data/config/AppConfig'
 
 const Body = styled.View`
   display: flex;
@@ -31,10 +32,6 @@ const Div74 = styled.View`
   align-content: flex-start;
   align-self: stretch;
   flex: 0 auto;
-  background-image: url('../images/New-dashboard.png');
-  background-position: 0% 25%;
-  background-size: cover;
-  background-repeat: no-repeat;
 `
 
 const TextWrapper75 = styled.Text`
@@ -60,7 +57,6 @@ const Div76 = styled.View`
   width: 100%;
   margin-top: 0%;
   padding: 8% 3%;
-  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
@@ -76,7 +72,6 @@ const Div77 = styled.View`
   margin: 0 0 15px;
   display: flex;
   width: 100%;
-  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -129,7 +124,6 @@ const Div80 = styled.View`
   margin: 0 0 15px;
   display: flex;
   width: 100%;
-  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -216,13 +210,22 @@ class BuoyantWalletView extends React.Component {
         <Div76>
           <Div77>
             <TextWrapper78>Email</TextWrapper78>
-            <TextInputWrapper79 />
+            <TextInputWrapper79
+              placeholder={this.props.placeholderEmail}
+              {...ComponentHelper.addTextInputAttributes(this.props)}
+            />
           </Div77>
           <Div80>
             <TextWrapper81>Description</TextWrapper81>
-            <TextInputWrapper82 />
+            <TextInputWrapper82
+              {...ComponentHelper.addMultilineTextInputAttributes(this.props)}
+            />
+            {this.props.checkBox}
           </Div80>
-          <ButtonWrapper83>next</ButtonWrapper83>
+
+          <ButtonWrapper83 {...ComponentHelper.addButtonAttributes(this.props)}>
+            Send message
+          </ButtonWrapper83>
         </Div76>
       </Body>
     )

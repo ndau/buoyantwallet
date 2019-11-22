@@ -39,9 +39,7 @@ class AppOverview extends React.Component {
   }
 
   render () {
-    const { applicationNetwork, testBytes } = this.state
-
-    return <Overview />
+    return <Overview {...this.props} {...this.state} />
   }
 }
 

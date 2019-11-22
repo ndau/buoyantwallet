@@ -8,10 +8,11 @@ import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import AppConfig from '@src/data/config/AppConfig'
 import WaitSpinner from './WaitSpinner'
 import FlashNotification from '../components/FlashNotification'
+import ContactSupport from '@src/ui/components/ContactSupport'
 
-const l = LoggerHelper.curryLogger('ContactSupport')
+const l = LoggerHelper.curryLogger('AppContactSupport')
 
-class ContactSupport extends Component {
+class AppContactSupport extends Component {
   constructor (props) {
     super(props)
 
@@ -24,10 +25,6 @@ class ContactSupport extends Component {
       sending: false
     }
     props.navigation.addListener('didBlur', FlashNotification.hideMessage)
-  }
-
-  onBack () {
-    this.props.navigation.navigate('Authentication')
   }
 
   validate () {
@@ -95,55 +92,74 @@ class ContactSupport extends Component {
   }
 
   render () {
-    const { includeLogs, sent, description, email, sending } = this.state
-    const sendDisabled = sending // don't let'em press send when already sending
+    const { includeLogs } = this.state
+    // return (
+    //   <View>
+    //     <WaitSpinner spinner={this.state.sending} label='Sending...' />
+    //     <View>
+    //       <TextInput
+    //         onChangeText={value => {
+    //           this.setState({ email: value })
+    //         }}
+    //         value={email}
+    //         placeholder='Email'
+    //       />
+    //       <TextInput
+    //         multiline
+    //         height={92}
+    //         numberOfLines={4}
+    //         onChangeText={value => this.setState({ description: value })}
+    //         value={description}
+    //         placeholder='Description (between 10-1000 characters)'
+    //       />
+    //       <Button
+    //         onPress={() => {
+    //           this.onSubmit()
+    //         }}
+    //         title='Send message'
+    //       />
+    //       <Text style={{ marginTop: '4%' }} />
+    //       <CheckBox
+    //         onValueChange={value => this.setState({ includeLogs: value })}
+    //         checked={includeLogs}
+    //         label='Attach diagnostic data *'
+    //       />
+    //       <Text>
+    //         * The attached data does NOT contain any private keys and contains
+    //         NO secret information (e.g., your wallet passwords or recovery
+    //         phrase). The data contains basic state information about your wallet
+    //         and accounts, and is by default, included in your support request to
+    //         help us debug any issues you might be having with your wallet app.
+    //       </Text>
+    //     </View>
+    //   </View>
+    // )
     return (
-      <View>
-        <WaitSpinner spinner={this.state.sending} label='Sending...' />
-        <View>
-          <TextInput
-            onChangeText={value => {
-              this.setState({ email: value })
-            }}
-            value={email}
-            placeholder='Email'
-          />
-          <TextInput
-            multiline
-            height={92}
-            numberOfLines={4}
-            onChangeText={value => this.setState({ description: value })}
-            value={description}
-            placeholder='Description (between 10-1000 characters)'
-          />
-          <Button
-            onPress={() => {
-              this.onSubmit()
-            }}
-            title='Send message'
-          />
-          <Text style={{ marginTop: '4%' }} />
+      <ContactSupport
+        {...this.props}
+        {...this.state}
+        onChangeText={value => {
+          this.setState({ email: value })
+        }}
+        checkBox={
           <CheckBox
             onValueChange={value => this.setState({ includeLogs: value })}
             checked={includeLogs}
             label='Attach diagnostic data *'
           />
-          <Text>
-            * The attached data does NOT contain any private keys and contains
-            NO secret information (e.g., your wallet passwords or recovery
-            phrase). The data contains basic state information about your wallet
-            and accounts, and is by default, included in your support request to
-            help us debug any issues you might be having with your wallet app.
-          </Text>
-        </View>
-      </View>
+        }
+        onPress={() => {
+          this.onSubmit()
+        }}
+      />
     )
   }
 }
 
 export default withSafeDarkView(
-  ContactSupport,
-  I18n.t('contactsupport'),
+  AppContactSupport,
+  I18n.t('contact-support'),
+  true,
   true,
   true
 )

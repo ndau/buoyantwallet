@@ -17,7 +17,7 @@ class AppSend extends React.Component {
   }
 
   render () {
-    return <Send />
+    return <Send {...this.props} {...this.state} />
   }
 }
 

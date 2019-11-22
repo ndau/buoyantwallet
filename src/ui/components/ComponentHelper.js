@@ -42,7 +42,21 @@ const createConfirmationButtons = (words, Button) => {
 
 const addTextInputAttributes = props => {
   return {
-    placeholder: I18n.t('please-enter-a-valid-word'),
+    placeholder: props.placeholder,
+    onChangeText: props.onChangeText,
+    autoCapitalize: 'none',
+    error: props.error,
+    value: props.value,
+    blurOnSubmit: false,
+    onSubmitEditing: props.moveToNextWord,
+    autoCorrect: false
+  }
+}
+
+const addMultilineTextInputAttributes = props => {
+  return {
+    multiline: true,
+    placeholder: props.placeholder,
     onChangeText: props.onChangeText,
     autoCapitalize: 'none',
     error: props.error,
@@ -123,6 +137,7 @@ export default {
   createSelectedItems,
   createConfirmationButtons,
   addTextInputAttributes,
+  addMultilineTextInputAttributes,
   addConfirmRecovery,
   addPasswordAttributes,
   addConfirmPasswordAttributes,

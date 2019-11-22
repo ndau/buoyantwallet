@@ -8,7 +8,7 @@ import AppSend from '@src/ui/screens/AppSend'
 import AppReceive from '@src/ui/screens/AppReceive'
 import AppAuthentication from '@src/ui/screens/AppAuthentication'
 import AuthLoading from './AuthLoading'
-import ContactSupport from '@src/ui/screens/ContactSupport'
+import AppContactSupport from '@src/ui/screens/AppContactSupport'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
@@ -192,7 +192,6 @@ const AuthStack = createStackNavigator(
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
 
-// Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
   {
     SetupOnboardingType,
@@ -205,6 +204,13 @@ const SetupStack = createStackNavigator(
     SetupPassword,
     SetupWalletName,
     SetupTermsAndConditions
+  },
+  { headerMode: 'float', headerLayoutPreset: 'center' }
+)
+
+const DrawerAppStack = createStackNavigator(
+  {
+    AppContactSupport
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
@@ -223,7 +229,7 @@ const AppNavigator = createSwitchNavigator(
     Auth: AuthStack,
     Setup: SetupStack,
     Welcome: WelcomeStack,
-    ContactSupport: ContactSupport
+    DrawerAppStack: DrawerAppStack
   },
   {
     initialRouteName: 'AuthLoading'
