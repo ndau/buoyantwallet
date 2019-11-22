@@ -3,7 +3,11 @@ import I18n from '@src/i18n'
 import CreateWalletName from '@src/ui/components/CreateWalletName'
 import { withSafeDarkView } from './BaseScreen'
 import { KeyboardAvoidingView } from 'react-native'
-import { DataFormatHelper, SetupStore } from 'ndaujs'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+
+const l = LoggerHelper.curryLogger('SetupWalletName')
 
 class SetupWalletName extends React.Component {
   constructor (props) {
@@ -21,12 +25,9 @@ class SetupWalletName extends React.Component {
   replaceTempIds = () => {
     const user = SetupStore.user
     if (user) {
-      DataFormatHelper.default.moveTempUserToWalletName(
-        user,
-        this.state.walletName
-      )
+      DataFormatHelper.moveTempUserToWalletName(user, this.state.walletName)
     } else {
-      console.log('No user exists, so temp-id replacement is not possible')
+      l.debug('No user exists, so temp-id replacement is not possible')
     }
   }
 

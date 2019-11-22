@@ -1,5 +1,8 @@
 import AsyncStorage from '@react-native-community/async-storage'
 import AppConstants from '@src/data/constants/AppConstants'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+
+const l = LoggerHelper.curryLogger('NavigationHelper')
 
 // Use this filter to prevent storage of the last screen used. This is
 // particularly useful for the More button, but perhaps there may be more
@@ -26,7 +29,7 @@ const setupNavigationFocusListener = navigation => {
         )
       }
     } catch (err) {
-      console.error(err)
+      l.error(err)
     }
   })
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import I18n from '@src/i18n'
 import VerifyConfirmRecovery from '@src/ui/components/VerifyConfirmRecovery'
 import { withSafeDarkView } from './BaseScreen'
-import { DataFormatHelper, SetupStore, RecoveryPhraseHelper } from 'ndaujs'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
+import RecoveryPhraseHelper from 'ndaujs/src/helpers/RecoveryPhraseHelper'
 import { View } from 'react-native'
 import WaitSpinner from './WaitSpinner'
 
@@ -20,7 +22,7 @@ class SetupVerifyConfirmRecovery extends React.Component {
 
   next = () => {
     this.setState({ spinner: true }, async () => {
-      const user = await RecoveryPhraseHelper.default.recoverUser(
+      const user = await RecoveryPhraseHelper.recoverUser(
         SetupStore.recoveryPhrase
       )
       SetupStore.user = user
@@ -30,11 +32,11 @@ class SetupVerifyConfirmRecovery extends React.Component {
   }
 
   render () {
-    const words = DataFormatHelper.default.groupArrayIntoRows(
+    const words = DataFormatHelper.groupArrayIntoRows(
       SetupStore.recoveryPhrase,
       3
     )
-    const selected = DataFormatHelper.default.groupArrayIntoRows(
+    const selected = DataFormatHelper.groupArrayIntoRows(
       this.state.selectedItems,
       3
     )

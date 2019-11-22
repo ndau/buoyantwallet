@@ -3,7 +3,10 @@ import I18n from '@src/i18n'
 import TermsAndConditions from '@src/ui/components/TermsAndConditions'
 import { withSafeDarkView } from './BaseScreen'
 import { View } from 'react-native'
-import { SetupStore, MultiSafeHelper, DataFormatHelper, UserStore } from 'ndaujs'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
+import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
+import UserStore from 'ndaujs/src/stores/UserStore'
 import { CheckBox } from '@src/ui/components'
 import WaitSpinner from './WaitSpinner'
 
@@ -20,10 +23,10 @@ class SetupTermsAndConditions extends React.Component {
   next = () => {
     if (this.state.iAgree) {
       this.setState({ spinner: true }, async () => {
-        await MultiSafeHelper.default.saveUser(
+        await MultiSafeHelper.saveUser(
           SetupStore.user,
           SetupStore.encryptionPassword,
-          DataFormatHelper.default.convertRecoveryArrayToString(
+          DataFormatHelper.convertRecoveryArrayToString(
             SetupStore.recoveryPhrase
           )
         )

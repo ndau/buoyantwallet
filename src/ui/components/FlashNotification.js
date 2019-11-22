@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { showMessage, hideMessage } from 'react-native-flash-message'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 
 const _ = require('lodash')
+const l = LoggerHelper.curryLogger('FlashNotifcation')
 
 class FlashNotification extends Component {
   static showError (message) {
@@ -10,12 +12,12 @@ class FlashNotification extends Component {
       showMessage({
         errorMessage
       })
-      console.error(message)
+      l.error(message)
     } else if (message) {
       showMessage({
         message
       })
-      console.log(message)
+      l.debug(message)
     }
   }
 

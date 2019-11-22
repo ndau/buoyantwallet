@@ -4,7 +4,8 @@ import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import ConfirmRecoveryPhrase from '@src/ui/components/ConfirmRecoveryPhrase'
 import { withSafeDarkView } from './BaseScreen'
 import { View } from 'react-native'
-import { RecoveryPhraseHelper, SetupStore } from 'ndaujs'
+import RecoveryPhraseHelper from 'ndaujs/src/helpers/RecoveryPhraseHelper'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
 import WaitSpinner from './WaitSpinner'
 
 class SetupConfirmRecovery extends React.Component {
@@ -20,7 +21,7 @@ class SetupConfirmRecovery extends React.Component {
 
   confirmRecovery = async () => {
     this.setState({ spinner: true }, async () => {
-      const user = await RecoveryPhraseHelper.default.recoverUser(
+      const user = await RecoveryPhraseHelper.recoverUser(
         SetupStore.recoveryPhrase
       )
       SetupStore.user = user
@@ -30,7 +31,6 @@ class SetupConfirmRecovery extends React.Component {
   }
 
   render () {
-    console.log(SetupStore.recoveryPhrase)
     return (
       <View>
         <WaitSpinner

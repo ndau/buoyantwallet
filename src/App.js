@@ -4,7 +4,9 @@ import AppNavigation from '@src/core/navigation/AppNavigation'
 import SettingsStore from '@src/data/stores/SettingsStore'
 import { useScreens } from 'react-native-screens'
 import AsyncStorage from '@react-native-community/async-storage'
-import { GeneralStore, CryptoStore } from 'ndaujs'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+import CryptoStore from 'ndaujs/src/stores/CryptoStore'
+import GeneralStore from 'ndaujs/src/stores/GeneralStore'
 import { generateSecureRandom } from 'react-native-securerandom'
 import FlashMessage from 'react-native-flash-message'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -16,8 +18,11 @@ YellowBox.ignoreWarnings(['Warning: componentWillMount'])
 useScreens()
 
 global.Keyaddr = NativeModules.KeyAddressManager
-GeneralStore.default.setStore(AsyncStorage)
-CryptoStore.default.setStore(generateSecureRandom)
+GeneralStore.setStore(AsyncStorage)
+CryptoStore.setStore(generateSecureRandom)
+
+LoggerHelper.setLevel(LoggerHelper.LEVEL_DEBUG)
+LoggerHelper.setLogger(console)
 
 export default class App extends React.Component {
   constructor (props) {

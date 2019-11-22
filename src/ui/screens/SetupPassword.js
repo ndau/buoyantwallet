@@ -5,7 +5,7 @@ import { withSafeDarkView } from './BaseScreen'
 import { KeyboardAvoidingView, Keyboard, Animated, Alert } from 'react-native'
 import { CheckBox } from '@src/ui/components'
 import AppConstants from '@src/data/constants/AppConstants'
-import { SetupStore } from 'ndaujs'
+import SetupStore from 'ndaujs/src/stores/SetupStore'
 import FlashNotification from '../components/FlashNotification'
 
 class SetupPassword extends React.Component {
