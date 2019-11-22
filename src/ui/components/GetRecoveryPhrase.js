@@ -426,7 +426,7 @@ class BuoyantWalletView extends React.Component {
                 &lt;
               </ButtonWrapper18>
               <TextInputWrapper19
-                placeholder={I18n.t('please-enter-a-valid-word')}
+                placeholder={this.props.I18n.t('please-enter-a-valid-word')}
                 {...ComponentHelper.addTextInputAttributes(this.props)}
               />
               <ButtonWrapper20 onPress={this.props.moveToNextWord}>

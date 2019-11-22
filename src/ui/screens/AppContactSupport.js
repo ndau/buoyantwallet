@@ -17,7 +17,7 @@ class AppContactSupport extends Component {
     super(props)
 
     this.state = {
-      email: '',
+      email: 'support@oneiro.freshdesk.com',
       description: '',
       includeLogs: true,
       sent: false,
@@ -138,6 +138,7 @@ class AppContactSupport extends Component {
       <ContactSupport
         {...this.props}
         {...this.state}
+        placeholderEmail={this.state.email}
         onChangeText={value => {
           this.setState({ email: value })
         }}
