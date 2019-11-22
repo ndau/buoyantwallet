@@ -8,9 +8,9 @@ import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
 import UserStore from 'ndaujs/src/stores/UserStore'
 import FlashNotification from '../components/FlashNotification'
 
-const l = LoggerHelper.curryLogger('AuthenticationWrapper')
+const l = LoggerHelper.curryLogger('AppAuthentication')
 
-class AuthenticationWrapper extends Component {
+class AppAuthentication extends Component {
   constructor (props) {
     super(props)
 
@@ -121,4 +121,4 @@ class AuthenticationWrapper extends Component {
   }
 }
 
-export default withSafeDarkView(AuthenticationWrapper, I18n.t('login'))
+export default withSafeDarkView(AppAuthentication, I18n.t('login'))

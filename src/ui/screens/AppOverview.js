@@ -8,10 +8,11 @@ import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import { View, Text, Button } from 'react-native'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import UserStore from 'ndaujs/src/stores/UserStore'
+import Overview from '@src/ui/components/Overview'
 
-const l = LoggerHelper.curryLogger('Overview')
+const l = LoggerHelper.curryLogger('AppOverview')
 
-class Overview extends React.Component {
+class AppOverview extends React.Component {
   constructor (props) {
     super(props)
 
@@ -40,39 +41,8 @@ class Overview extends React.Component {
   render () {
     const { applicationNetwork, testBytes } = this.state
 
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'space-around'
-        }}
-      >
-        <Text>
-          {I18n.t('overview')} {`v${VersionNumber.appVersion}`}
-        </Text>
-        <Text>{UserStore.getUser().userId} has been created successfully!</Text>
-        <Text>{applicationNetwork}</Text>
-        <Button
-          title={I18n.t('devnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)
-          }}
-        />
-        <Button
-          title={I18n.t('testnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
-          }}
-        />
-        <Button
-          title={I18n.t('mainnet')}
-          onPress={() => {
-            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
-          }}
-        />
-      </View>
-    )
+    return <Overview />
   }
 }
 
-export default withSafeDarkView(Overview, I18n.t('overview'), true, true)
+export default withSafeDarkView(AppOverview, I18n.t('overview'), true, true)

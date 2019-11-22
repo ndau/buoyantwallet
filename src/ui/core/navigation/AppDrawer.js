@@ -67,7 +67,7 @@ class AppDrawer extends React.Component {
         {
           text: 'OK',
           onPress: () => {
-            this.props.navigation.navigate('AuthenticationWrapper')
+            this.props.navigation.navigate('AppAuthentication')
           }
         }
       ],

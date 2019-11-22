@@ -3,10 +3,10 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
-import Overview from '@src/ui/screens/Overview'
-import Send from '@src/ui/screens/Send'
-import Receive from '@src/ui/screens/Receive'
-import AuthenticationWrapper from '@src/ui/screens/AuthenticationWrapper'
+import AppOverview from '@src/ui/screens/AppOverview'
+import AppSend from '@src/ui/screens/AppSend'
+import AppReceive from '@src/ui/screens/AppReceive'
+import AppAuthentication from '@src/ui/screens/AppAuthentication'
 import AuthLoading from './AuthLoading'
 import ContactSupport from '@src/ui/screens/ContactSupport'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
@@ -26,9 +26,7 @@ import {
   faHome,
   faArrowAltSquareUp,
   faArrowAltSquareDown,
-  faUsdSquare,
-  faEllipsisV,
-  faCalendarCheck
+  faEllipsisV
 } from '@fortawesome/pro-light-svg-icons'
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import More from '@src/ui/screens/More'
@@ -78,7 +76,7 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            Overview
+            AppOverview
           },
           {
             headerMode: 'float',
@@ -101,7 +99,7 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            Send
+            AppSend
           },
           {
             headerMode: 'float',
@@ -124,7 +122,7 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            Receive
+            AppReceive
           },
           {
             headerMode: 'float',
@@ -189,7 +187,7 @@ const HomeStack = createBottomTabNavigator(
 // Auth is a separate stack with no header and no bottom menu
 const AuthStack = createStackNavigator(
   {
-    AuthenticationWrapper
+    AppAuthentication
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
