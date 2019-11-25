@@ -57,7 +57,7 @@ const addMultilineTextInputAttributes = props => {
   return {
     multiline: true,
     placeholder: props.placeholder,
-    onChangeText: props.onChangeText,
+    onChangeText: props.onChangeMultiText,
     autoCapitalize: 'none',
     error: props.error,
     value: props.value,

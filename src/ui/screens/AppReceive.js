@@ -1,8 +1,6 @@
 import React from 'react'
-import SettingsStore from '@src/data/stores/SettingsStore'
 import I18n from '@src/i18n'
 import { withSafeDarkView } from './BaseScreen'
-import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import Receive from '@src/ui/components/Receive'
 
 class AppReceive extends React.Component {
@@ -10,10 +8,6 @@ class AppReceive extends React.Component {
     super(props)
 
     this.state = {}
-
-    SettingsStore.addListener(this.updateSettings)
-
-    NavigationHelpers.setupNavigationFocusListener(props.navigation)
   }
 
   render () {
@@ -21,4 +15,4 @@ class AppReceive extends React.Component {
   }
 }
 
-export default withSafeDarkView(AppReceive, I18n.t('receive'))
+export default withSafeDarkView(AppReceive, I18n.t('receive'), true)

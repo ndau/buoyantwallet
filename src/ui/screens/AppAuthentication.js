@@ -90,6 +90,7 @@ class AppAuthentication extends Component {
       const user = await MultiSafeHelper.getDefaultUser(this.state.password)
       if (user) {
         FlashNotification.hideMessage()
+        l.debug(user)
         UserStore.setUser(user)
         this.props.navigation.navigate('App')
       }

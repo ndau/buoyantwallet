@@ -17,7 +17,7 @@ class AppContactSupport extends Component {
     super(props)
 
     this.state = {
-      email: 'support@oneiro.freshdesk.com',
+      email: '',
       description: '',
       includeLogs: true,
       sent: false,
@@ -63,7 +63,7 @@ class AppContactSupport extends Component {
       return
     }
 
-    const logs = this.state.includeLogs ? LoggerHelper.getLogData() : []
+    const logs = this.state.includeLogs ? LoggerHelper.getData() : []
     const ax = axios.create({
       headers: { 'x-api-key': AppConfig.FRESHDESK_INTEGRATION_API_KEY }
     })
@@ -74,7 +74,8 @@ class AppContactSupport extends Component {
     })
       .then(response => {
         this.setState({ sent: true })
-        l.debug('support message sent')
+        l.debug('support message sent', response)
+        this.props.navigation.navigate('Overview')
       })
       .catch(error => {
         let msg = error.message
@@ -138,9 +139,11 @@ class AppContactSupport extends Component {
       <ContactSupport
         {...this.props}
         {...this.state}
-        placeholderEmail={this.state.email}
         onChangeText={value => {
           this.setState({ email: value })
+        }}
+        onChangeMultiText={value => {
+          this.setState({ description: value })
         }}
         checkBox={
           <CheckBox
@@ -149,7 +152,7 @@ class AppContactSupport extends Component {
             label='Attach diagnostic data *'
           />
         }
-        onPress={() => {
+        next={() => {
           this.onSubmit()
         }}
       />
@@ -161,6 +164,7 @@ export default withSafeDarkView(
   AppContactSupport,
   I18n.t('contact-support'),
   true,
-  true,
+  false,
+  false,
   true
 )
