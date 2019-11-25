@@ -36,7 +36,7 @@ class AppContactSupport extends Component {
       this.state.description.length < 10 ||
       this.state.description.length > 1000
     ) {
-      msgs.push('provide a description between 10 and 1024 characters')
+      msgs.push('provide a description between 10 and 1000 characters')
     }
     return msgs
   }
