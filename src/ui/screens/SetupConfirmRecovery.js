@@ -22,10 +22,6 @@ class SetupConfirmRecovery extends React.Component {
 
   confirmRecovery = async () => {
     this.setState({ spinner: true }, async () => {
-      console.log(
-        'converted string: ',
-        DataFormatHelper.convertRecoveryArrayToString(SetupStore.recoveryPhrase)
-      )
       const user = await RecoveryPhraseHelper.recoverUser(
         DataFormatHelper.convertRecoveryArrayToString(SetupStore.recoveryPhrase)
       )
