@@ -7,6 +7,7 @@ import { View } from 'react-native'
 import RecoveryPhraseHelper from 'ndaujs/src/helpers/RecoveryPhraseHelper'
 import SetupStore from 'ndaujs/src/stores/SetupStore'
 import WaitSpinner from './WaitSpinner'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
 
 class SetupConfirmRecovery extends React.Component {
   constructor (props) {
@@ -22,7 +23,7 @@ class SetupConfirmRecovery extends React.Component {
   confirmRecovery = async () => {
     this.setState({ spinner: true }, async () => {
       const user = await RecoveryPhraseHelper.recoverUser(
-        SetupStore.recoveryPhrase
+        DataFormatHelper.convertRecoveryArrayToString(SetupStore.recoveryPhrase)
       )
       SetupStore.user = user
       this.props.navigation.navigate('SetupPassword')

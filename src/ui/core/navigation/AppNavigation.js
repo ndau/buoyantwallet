@@ -3,12 +3,12 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
-import Overview from '@src/ui/screens/Overview'
-import Buy from '@src/ui/screens/Buy'
-import Send from '@src/ui/screens/Send'
-import Receive from '@src/ui/screens/Receive'
-import AuthenticationWrapper from '@src/ui/screens/AuthenticationWrapper'
+import AppOverview from '@src/ui/screens/AppOverview'
+import AppSend from '@src/ui/screens/AppSend'
+import AppReceive from '@src/ui/screens/AppReceive'
+import AppAuthentication from '@src/ui/screens/AppAuthentication'
 import AuthLoading from './AuthLoading'
+import AppContactSupport from '@src/ui/screens/AppContactSupport'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
@@ -26,9 +26,7 @@ import {
   faHome,
   faArrowAltSquareUp,
   faArrowAltSquareDown,
-  faUsdSquare,
-  faEllipsisV,
-  faCalendarCheck
+  faEllipsisV
 } from '@fortawesome/pro-light-svg-icons'
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import More from '@src/ui/screens/More'
@@ -78,7 +76,7 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            Overview
+            AppOverview
           },
           {
             headerMode: 'float',
@@ -97,34 +95,11 @@ const HomeStack = createBottomTabNavigator(
         )
       }
     ),
-    Buy: createDrawerNavigator(
-      {
-        screen: createStackNavigator(
-          {
-            Buy
-          },
-          {
-            headerMode: 'float',
-            headerLayoutPreset: 'center'
-          }
-        )
-      },
-      {
-        contentComponent: AppDrawer,
-        drawerPosition: 'right',
-        navigationOptions: getNavigationOptions(
-          I18n.t('buy'),
-          faUsdSquare,
-          26,
-          10
-        )
-      }
-    ),
     Send: createDrawerNavigator(
       {
         screen: createStackNavigator(
           {
-            Send
+            AppSend
           },
           {
             headerMode: 'float',
@@ -147,7 +122,7 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            Receive
+            AppReceive
           },
           {
             headerMode: 'float',
@@ -212,12 +187,11 @@ const HomeStack = createBottomTabNavigator(
 // Auth is a separate stack with no header and no bottom menu
 const AuthStack = createStackNavigator(
   {
-    AuthenticationWrapper
+    AppAuthentication
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
 
-// Auth is a separate stack with no header and no bottom menu
 const SetupStack = createStackNavigator(
   {
     SetupOnboardingType,
@@ -230,6 +204,13 @@ const SetupStack = createStackNavigator(
     SetupPassword,
     SetupWalletName,
     SetupTermsAndConditions
+  },
+  { headerMode: 'float', headerLayoutPreset: 'center' }
+)
+
+const DrawerAppStack = createStackNavigator(
+  {
+    AppContactSupport
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )
@@ -247,7 +228,8 @@ const AppNavigator = createSwitchNavigator(
     App: HomeStack,
     Auth: AuthStack,
     Setup: SetupStack,
-    Welcome: WelcomeStack
+    Welcome: WelcomeStack,
+    DrawerAppStack: DrawerAppStack
   },
   {
     initialRouteName: 'AuthLoading'

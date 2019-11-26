@@ -9,6 +9,9 @@ import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
 import UserStore from 'ndaujs/src/stores/UserStore'
 import { CheckBox } from '@src/ui/components'
 import WaitSpinner from './WaitSpinner'
+import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
+
+const l = LoggerHelper.curryLogger('SetupCreateRecovery')
 
 class SetupTermsAndConditions extends React.Component {
   constructor (props) {
@@ -23,16 +26,21 @@ class SetupTermsAndConditions extends React.Component {
   next = () => {
     if (this.state.iAgree) {
       this.setState({ spinner: true }, async () => {
-        await MultiSafeHelper.saveUser(
-          SetupStore.user,
-          SetupStore.encryptionPassword,
-          DataFormatHelper.convertRecoveryArrayToString(
-            SetupStore.recoveryPhrase
+        try {
+          await MultiSafeHelper.saveUser(
+            SetupStore.user,
+            SetupStore.encryptionPassword,
+            DataFormatHelper.convertRecoveryArrayToString(
+              SetupStore.recoveryPhrase
+            )
           )
-        )
-        UserStore.user = SetupStore.user
-        this.props.navigation.navigate('Overview')
-        this.setState({ spinner: false })
+          UserStore.setUser(SetupStore.user)
+          l.debug(SetupStore.user)
+          this.props.navigation.navigate('AppOverview')
+          this.setState({ spinner: false })
+        } catch (error) {
+          l.error(error)
+        }
       })
     }
   }

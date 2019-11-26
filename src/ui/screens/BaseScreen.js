@@ -15,12 +15,20 @@ export const withSafeDarkView = (
   WrappedComponent,
   title,
   headerLeft,
-  headerRight
+  headerRight,
+  goBackToAuth,
+  goBackToOverview
 ) => {
   return class extends React.Component {
     static navigationOptions = ({ navigation }) => {
       const goBack = () => {
-        navigation.goBack()
+        if (goBackToAuth) {
+          navigation.navigate('AppAuthentication')
+        } else if (goBackToOverview) {
+          navigation.navigate('AppOverview')
+        } else {
+          navigation.goBack()
+        }
       }
       return {
         title,

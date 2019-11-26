@@ -47,7 +47,7 @@ class AuthLoadingScreen extends React.Component {
       }
     } else {
       try {
-        this.props.navigation.navigate('AuthenticationWrapper')
+        this.props.navigation.navigate('AppAuthentication')
       } catch (error) {
         // TODO LOG ERROR
       }

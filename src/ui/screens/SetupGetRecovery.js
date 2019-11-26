@@ -250,6 +250,7 @@ class SetupGetRecovery extends React.Component {
           checkIfArrowsNeedToBeDisabled={this.checkIfArrowsNeedToBeDisabled}
           handleWordClick={this.handleWordClick}
           topPanelHeight={this.topPanelHeight}
+          I18n={I18n}
         />
       </KeyboardAvoidingView>
     )
