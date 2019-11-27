@@ -264,6 +264,7 @@ const Div60 = styled.View`
   shadow-opacity: 0.12;
   shadow-radius: 10;
   opacity: 1;
+  elevation: 5;
 `
 
 const Div61 = styled.View`
@@ -376,21 +377,30 @@ class BuoyantWalletView extends React.Component {
                   )}`
                 )
 
-                // const accountAmount = new NdauNumber(
-                //   AccountAPIHelper.accountNdauAmount(
-                //     this.props.accounts[accountKey].addressData
-                //   )
-                // )
+                const accountNickname = this.props.accounts[
+                  accountKey
+                ].address.slice(
+                  this.props.accounts[accountKey].address.length - 4,
+                  this.props.accounts[accountKey].address.length
+                )
+
+                const accountAmount = new NdauNumber(
+                  AccountAPIHelper.accountNdauAmount(
+                    this.props.accounts[accountKey].addressData
+                  )
+                )
+
+                console.log('testing ', accountAmount)
 
                 return (
                   <Div60 key={index}>
                     <Div61>
-                      <TextWrapper62>
-                        {this.props.accounts[accountKey].addressData.nickname}
-                      </TextWrapper62>
+                      <TextWrapper62>Account {accountNickname}</TextWrapper62>
                     </Div61>
                     <Div63>
-                      <TextWrapper64>$0</TextWrapper64>
+                      <TextWrapper64>
+                          ${accountAmount.toSummary()}
+                      </TextWrapper64>
                       <TextWrapper65></TextWrapper65>
                     </Div63>
                   </Div60>
