@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import ComponentHelper from './ComponentHelper'
 import { Animated } from 'react-native'
+import AccountAPIHelper from 'ndaujs/src/api/helpers/AccountAPIHelper'
+import NdauNumber from 'ndaujs/src/helpers/NdauNumber'
 
 const Body = styled.View`
   display: flex;
@@ -99,7 +101,7 @@ const TextWrapper44 = styled.Text`
   margin-right: 0%;
   justify-content: flex-start;
   flex-wrap: wrap;
-  align-self: center;
+  align-self: flex-start;
   font-family: opensans-regular;
   color: #455b82;
   font-size: 10px;
@@ -149,7 +151,7 @@ const TextWrapper50 = styled.Text`
   margin-right: 0%;
   justify-content: flex-start;
   flex-wrap: wrap;
-  align-self: center;
+  align-self: flex-start;
   font-family: opensans-regular;
   color: #455b82;
   font-size: 10px;
@@ -315,23 +317,23 @@ class BuoyantWalletView extends React.Component {
       <Body>
         <Div38>
           <TextWrapper39>TOTAL&nbsp;NDAU</TextWrapper39>
-          <TextWrapper40>0.00</TextWrapper40>
+          <TextWrapper40>{this.props.totalNdau}</TextWrapper40>
         </Div38>
         <Div41>
           <Div42>
             <Div43>
               <TextWrapper44>TARGET&nbsp;PRICE</TextWrapper44>
               <Div45>
-                <TextWrapper46>$0</TextWrapper46>
-                <TextWrapper47>+1.02</TextWrapper47>
+                <TextWrapper46>${this.props.marketPrice}</TextWrapper46>
+                <TextWrapper47 />
               </Div45>
             </Div43>
             <Div48 />
             <Div49>
               <TextWrapper50>MARKET&nbsp;PRICE</TextWrapper50>
               <Div51>
-                <TextWrapper52>$0</TextWrapper52>
-                <TextWrapper53>-0.29</TextWrapper53>
+                <TextWrapper52>${this.props.marketPrice}</TextWrapper52>
+                <TextWrapper53 />
               </Div51>
             </Div49>
           </Div42>
@@ -344,15 +346,57 @@ class BuoyantWalletView extends React.Component {
               <TextWrapper59></TextWrapper59>
             </Div57>
           </Div55>
-          <Div60>
-            <Div61>
-              <TextWrapper62>Account 1</TextWrapper62>
-            </Div61>
-            <Div63>
-              <TextWrapper64>$0</TextWrapper64>
-              <TextWrapper65></TextWrapper65>
-            </Div63>
-          </Div60>
+          {this.props.accounts
+            ? Object.keys(this.props.accounts)
+              .sort((a, b) => {
+                if (
+                  !this.props.accounts[a].addressData.nickname ||
+                    !this.props.accounts[b].addressData.nickname
+                ) {
+                  return 0
+                }
+
+                const accountNumberA = parseInt(
+                  this.props.accounts[a].addressData.nickname.split(' ')[1]
+                )
+                const accountNumberB = parseInt(
+                  this.props.accounts[b].addressData.nickname.split(' ')[1]
+                )
+                if (accountNumberA < accountNumberB) {
+                  return -1
+                } else if (accountNumberA > accountNumberB) {
+                  return 1
+                }
+                return 0
+              })
+              .map((accountKey, index) => {
+                console.log(
+                  `addressData: ${JSON.stringify(
+                    this.props.accounts[accountKey]
+                  )}`
+                )
+
+                // const accountAmount = new NdauNumber(
+                //   AccountAPIHelper.accountNdauAmount(
+                //     this.props.accounts[accountKey].addressData
+                //   )
+                // )
+
+                return (
+                  <Div60 key={index}>
+                    <Div61>
+                      <TextWrapper62>
+                        {this.props.accounts[accountKey].addressData.nickname}
+                      </TextWrapper62>
+                    </Div61>
+                    <Div63>
+                      <TextWrapper64>$0</TextWrapper64>
+                      <TextWrapper65></TextWrapper65>
+                    </Div63>
+                  </Div60>
+                )
+              })
+            : null}
         </Div54>
       </Body>
     )
