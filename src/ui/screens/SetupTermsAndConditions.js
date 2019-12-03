@@ -36,7 +36,7 @@ class SetupTermsAndConditions extends React.Component {
           )
           UserStore.setUser(SetupStore.user)
           l.debug(SetupStore.user)
-          this.props.navigation.navigate('AppOverview')
+          this.props.navigation.navigate('AppWalletOverview')
           this.setState({ spinner: false })
         } catch (error) {
           l.error(error)

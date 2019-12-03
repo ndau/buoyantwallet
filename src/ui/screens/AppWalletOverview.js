@@ -2,18 +2,26 @@ import React from 'react'
 import I18n from '@src/i18n'
 import { withSafeDarkView } from './BaseScreen'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
-import Overview from '@src/ui/components/Overview'
+import WalletOverview from '@src/ui/components/WalletOverview'
 import UserStore from 'ndaujs/src/stores/UserStore'
 import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
 import AccountAPIHelper from 'ndaujs/src/api/helpers/AccountAPIHelper'
 import NdauStore from 'ndaujs/src/stores/NdauStore'
+import WalletStore from 'ndaujs/src/stores/WalletStore'
 import NdauNumber from 'ndaujs/src/helpers/NdauNumber'
 import UserData from 'ndaujs/src/model/UserData'
 import FlashNotification from '../components/FlashNotification'
+import { View } from 'react-native'
+import WaitSpinner from './WaitSpinner'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import {
+  faPlusSquare,
+  faArrowSquareRight
+} from '@fortawesome/pro-light-svg-icons'
 
-const l = LoggerHelper.curryLogger('AppOverview')
+const l = LoggerHelper.curryLogger('AppWalletOverview')
 
-class AppOverview extends React.Component {
+class AppWalletOverview extends React.Component {
   constructor (props) {
     super(props)
 
@@ -33,7 +41,9 @@ class AppOverview extends React.Component {
 
     l.debug(`User to be drawn: ${JSON.stringify(user)}`)
 
-    await this._loadMetricsAndSetState(user)
+    this.setState({ spinner: true }, async () => {
+      await this._loadMetricsAndSetState(user)
+    })
   }
 
   _loadMetricsAndSetState = async user => {
@@ -72,19 +82,64 @@ class AppOverview extends React.Component {
       currentPrice,
       totalNdau,
       totalSpendableNdau,
-      accounts
+      accounts,
+      spinner: false
     })
   }
 
+  gotoAccount = wallet => {
+    WalletStore.setWallet(wallet)
+    this.props.navigation.navigate('AppAccountOverview')
+  }
+
   render () {
-    return (
-      <Overview
-        {...this.props}
-        {...this.state}
-        marketPrice={NdauStore.getMarketPrice()}
-      />
-    )
+    try {
+      const user = UserStore.getUser()
+      const wallets = Object.values(user.wallets)
+
+      return (
+        <View>
+          <WaitSpinner
+            label={I18n.t('talking-to-blockchain')}
+            spinner={this.state.spinner}
+          />
+          <WalletOverview
+            {...this.props}
+            {...this.state}
+            marketPrice={NdauStore.getMarketPrice()}
+            plusSquareIcon={
+              <FontAwesomeIcon
+                icon={faPlusSquare}
+                size={28}
+                style={{
+                  color: '#F99D1C'
+                }}
+              />
+            }
+            arrowSquareRightIcon={
+              <FontAwesomeIcon
+                icon={faArrowSquareRight}
+                size={28}
+                style={{
+                  color: '#F99D1C'
+                }}
+              />
+            }
+            addNewAccount={this.addNewAccount}
+            wallets={wallets}
+            gotoAccount={this.gotoAccount}
+          />
+        </View>
+      )
+    } catch (error) {
+      FlashNotification.showError(error)
+    }
   }
 }
 
-export default withSafeDarkView(AppOverview, I18n.t('overview'), true, false)
+export default withSafeDarkView(
+  AppWalletOverview,
+  I18n.t('walletoverview'),
+  true,
+  false
+)

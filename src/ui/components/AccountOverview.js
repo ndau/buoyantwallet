@@ -189,7 +189,7 @@ const Div54 = styled.View`
   margin-top: 0%;
   padding: 8% 3%;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   align-content: flex-start;
   align-self: stretch;
@@ -314,6 +314,8 @@ const TextWrapper65 = styled.Text`
 
 class BuoyantWalletView extends React.Component {
   render () {
+    const accounts = this.props.wallet.accounts
+
     return (
       <Body>
         <Div38>
@@ -344,24 +346,26 @@ class BuoyantWalletView extends React.Component {
             <TextWrapper56>YOUR&nbsp;ACCOUNTS</TextWrapper56>
             <Div57>
               <TextWrapper58>Add account</TextWrapper58>
-              <TextWrapper59></TextWrapper59>
+              <TextWrapper59 onPress={this.props.addNewAccount}>
+                {this.props.plusSquareIcon}
+              </TextWrapper59>
             </Div57>
           </Div55>
-          {this.props.accounts
-            ? Object.keys(this.props.accounts)
+          {accounts
+            ? Object.keys(accounts)
               .sort((a, b) => {
                 if (
-                  !this.props.accounts[a].addressData.nickname ||
-                    !this.props.accounts[b].addressData.nickname
+                  !accounts[a].addressData.nickname ||
+                    !accounts[b].addressData.nickname
                 ) {
                   return 0
                 }
 
                 const accountNumberA = parseInt(
-                  this.props.accounts[a].addressData.nickname.split(' ')[1]
+                  accounts[a].addressData.nickname.split(' ')[1]
                 )
                 const accountNumberB = parseInt(
-                  this.props.accounts[b].addressData.nickname.split(' ')[1]
+                  accounts[b].addressData.nickname.split(' ')[1]
                 )
                 if (accountNumberA < accountNumberB) {
                   return -1
@@ -371,26 +375,16 @@ class BuoyantWalletView extends React.Component {
                 return 0
               })
               .map((accountKey, index) => {
-                console.log(
-                  `addressData: ${JSON.stringify(
-                    this.props.accounts[accountKey]
-                  )}`
-                )
-
-                const accountNickname = this.props.accounts[
-                  accountKey
-                ].address.slice(
-                  this.props.accounts[accountKey].address.length - 4,
-                  this.props.accounts[accountKey].address.length
+                const accountNickname = accounts[accountKey].address.slice(
+                  accounts[accountKey].address.length - 4,
+                  accounts[accountKey].address.length
                 )
 
                 const accountAmount = new NdauNumber(
                   AccountAPIHelper.accountNdauAmount(
-                    this.props.accounts[accountKey].addressData
+                    accounts[accountKey].addressData
                   )
                 )
-
-                console.log('testing ', accountAmount)
 
                 return (
                   <Div60 key={index}>
@@ -401,7 +395,9 @@ class BuoyantWalletView extends React.Component {
                       <TextWrapper64>
                           ${accountAmount.toSummary()}
                       </TextWrapper64>
-                      <TextWrapper65></TextWrapper65>
+                      <TextWrapper65>
+                        {this.props.arrowSquareRightIcon}
+                      </TextWrapper65>
                     </Div63>
                   </Div60>
                 )

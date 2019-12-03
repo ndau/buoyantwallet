@@ -3,7 +3,8 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
-import AppOverview from '@src/ui/screens/AppOverview'
+import AppAccountOverview from '@src/ui/screens/AppAccountOverview'
+import AppWalletOverview from '@src/ui/screens/AppWalletOverview'
 import AppSend from '@src/ui/screens/AppSend'
 import AppReceive from '@src/ui/screens/AppReceive'
 import AppAuthentication from '@src/ui/screens/AppAuthentication'
@@ -76,7 +77,8 @@ const HomeStack = createBottomTabNavigator(
       {
         screen: createStackNavigator(
           {
-            AppOverview
+            AppWalletOverview,
+            AppAccountOverview
           },
           {
             headerMode: 'float',
