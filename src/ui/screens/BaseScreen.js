@@ -4,7 +4,8 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
-  View
+  View,
+  RefreshControl
 } from 'react-native'
 import AppConstants from '@src/data/constants/AppConstants'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -60,10 +61,24 @@ export const withSafeDarkView = (
       }
     }
 
+    constructor (props) {
+      super(props)
+
+      this.state = {
+        refreshing: false
+      }
+    }
+
     render () {
       return (
         <SafeAreaView
           style={{ flex: 1, backgroundColor: AppConstants.BACKGROUND_COLOR }}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+            />
+          }
         >
           <StatusBar barStyle='light-content' />
           <ScrollView

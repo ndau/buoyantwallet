@@ -137,12 +137,32 @@ As of 2019-Sep-09, the Android build is not functioning. This is due to the issu
 The tests will run for every commit on any branch. In order to trigger a build, the commit must be tagged with any tag terminating in `-build`.
 
 ## Deployment
+CircleCI builds this project and will also build both the iOS and Android archives to be sent up. Each OS we support is outlined below.
+
+To have the ability to deploy you must be invited to the Oneiro group for Apple and basically the same for Google. Please see the admin's for each of these. At the time of writing this it is either Ed or Dhesi.
 
 ### iOS Deployment
 
+Deployment of iOS is super simple. Navigate to the CircleCI [build](https://app.circleci.com/github/oneiro-ndev/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `buoyantwallet.ipa` and it will download locally.
+
+Once finished, open a bash shell in your home directory and execute the following command:
+
+```
+xcrun altool --upload-app --type ios -f ./Downloads/buoyantwallet.ipa -u "YourAppleID" -p "YourPassword"
+```
+Please note that the password you use is NOT the actual password for your Apple ID. You must navigate [here](https://appleid.apple.com/account/manage) and generate an app specificy password from the `APP-SPECIFIC-PASSWORDS` section on this page. THAT is the password you use.
+
+If all is well, you will be told there were no errors. If there are errors, it will be thrown into the console.
+
+Next thing to do is to find this build that was uploaded to TestFlight and release it. Navigate to [App Store Connect](https://appstoreconnect.apple.com). Click on Apps and then click buoyant wallet app. Click on the TestFlight tab and then click on the build you just uploaded. You will need to go through the `Export compliance information` section by click on the app version you want and then the `Export compliance information`. Follow the set of screens and once finished it will then be seen by all the Testers that have been allocated.
+
 ### Android Deployment
 
-- Use [this](https://facebook.github.io/react-native/docs/signed-apk-android.html) link to create the APK
+Navigate to the CircleCI [build](https://app.circleci.com/github/oneiro-ndev/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build-android` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `android/app-release.apk` and it will download locally.
+
+Once you have this you can use [Google Play Console](https://play.google.com/apps/publish/). Login and go to the Oneiro group. Click on All applications and you should then see `buoyant wallet` and `ndau wallet`. Click on `buoyant wallet` and then click on `Release management` in the left hand menu. Click on `App releases` and then scroll to the track you are installing to. At the time of writing this buoyant wallet is still using Alpha. 
+
+Once you `CREATE RELEASE` you will be guided through what you need to add. You must navigate to the `app-release.apk` you downloaded above and add this. The version will be extrapolated and will be automatically populated. Once finished you Save, Review and then release. 
 
 ## Troubleshooting
 
