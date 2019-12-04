@@ -5,13 +5,15 @@ import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import AccountOverview from '@src/ui/components/AccountOverview'
 import WalletStore from 'ndaujs/src/stores/WalletStore'
 import UserStore from 'ndaujs/src/stores/UserStore'
+import UserData from 'ndaujs/src/model/UserData'
+import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
+import DataFormatHelper from 'ndaujs/src/api/helpers/DataFormatHelper'
 import AccountAPIHelper from 'ndaujs/src/api/helpers/AccountAPIHelper'
 import KeyMaster from 'ndaujs/src/helpers/KeyMaster'
-import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
 import NdauStore from 'ndaujs/src/stores/NdauStore'
 import NdauNumber from 'ndaujs/src/helpers/NdauNumber'
 import FlashNotification from '../components/FlashNotification'
-import { View } from 'react-native'
+import { RefreshControl, ScrollView } from 'react-native'
 import WaitSpinner from './WaitSpinner'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -37,12 +39,29 @@ class AppAccountOverview extends React.Component {
   }
 
   componentDidMount = async () => {
-    const wallet = WalletStore.getWallet()
+    await this.onRefresh()
+  }
 
-    l.debug(`Wallet to be drawn: ${JSON.stringify(wallet)}`)
+  onRefresh = async () => {
+    if (this.state.refreshing) return
 
-    this.setState({ spinner: true }, async () => {
-      await this._loadMetricsAndSetState(wallet)
+    FlashNotification.hideMessage()
+    this.setState({ refreshing: true, spinner: true }, async () => {
+      const user = UserStore.getUser()
+
+      let wallet = WalletStore.getWallet()
+      try {
+        await UserData.loadUserData(user)
+        WalletStore.setWallet(
+          user.wallets[DataFormatHelper.create8CharHash(wallet.walletId)]
+        )
+        this._loadMetricsAndSetState(WalletStore.getWallet())
+      } catch (error) {
+        l.error(error)
+        FlashNotification.showError(error)
+      }
+
+      this.setState({ refreshing: false, spinner: false })
     })
   }
 
@@ -55,10 +74,10 @@ class AppAccountOverview extends React.Component {
       KeyMaster.setWalletInUser(UserStore.getUser(), newWallet)
       WalletStore.setWallet(newWallet)
 
-      // await MultiSafeHelper.saveUser(
-      //   UserStore.getUser(),
-      //   UserStore.getPassword()
-      // )
+      await MultiSafeHelper.saveUser(
+        UserStore.getUser(),
+        UserStore.getPassword()
+      )
 
       this.setState({ showFeesModal: true })
     } catch (error) {
@@ -105,7 +124,16 @@ class AppAccountOverview extends React.Component {
 
   render () {
     return (
-      <View>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps='always'
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.onRefresh}
+          />
+        }
+      >
         <WaitSpinner
           label={I18n.t('talking-to-blockchain')}
           spinner={this.state.spinner}
@@ -136,7 +164,7 @@ class AppAccountOverview extends React.Component {
           wallet={WalletStore.getWallet()}
           gotoAccountDetails={this.gotoAccountDetails}
         />
-      </View>
+      </ScrollView>
     )
   }
 }

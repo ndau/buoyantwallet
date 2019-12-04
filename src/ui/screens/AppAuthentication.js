@@ -8,6 +8,7 @@ import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
 import UserStore from 'ndaujs/src/stores/UserStore'
 import WalletStore from 'ndaujs/src/stores/WalletStore'
 import FlashNotification from '../components/FlashNotification'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const l = LoggerHelper.curryLogger('AppAuthentication')
 
@@ -124,18 +125,23 @@ class AppAuthentication extends Component {
 
   render () {
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? -20 : 50}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps='always'
       >
-        <Authentication
-          {...this.props}
-          {...this.state}
-          next={this.login}
-          setPassword={this.setPassword}
-          topPanelHeight={this.topPanelHeight}
-        />
-      </KeyboardAvoidingView>
+        <KeyboardAvoidingView
+          keyboardVerticalOffset={Platform.OS === 'android' ? -20 : 50}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+        >
+          <Authentication
+            {...this.props}
+            {...this.state}
+            next={this.login}
+            setPassword={this.setPassword}
+            topPanelHeight={this.topPanelHeight}
+          />
+        </KeyboardAvoidingView>
+      </ScrollView>
     )
   }
 }

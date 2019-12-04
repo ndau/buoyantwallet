@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { CheckBox } from '@src/ui/components'
 import axios from 'axios'
 import I18n from '@src/i18n'
-import { View, Text, TextInput, Button } from 'react-native'
 import { withSafeDarkView } from './BaseScreen'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import AppConfig from '@src/data/config/AppConfig'
-import WaitSpinner from './WaitSpinner'
 import FlashNotification from '../components/FlashNotification'
 import ContactSupport from '@src/ui/components/ContactSupport'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const l = LoggerHelper.curryLogger('AppContactSupport')
 
@@ -136,26 +135,31 @@ class AppContactSupport extends Component {
     //   </View>
     // )
     return (
-      <ContactSupport
-        {...this.props}
-        {...this.state}
-        onChangeText={value => {
-          this.setState({ email: value })
-        }}
-        onChangeMultiText={value => {
-          this.setState({ description: value })
-        }}
-        checkBox={
-          <CheckBox
-            onValueChange={value => this.setState({ includeLogs: value })}
-            checked={includeLogs}
-            label='Attach diagnostic data *'
-          />
-        }
-        next={() => {
-          this.onSubmit()
-        }}
-      />
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps='always'
+      >
+        <ContactSupport
+          {...this.props}
+          {...this.state}
+          onChangeText={value => {
+            this.setState({ email: value })
+          }}
+          onChangeMultiText={value => {
+            this.setState({ description: value })
+          }}
+          checkBox={
+            <CheckBox
+              onValueChange={value => this.setState({ includeLogs: value })}
+              checked={includeLogs}
+              label='Attach diagnostic data *'
+            />
+          }
+          next={() => {
+            this.onSubmit()
+          }}
+        />
+      </ScrollView>
     )
   }
 }

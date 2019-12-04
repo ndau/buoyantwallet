@@ -11,7 +11,8 @@ import WalletStore from 'ndaujs/src/stores/WalletStore'
 import NdauNumber from 'ndaujs/src/helpers/NdauNumber'
 import UserData from 'ndaujs/src/model/UserData'
 import FlashNotification from '../components/FlashNotification'
-import { View } from 'react-native'
+import { RefreshControl } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 import WaitSpinner from './WaitSpinner'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
@@ -37,22 +38,28 @@ class AppWalletOverview extends React.Component {
   }
 
   componentDidMount = async () => {
-    const user = UserStore.getUser()
+    await this.onRefresh()
+  }
 
-    l.debug(`User to be drawn: ${JSON.stringify(user)}`)
+  onRefresh = async () => {
+    if (this.state.refreshing) return
 
-    this.setState({ spinner: true }, async () => {
-      await this._loadMetricsAndSetState(user)
+    FlashNotification.hideMessage()
+    this.setState({ refreshing: true, spinner: true }, async () => {
+      const user = UserStore.getUser()
+      try {
+        await UserData.loadUserData(user)
+      } catch (error) {
+        FlashNotification.showError(error)
+      }
+
+      this._loadMetricsAndSetState(user)
+
+      this.setState({ refreshing: false })
     })
   }
 
   _loadMetricsAndSetState = async user => {
-    try {
-      await UserData.loadUserData(user)
-    } catch (error) {
-      l.error(error)
-    }
-
     const accounts = DataFormatHelper.getObjectWithAllAccounts(user)
     l.debug(`accounts ${JSON.stringify(accounts)}`)
     const totalNdau = new NdauNumber(
@@ -98,7 +105,16 @@ class AppWalletOverview extends React.Component {
       const wallets = Object.values(user.wallets)
 
       return (
-        <View>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps='always'
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+            />
+          }
+        >
           <WaitSpinner
             label={I18n.t('talking-to-blockchain')}
             spinner={this.state.spinner}
@@ -129,7 +145,7 @@ class AppWalletOverview extends React.Component {
             wallets={wallets}
             gotoAccount={this.gotoAccount}
           />
-        </View>
+        </ScrollView>
       )
     } catch (error) {
       FlashNotification.showError(error)

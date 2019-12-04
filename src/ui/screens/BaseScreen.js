@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  SafeAreaView,
-  StatusBar,
-  ScrollView,
-  TouchableOpacity,
-  View,
-  RefreshControl
-} from 'react-native'
+import { SafeAreaView, StatusBar, TouchableOpacity, View } from 'react-native'
 import AppConstants from '@src/data/constants/AppConstants'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
@@ -61,32 +54,14 @@ export const withSafeDarkView = (
       }
     }
 
-    constructor (props) {
-      super(props)
-
-      this.state = {
-        refreshing: false
-      }
-    }
-
     render () {
       return (
         <SafeAreaView
           style={{ flex: 1, backgroundColor: AppConstants.BACKGROUND_COLOR }}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.onRefresh}
-            />
-          }
         >
           <StatusBar barStyle='light-content' />
-          <ScrollView
-            contentContainerStyle={{ flexGrow: 1 }}
-            keyboardShouldPersistTaps='always'
-          >
-            <WrappedComponent {...this.props} />
-          </ScrollView>
+
+          <WrappedComponent {...this.props} />
         </SafeAreaView>
       )
     }
