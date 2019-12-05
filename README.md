@@ -52,7 +52,9 @@ Replace `YOUR_TOKEN_HERE` with the FontAwesomePro token. Please see
 KP for this. There is an examples file of you can use in `examples/npmrc`, this is the file CircleCI uses. Make sure you call the file
 `.npmrc` and not `npmrc`. See the `.circleci/config.yml` for what it does.
 
-Next we npm/yarn install:
+Next you must copy the file `debug.keystore` from 1Password to your `buoyantwallet/android/app` folder. 
+
+NOW we npm/yarn install:
 
 `npm install`
 

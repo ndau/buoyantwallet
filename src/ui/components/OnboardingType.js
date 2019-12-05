@@ -24,7 +24,6 @@ const Div33 = styled.View`
   margin-bottom: 0px;
   padding-right: 2%;
   padding-left: 2%;
-  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   align-items: stretch;
@@ -35,9 +34,9 @@ const Div33 = styled.View`
 
 const TextWrapper34 = styled.Text`
   display: flex;
-  width: 100%;
+  width: auto;
   min-width: auto;
-  margin-top: 5%;
+  margin-top: 24px;
   margin-bottom: 8px;
   justify-content: flex-start;
   align-items: baseline;
@@ -54,9 +53,10 @@ const Div35 = styled.View`
   position: relative;
   display: flex;
   width: 100%;
-  margin-top: 4%;
-  padding: 2% 3%;
-  justify-content: flex-end;
+  margin-top: 0%;
+  padding: 8% 3%;
+  flex-direction: row;
+  justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
