@@ -6,7 +6,9 @@ import { Alert, KeyboardAvoidingView, Keyboard, Animated } from 'react-native'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
 import UserStore from 'ndaujs/src/stores/UserStore'
+import WalletStore from 'ndaujs/src/stores/WalletStore'
 import FlashNotification from '../components/FlashNotification'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const l = LoggerHelper.curryLogger('AppAuthentication')
 
@@ -84,6 +86,21 @@ class AppAuthentication extends Component {
     }
   }
 
+  _setNdauJSAppropriately = user => {
+    // Set the default user
+    UserStore.setUser(user)
+    // We must also set the password for usage in ndaujs
+    UserStore.setPassword(this.state.password)
+    // if there is only 1 wallet...then set it to the WalletStore
+    if (Object.keys(user.wallets).length <= 1) {
+      WalletStore.setWallet(user.wallets[Object.keys(user.wallets)[0]])
+    } else {
+      // TODO:
+      // HERE WE MUST GO TO A NEW SCREEN that allows us to pick the wallet
+      // THAT IS MISSING!!!!
+    }
+  }
+
   login = async () => {
     l.debug('Authenticating...')
     try {
@@ -91,8 +108,10 @@ class AppAuthentication extends Component {
       if (user) {
         FlashNotification.hideMessage()
         l.debug(user)
-        UserStore.setUser(user)
-        this.props.navigation.navigate('App')
+
+        this._setNdauJSAppropriately(user)
+
+        this.props.navigation.navigate('AppWalletOverview')
       }
     } catch (error) {
       l.debug(error)
@@ -106,18 +125,23 @@ class AppAuthentication extends Component {
 
   render () {
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS === 'android' ? -20 : 50}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps='always'
       >
-        <Authentication
-          {...this.props}
-          {...this.state}
-          next={this.login}
-          setPassword={this.setPassword}
-          topPanelHeight={this.topPanelHeight}
-        />
-      </KeyboardAvoidingView>
+        <KeyboardAvoidingView
+          keyboardVerticalOffset={Platform.OS === 'android' ? -20 : 50}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+        >
+          <Authentication
+            {...this.props}
+            {...this.state}
+            next={this.login}
+            setPassword={this.setPassword}
+            topPanelHeight={this.topPanelHeight}
+          />
+        </KeyboardAvoidingView>
+      </ScrollView>
     )
   }
 }
