@@ -353,55 +353,55 @@ class BuoyantWalletView extends React.Component {
           </Div55>
           {accounts
             ? Object.keys(accounts)
-              .sort((a, b) => {
-                if (
-                  !accounts[a].addressData.nickname ||
+                .sort((a, b) => {
+                  if (
+                    !accounts[a].addressData.nickname ||
                     !accounts[b].addressData.nickname
-                ) {
-                  return 0
-                }
+                  ) {
+                    return 0
+                  }
 
-                const accountNumberA = parseInt(
-                  accounts[a].addressData.nickname.split(' ')[1]
-                )
-                const accountNumberB = parseInt(
-                  accounts[b].addressData.nickname.split(' ')[1]
-                )
-                if (accountNumberA < accountNumberB) {
-                  return -1
-                } else if (accountNumberA > accountNumberB) {
-                  return 1
-                }
-                return 0
-              })
-              .map((accountKey, index) => {
-                const accountNickname = accounts[accountKey].address.slice(
-                  accounts[accountKey].address.length - 4,
-                  accounts[accountKey].address.length
-                )
-
-                const accountAmount = new NdauNumber(
-                  AccountAPIHelper.accountNdauAmount(
-                    accounts[accountKey].addressData
+                  const accountNumberA = parseInt(
+                    accounts[a].addressData.nickname.split(' ')[1]
                   )
-                )
+                  const accountNumberB = parseInt(
+                    accounts[b].addressData.nickname.split(' ')[1]
+                  )
+                  if (accountNumberA < accountNumberB) {
+                    return -1
+                  } else if (accountNumberA > accountNumberB) {
+                    return 1
+                  }
+                  return 0
+                })
+                .map((accountKey, index) => {
+                  const accountNickname = accounts[accountKey].address.slice(
+                    accounts[accountKey].address.length - 4,
+                    accounts[accountKey].address.length
+                  )
 
-                return (
-                  <Div60 key={index}>
-                    <Div61>
-                      <TextWrapper62>Account {accountNickname}</TextWrapper62>
-                    </Div61>
-                    <Div63>
-                      <TextWrapper64>
-                          ${accountAmount.toSummary()}
-                      </TextWrapper64>
-                      <TextWrapper65>
-                        {this.props.arrowSquareRightIcon}
-                      </TextWrapper65>
-                    </Div63>
-                  </Div60>
-                )
-              })
+                  const accountAmount = new NdauNumber(
+                    AccountAPIHelper.accountNdauAmount(
+                      accounts[accountKey].addressData
+                    )
+                  )
+
+                  return (
+                    <Div60 key={index}>
+                      <Div61>
+                        <TextWrapper62>Account {accountNickname}</TextWrapper62>
+                      </Div61>
+                      <Div63>
+                        <TextWrapper64>
+                          {accountAmount.toSummary()}
+                        </TextWrapper64>
+                        <TextWrapper65>
+                          {this.props.arrowSquareRightIcon}
+                        </TextWrapper65>
+                      </Div63>
+                    </Div60>
+                  )
+                })
             : null}
         </Div54>
       </Body>
