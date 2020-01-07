@@ -22,9 +22,10 @@ class SetupVerifyConfirmRecovery extends React.Component {
 
   next = () => {
     this.setState({ spinner: true }, async () => {
-      const user = await RecoveryPhraseHelper.recoverUser(
+      const recoveryString = DataFormatHelper.convertRecoveryArrayToString(
         SetupStore.recoveryPhrase
       )
+      const user = await RecoveryPhraseHelper.recoverUser(recoveryString)
       SetupStore.user = user
       this.props.navigation.navigate('SetupPassword')
       this.setState({ spinner: false })
