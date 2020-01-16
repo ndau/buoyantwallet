@@ -5,11 +5,13 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { Text } from 'react-native'
 import AppAccountOverview from '@src/ui/screens/AppAccountOverview'
 import AppWalletOverview from '@src/ui/screens/AppWalletOverview'
+import AccountDetails from '@src/ui/screens/AccountDetails'
 import AppSend from '@src/ui/screens/AppSend'
 import AppReceive from '@src/ui/screens/AppReceive'
 import AppAuthentication from '@src/ui/screens/AppAuthentication'
 import AuthLoading from './AuthLoading'
 import AppContactSupport from '@src/ui/screens/AppContactSupport'
+import Settings from '@src/ui/screens/Settings'
 import SetupGetRecovery from '@src/ui/screens/SetupGetRecovery'
 import SetupConfirmRecovery from '@src/ui/screens/SetupConfirmRecovery'
 import SetupPassword from '@src/ui/screens/SetupPassword'
@@ -73,76 +75,60 @@ const getNavigationOptions = (title, icon, iconSize, fontSize) => {
 // that particular screen
 const HomeStack = createBottomTabNavigator(
   {
-    Overview: createDrawerNavigator(
-      {
-        screen: createStackNavigator(
-          {
-            AppWalletOverview,
-            AppAccountOverview
-          },
-          {
-            headerMode: 'float',
-            headerLayoutPreset: 'center'
-          }
-        )
-      },
-      {
-        contentComponent: AppDrawer,
-        drawerPosition: 'right',
-        navigationOptions: getNavigationOptions(
-          I18n.t('overview'),
-          faHome,
-          28,
-          10
-        )
-      }
-    ),
-    Send: createDrawerNavigator(
-      {
-        screen: createStackNavigator(
-          {
-            AppSend
-          },
-          {
-            headerMode: 'float',
-            headerLayoutPreset: 'center'
-          }
-        )
-      },
-      {
-        contentComponent: AppDrawer,
-        drawerPosition: 'right',
-        navigationOptions: getNavigationOptions(
-          I18n.t('send'),
-          faArrowAltSquareUp,
-          26,
-          10
-        )
-      }
-    ),
-    Receive: createDrawerNavigator(
-      {
-        screen: createStackNavigator(
-          {
-            AppReceive
-          },
-          {
-            headerMode: 'float',
-            headerLayoutPreset: 'center'
-          }
-        )
-      },
-      {
-        contentComponent: AppDrawer,
-        drawerPosition: 'right',
-        navigationOptions: getNavigationOptions(
-          I18n.t('receive'),
-          faArrowAltSquareDown,
-          26,
-          10
-        )
-      }
-    ),
+    Overview: {
+      screen: createStackNavigator(
+        {
+          AppWalletOverview,
+          AppAccountOverview,
+          AccountDetails
+        },
+        {
+          headerMode: 'float',
+          headerLayoutPreset: 'center',
+          ...getNavigationOptions(I18n.t('overview'), faHome, 28, 10)
+        }
+      ),
+      navigationOptions: getNavigationOptions(
+        I18n.t('overview'),
+        faHome,
+        28,
+        10
+      )
+    },
+    Send: {
+      screen: createStackNavigator(
+        {
+          AppSend
+        },
+        {
+          headerMode: 'float',
+          headerLayoutPreset: 'center'
+        }
+      ),
+      navigationOptions: getNavigationOptions(
+        I18n.t('send'),
+        faArrowAltSquareUp,
+        26,
+        10
+      )
+    },
+    Receive: {
+      screen: createStackNavigator(
+        {
+          AppReceive
+        },
+        {
+          headerMode: 'float',
+          headerLayoutPreset: 'center'
+        }
+      ),
+      navigationOptions: getNavigationOptions(
+        I18n.t('receive'),
+        faArrowAltSquareDown,
+        26,
+        10
+      )
+    },
     More: createDrawerNavigator(
       {
         screen: createStackNavigator(
@@ -212,7 +198,8 @@ const SetupStack = createStackNavigator(
 
 const DrawerAppStack = createStackNavigator(
   {
-    AppContactSupport
+    AppContactSupport,
+    Settings
   },
   { headerMode: 'float', headerLayoutPreset: 'center' }
 )

@@ -1,79 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>buoyantwallet</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>0.1.446</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>446</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true />
-	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>en</string>
+		<key>CFBundleDisplayName</key>
+		<string>buoyantwallet</string>
+		<key>CFBundleExecutable</key>
+		<string>$(EXECUTABLE_NAME)</string>
+		<key>CFBundleIdentifier</key>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>$(PRODUCT_NAME)</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.1.447</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleVersion</key>
+		<string>447</string>
+		<key>LSRequiresIPhoneOS</key>
 		<true />
-		<key>NSExceptionDomains</key>
+		<key>NSCameraUsageDescription</key>
+		<string>The wallet app requires the camera to scan a QR code.</string>
+		<key>NSAppTransportSecurity</key>
 		<dict>
-			<key>localhost</key>
+			<key>NSAllowsArbitraryLoads</key>
+			<true />
+			<key>NSExceptionDomains</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true />
+				<key>localhost</key>
+				<dict>
+					<key>NSExceptionAllowsInsecureHTTPLoads</key>
+					<true />
+				</dict>
 			</dict>
 		</dict>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string />
+		<key>UIAppFonts</key>
+		<array>
+			<string>opensans-bold.ttf</string>
+			<string>opensans-italic.ttf</string>
+			<string>opensans-light.ttf</string>
+			<string>opensans-regular.ttf</string>
+			<string>opensans-semibold.ttf</string>
+			<string>titilliumweb-bold.ttf</string>
+			<string>titilliumweb-semibold.ttf</string>
+			<string>titilliumweb-italic.ttf</string>
+			<string>titilliumweb-light.ttf</string>
+			<string>titilliumweb-regular.ttf</string>
+			<string>ndau-0.ttf</string>
+			<string>OpenSans-Bold.ttf</string>
+			<string>OpenSans-Italic.ttf</string>
+			<string>OpenSans-Light.ttf</string>
+			<string>OpenSans-Regular.ttf</string>
+			<string>OpenSans-SemiBold.ttf</string>
+			<string>TitilliumWeb-Bold.ttf</string>
+			<string>TitilliumWeb-Italic.ttf</string>
+			<string>TitilliumWeb-Light.ttf</string>
+			<string>TitilliumWeb-Regular.ttf</string>
+			<string>TitilliumWeb-SemiBold.ttf</string>
+		</array>
+		<key>UILaunchStoryboardName</key>
+		<string>Launch Screen</string>
+		<key>UIRequiredDeviceCapabilities</key>
+		<array>
+			<string>armv7</string>
+		</array>
+		<key>UISupportedInterfaceOrientations</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+		</array>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false />
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string />
-	<key>UIAppFonts</key>
-	<array>
-		<string>opensans-bold.ttf</string>
-		<string>opensans-italic.ttf</string>
-		<string>opensans-light.ttf</string>
-		<string>opensans-regular.ttf</string>
-		<string>opensans-semibold.ttf</string>
-		<string>titilliumweb-bold.ttf</string>
-		<string>titilliumweb-semibold.ttf</string>
-		<string>titilliumweb-italic.ttf</string>
-		<string>titilliumweb-light.ttf</string>
-		<string>titilliumweb-regular.ttf</string>
-		<string>ndau-0.ttf</string>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-Italic.ttf</string>
-		<string>OpenSans-Light.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-SemiBold.ttf</string>
-		<string>TitilliumWeb-Bold.ttf</string>
-		<string>TitilliumWeb-Italic.ttf</string>
-		<string>TitilliumWeb-Light.ttf</string>
-		<string>TitilliumWeb-Regular.ttf</string>
-		<string>TitilliumWeb-SemiBold.ttf</string>
-	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>Launch Screen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false />
-</dict>
 </plist>

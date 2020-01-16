@@ -17,6 +17,7 @@ class AppAuthentication extends Component {
     super(props)
 
     this.state = {
+      loginDisabled: false,
       password: '',
       loginAttempt: 1
     }
@@ -61,7 +62,7 @@ class AppAuthentication extends Component {
   _showExitApp () {
     Alert.alert(
       '',
-      `You have hit the maximum amount of login attempts.`,
+      'You have hit the maximum amount of login attempts.',
       [
         {
           text: 'Ok',
@@ -74,9 +75,7 @@ class AppAuthentication extends Component {
 
   _showLoginError = () => {
     FlashNotification.showError(
-      `Login attempt ${this.state.loginAttempt} of ${
-        this.maxLoginAttempts
-      } failed.`
+      `Login attempt ${this.state.loginAttempt} of ${this.maxLoginAttempts} failed.`
     )
 
     if (this.state.loginAttempt === this.maxLoginAttempts) {
@@ -103,6 +102,7 @@ class AppAuthentication extends Component {
 
   login = async () => {
     l.debug('Authenticating...')
+    this.setState({ loginDisabled: true })
     try {
       const user = await MultiSafeHelper.getDefaultUser(this.state.password)
       if (user) {
@@ -116,6 +116,8 @@ class AppAuthentication extends Component {
     } catch (error) {
       l.debug(error)
       this._showLoginError()
+    } finally {
+      this.setState({ loginDisabled: false })
     }
   }
 
@@ -139,6 +141,7 @@ class AppAuthentication extends Component {
             next={this.login}
             setPassword={this.setPassword}
             topPanelHeight={this.topPanelHeight}
+            loginDisabled={this.state.loginDisabled}
           />
         </KeyboardAvoidingView>
       </ScrollView>

@@ -4,6 +4,7 @@ import { withSafeDarkView } from './BaseScreen'
 import LoggerHelper from 'ndaujs/src/helpers/LoggerHelper'
 import AccountOverview from '@src/ui/components/AccountOverview'
 import WalletStore from 'ndaujs/src/stores/WalletStore'
+import Wallet from 'ndaujs/src/model/Wallet'
 import UserStore from 'ndaujs/src/stores/UserStore'
 import UserData from 'ndaujs/src/model/UserData'
 import MultiSafeHelper from 'ndaujs/src/helpers/MultiSafeHelper'
@@ -49,7 +50,12 @@ class AppAccountOverview extends React.Component {
     this.setState({ refreshing: true, spinner: true }, async () => {
       const user = UserStore.getUser()
 
-      let wallet = WalletStore.getWallet()
+      const wallet = new Wallet().fromObject(WalletStore.getWallet())
+      try {
+        await wallet.populateWalletWithAddressData()
+      } catch (e) {
+        l.error(`could not fetch wallet: ${e.message}`)
+      }
       try {
         await UserData.loadUserData(user)
         WalletStore.setWallet(
@@ -88,11 +94,10 @@ class AppAccountOverview extends React.Component {
     }
   }
 
-  gotoAccountDetails = account => {
-    // GOTO the account details page
-  }
-
   _loadMetricsAndSetState = wallet => {
+    let totalNdau = 0
+    let totalNdauNumber = 0
+    let totalSpendable = 0
     if (wallet) {
       totalNdau = new NdauNumber(
         AccountAPIHelper.accountTotalNdauAmount(wallet.accounts)

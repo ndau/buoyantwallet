@@ -169,9 +169,13 @@ class BuoyantWalletView extends React.Component {
             <TextWrapper43>Password</TextWrapper43>
             <TextInputWrapper44
               {...ComponentHelper.addPasswordAttributes(this.props)}
+              onSubmitEditing={this.props.next}
             />
           </Div42>
-          <ButtonWrapper45 {...ComponentHelper.addButtonAttributes(this.props)}>
+          <ButtonWrapper45
+            {...ComponentHelper.addButtonAttributes(this.props)}
+            disabled={this.props.loginDisabled}
+          >
             log in
           </ButtonWrapper45>
         </Div41>

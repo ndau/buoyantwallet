@@ -4,6 +4,7 @@ const ACCOUNT_CREATION_KEY_CHILD = 100
 const VALIDATION_KEY = 10000
 const LEGACY_VALIDATION_KEY = 2000
 const NDAU_CONSTANT = 20036 // which is 0x4e44 in hex, which are the two letters ND in ASCII
+const NDAU_DETAIL_PRECISION = 8 // how many decimal points for detailed view of ndau
 
 // Network settings
 const MAINNET = 'mainnet'

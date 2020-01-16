@@ -134,8 +134,10 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
-        versionName "0.1.446"
+        versionName "0.1.447"
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
+
     splits {
         abi {
             reset()
@@ -198,6 +200,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-camera')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'

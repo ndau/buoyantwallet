@@ -17,6 +17,12 @@ export const withSafeDarkView = (
     static navigationOptions = ({ navigation }) => {
       const goBack = () => {
         if (goBackToAuth) {
+          if (
+            Object.prototype.toString.call(goBackToAuth) === '[object String]'
+          ) {
+            navigation.navigate(goBackToAuth)
+            return
+          }
           navigation.navigate('AppAuthentication')
         } else if (goBackToOverview) {
           navigation.navigate('AppOverview')

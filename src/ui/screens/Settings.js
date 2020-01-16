@@ -6,8 +6,9 @@ import I18n from '../../i18n'
 import VersionNumber from 'react-native-version-number'
 import NavigationHelpers from '@src/ui/helpers/NavigationHelpers'
 import PropTypes from 'prop-types'
+import { withSafeDarkView } from './BaseScreen'
 
-export default class Settings extends React.Component {
+class Settings extends React.Component {
   constructor (props) {
     super(props)
 
@@ -35,17 +36,20 @@ export default class Settings extends React.Component {
         <Button
           title='DEVNET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.DEVNET)
+          }
         />
         <Button
           title='TESTNET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.TESTNET)
+          }
         />
         <Button
           title='MAINET'
           onPress={() =>
-            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)}
+            SettingsStore.setApplicationNetwork(AppConstants.MAINNET)
+          }
         />
       </View>
     )
@@ -57,3 +61,12 @@ Settings.propTypes = {
     navigate: PropTypes.func.isRequired
   }).isRequired
 }
+
+export default withSafeDarkView(
+  Settings,
+  'Application Settings',
+  true,
+  null,
+  null,
+  true
+)

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ComponentHelper from './ComponentHelper'
-import { Animated } from 'react-native'
 import AccountAPIHelper from 'ndaujs/src/api/helpers/AccountAPIHelper'
+import Wallet from 'ndaujs/src/model/Wallet'
 import NdauNumber from 'ndaujs/src/helpers/NdauNumber'
 
 const Body = styled.View`
@@ -313,19 +312,38 @@ const TextWrapper65 = styled.Text`
 `
 
 class BuoyantWalletView extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      wallet: {}
+    }
+  }
+
+  async gotoAccountDetails (accountKey) {
+    this.props.navigation.navigate('AccountDetails', {
+      address: accountKey,
+      wallet: this.state.wallet
+    })
+  }
+
+  async componentDidMount () {
+    const wallet = new Wallet().fromObject(this.props.wallet)
+    await wallet.populateWalletWithAddressData()
+    this.setState({ wallet })
+  }
+
   render () {
     const accounts = this.props.wallet.accounts
-
     return (
       <Body>
         <Div38>
-          <TextWrapper39>TOTAL&nbsp;NDAU</TextWrapper39>
+          <TextWrapper39>TOTAL NDAU</TextWrapper39>
           <TextWrapper40>{this.props.totalNdau}</TextWrapper40>
         </Div38>
         <Div41>
           <Div42>
             <Div43>
-              <TextWrapper44>TARGET&nbsp;PRICE</TextWrapper44>
+              <TextWrapper44>TARGET PRICE</TextWrapper44>
               <Div45>
                 <TextWrapper46>${this.props.marketPrice}</TextWrapper46>
                 <TextWrapper47 />
@@ -333,7 +351,7 @@ class BuoyantWalletView extends React.Component {
             </Div43>
             <Div48 />
             <Div49>
-              <TextWrapper50>MARKET&nbsp;PRICE</TextWrapper50>
+              <TextWrapper50>MARKET PRICE</TextWrapper50>
               <Div51>
                 <TextWrapper52>${this.props.marketPrice}</TextWrapper52>
                 <TextWrapper53 />
@@ -343,7 +361,7 @@ class BuoyantWalletView extends React.Component {
         </Div41>
         <Div54>
           <Div55>
-            <TextWrapper56>YOUR&nbsp;ACCOUNTS</TextWrapper56>
+            <TextWrapper56>YOUR ACCOUNTS</TextWrapper56>
             <Div57>
               <TextWrapper58>Add account</TextWrapper58>
               <TextWrapper59 onPress={this.props.addNewAccount}>
@@ -395,7 +413,11 @@ class BuoyantWalletView extends React.Component {
                         <TextWrapper64>
                           {accountAmount.toSummary()}
                         </TextWrapper64>
-                        <TextWrapper65>
+                        <TextWrapper65
+                          onPress={() => {
+                            this.gotoAccountDetails(accountKey)
+                          }}
+                        >
                           {this.props.arrowSquareRightIcon}
                         </TextWrapper65>
                       </Div63>

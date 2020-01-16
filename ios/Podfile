@@ -36,6 +36,8 @@ target 'buoyantwallet' do
 
 
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   target 'buoyantwalletTests' do
     inherit! :search_paths
     # Pods for testing

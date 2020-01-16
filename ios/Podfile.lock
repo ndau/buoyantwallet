@@ -184,6 +184,14 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
   - React-jsinspector (0.61.4)
+  - react-native-camera (3.15.1):
+    - React
+    - react-native-camera/RCT (= 3.15.1)
+    - react-native-camera/RN (= 3.15.1)
+  - react-native-camera/RCT (3.15.1):
+    - React
+  - react-native-camera/RN (3.15.1):
+    - React
   - react-native-version-number (0.3.6):
     - React
   - React-RCTActionSheet (0.61.4):
@@ -229,6 +237,8 @@ PODS:
     - React
   - RNLocalize (1.3.2):
     - React
+  - RNPermissions (2.0.9):
+    - React
   - RNReanimated (1.4.0):
     - React
   - RNScreens (2.0.0-alpha.22):
@@ -257,6 +267,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-version-number (from `../node_modules/react-native-version-number`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -273,6 +284,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSecureRandom (from `../node_modules/react-native-securerandom`)
@@ -280,7 +292,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -314,6 +326,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-camera:
+    :path: "../node_modules/react-native-camera"
   react-native-version-number:
     :path: "../node_modules/react-native-version-number"
   React-RCTActionSheet:
@@ -344,6 +358,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-i18n"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -372,6 +388,7 @@ SPEC CHECKSUMS:
   React-jsi: ca921f4041505f9d5197139b2d09eeb020bb12e8
   React-jsiexecutor: 8dfb73b987afa9324e4009bdce62a18ce23d983c
   React-jsinspector: d15478d0a8ada19864aa4d1cc1c697b41b3fa92f
+  react-native-camera: 1ba3e7f2375a6b44ae09ce9be70268e0b225bc10
   react-native-version-number: b415bbec6a13f2df62bf978e85bc0d699462f37f
   React-RCTActionSheet: 7369b7c85f99b6299491333affd9f01f5a130c22
   React-RCTAnimation: d07be15b2bd1d06d89417eb0343f98ffd2b099a7
@@ -387,12 +404,13 @@ SPEC CHECKSUMS:
   RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNLocalize: 08eb68476e1f2d8cacd75fa919bf5e219fb03b19
+  RNPermissions: 2f74237e97b08beda01e914301e12524ddddf5b8
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 6adf01eb4080f44af6cca551207c6b0505066857
   RNSecureRandom: 1f19ad1492f7ed416b8fc79e92216a1f73f13a4c
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
   Yoga: ba3d99dbee6c15ea6bbe3783d1f0cb1ffb79af0f
 
-PODFILE CHECKSUM: f38c0de52954cb32f657a34e53c496434e168de0
+PODFILE CHECKSUM: 73c314e4a18af113a9b0cb4828d1b87a9503e524
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
