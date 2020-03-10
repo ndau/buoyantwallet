@@ -1,4 +1,4 @@
-git_url("git@github.com:oneiro-ndev/wallet-certificates")
+git_url("git@github.com:ndau/wallet-certificates")
 
 storage_mode("git")
 

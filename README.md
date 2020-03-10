@@ -89,7 +89,7 @@ To have the ability to deploy you must be invited to the Oneiro group for Apple 
 
 ### iOS Deployment
 
-Deployment of iOS is super simple. Navigate to the CircleCI [build](https://app.circleci.com/github/oneiro-ndev/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `buoyantwallet.ipa` and it will download locally.
+Deployment of iOS is super simple. Navigate to the CircleCI [build](https://app.circleci.com/github/ndau/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `buoyantwallet.ipa` and it will download locally.
 
 Once finished, open a bash shell in your home directory and execute the following command:
 
@@ -104,7 +104,7 @@ Next thing to do is to find this build that was uploaded to TestFlight and relea
 
 ### Android Deployment
 
-Navigate to the CircleCI [build](https://app.circleci.com/github/oneiro-ndev/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build-android` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `android/app-release.apk` and it will download locally.
+Navigate to the CircleCI [build](https://app.circleci.com/github/ndau/buoyantwallet/pipelines). Simply click the build you want to see and then click to see the `build-android` item. Once there you will see an `Artifacts` tab, click on that. Simply click the `android/app-release.apk` and it will download locally.
 
 Once you have this you can use [Google Play Console](https://play.google.com/apps/publish/). Login and go to the Oneiro group. Click on All applications and you should then see `buoyant wallet` and `ndau wallet`. Click on `buoyant wallet` and then click on `Release management` in the left hand menu. Click on `App releases` and then scroll to the track you are installing to. At the time of writing this buoyant wallet is still using Alpha. 
 
